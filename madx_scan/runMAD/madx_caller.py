@@ -30,7 +30,7 @@ bsw43_val = bsw43*np.sin(t)
 bsw44_val = bsw44*np.sin(t)
 
 # this peice for with-sextupoles
-with open('/afs/cern.ch/work/e/esenes/PS-injection-bump/madx_scan/runMAD/sweepBump_master.madx','r') as f:
+with open('/afs/cern.ch/work/e/esenes/PS-injection-bump/madx_scan_parallel_no_sextupoles/runMAD/sweepBump_master.madx','r') as f:
     message = f.read()
     head = message[:1178]
     body1 = message[1178:1498] #up to just before the ptc_twiss

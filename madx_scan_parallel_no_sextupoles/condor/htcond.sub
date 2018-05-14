@@ -12,6 +12,6 @@ log                     = madx_sweep_log.txt
 error                   = madx_sweep_error.txt
 transfer_output_files   = ""
 
-+JobFlavour = "espresso"
++JobFlavour = "tomorrow"
 
 queue initialdir matching runMAD*

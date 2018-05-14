@@ -15,7 +15,7 @@ bsw43              =    0.01290524313
 bsw44              =    -0.006001526439
 
 # build the parameter sweep lists
-nstep = 2.
+nstep = 50.
 
 t = np.arange(0,nstep+1,1)/nstep * np.pi/2
 t = np.append(t, t+np.pi/2)
