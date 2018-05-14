@@ -1,0 +1,82 @@
+! Load the complete PS MAD-X model
+
+! Definitions of the SS elements
+call,  file = './lattice/elements/PS_2012.ele';
+
+! Definitions of the MMU (main magnet units)
+call,  file = './lattice/elements/PS_2013_MMU.ele';
+
+! Definition of the aperture data
+!call, file = './lattice/aperture/PS_2013.aper';
+
+! Creates the sequence itself
+call,  file = './lattice/sequence/PS_2012.seq';
+
+! This files DOES NOT SET ANY STRENGTH
+! It just declares MAD-X variables (knobs) to control the element
+! Most of these variable are in CURRENT MODE (not gradient)
+! The transfer function (current to gradient) are in the .ele file
+call,  file = './lattice/strength/PS_2012.str';
+
+! Modifying the definition of the MMU if needed
+if (BACKLEG_FLAG == 0)
+{
+  ! This will remove the correctors modeling the backleg windings
+  !call, file = './lattice/seqedit/sequence_remove_backleg.madx';
+  if (JUNCTION_DRIFT_FLAG == 0)
+  {
+   ! This will also delete the junction
+   !call, file = './lattice/seqedit/sequence_tweak_junction.madx';
+   !call, file = './lattice/seqedit/sequence_tweak_blocks.madx';
+  }
+}
+
+! Remove all the unused elements (pumps, dvt, etc.)
+! This is OK in almost all situations
+if(LOAD_ALL==0)
+{
+if (ALL_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_almostall.madx";
+}
+if (QLOW_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_qlow.madx";
+}
+if (MTE_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_mtemultipoles.madx";
+}
+if (BUMP16_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_bump16.madx";
+}
+if (BUMP23_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_bump23.madx";
+}
+if (BUMP31_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_bump31.madx";
+}
+if (BUMP42_FLAG == 0)
+{
+   call, file="./lattice/seqedit/sequence_remove_bump42.madx";
+}
+if (KICKERS_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_kickers.madx"
+}
+if (GAMMAJUMP_FLAG == 0)
+{
+  !call, file="./lattice/seqedit/sequence_remove_gammajump.madx";
+}
+if(CAVITIES_10MHZ == 0)
+{
+  call, file="./lattice/seqedit/sequence_remove_C10.madx";
+  if(INSERT_DUMMY_CAVITY == 1)
+  {
+   call, file="./lattice/seqedit/sequence_insert_dummy_cavity.madx";
+  }
+}
+}

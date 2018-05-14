@@ -1,0 +1,65 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** Injection energy
+ **
+ ** Alexander Huschauer
+ ** Created 02/09/16
+ ******************************************************************/
+
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+Pc = 2.14;
+call, file="/afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/lattice/load_configuration_2013.lat";
+call, file="/afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/lattice/scripts/macros.ptc";
+call, file='/afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/multipole_coefficients_injection_2016.dat';
+beam, particle=PROTON, pc=Pc;
+
+ /******************************************************************
+ * Matching
+ ******************************************************************/
+
+!BSW43 = 490;
+
+! tunes matched with QLOW to 0.24, 0.245
+iqf                =       -1.476984595 ; ! new running the matching once
+iqd                =       -2.205012404 ;
+
+!values from 2012
+/* bsw40              =     0.003498034648 ;
+bsw42              =     -0.01422287844 ;
+bsw43              =      0.01290524313 ;
+bsw44              =    -0.006001526439 ; */
+
+!bump sextupole Strength
+/* BSStren := 0.0; */
+/* BSStren := 1.002E-1; */
+
+
+
+
+bsw40 := 4.28385693498e-19;
+bsw42 := -1.74180025562e-18;
+bsw43 := 1.58043646914e-18;
+bsw44 := -7.34975014352e-19;
+/******************************************************************
+ * First Twiss
+ ******************************************************************/
+
+use, sequence=PS;
+!select, flag=ptc_twiss, column=name,s,beta11,disp1,beta22;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+
+ptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary,file=101.twiss;
+
+qx0=table(ptc_twiss_summary,Q1);
+qy0=table(ptc_twiss_summary,Q2);
+value, qx0, qy0;
+ptc_end;
+
+Assign, echo=101.out;
+
+value, bsw40, bsw42, bsw43, bsw44, qx0, qy0;
+Assign, echo=terminal; !get back to output on terminal

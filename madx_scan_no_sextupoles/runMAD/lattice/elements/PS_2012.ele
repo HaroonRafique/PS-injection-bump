@@ -1,0 +1,198 @@
+/************************************************************************
+ * This file defines the entire PS machine elements
+ ************************************************************************/
+
+! general parameters
+ENDMARK     : MARKER;
+BHZ         : MARKER, TYPE = MAIN;
+
+CIRC     =  200.0 * PI;  ! machine circumference. Radius = 100 m
+REV      =  + 1.0;       ! use -1.0 for SURVEY in pbar direction
+OFF      =    0.0;
+! This dates back from MAD 8, should not be used ever again
+Z        =    1.0;       ! 0 to transform equipment into zero length
+
+
+! BRHO
+! BRHO is used for calculating the strength of the magnets.
+! It is used as a divisor and must therefore not be zero:
+if ( 0.001 > BRHO ) { BRHO:=0.001; }
+if ( 0.001 > Pc   ) { Pc := 0.001; }
+BRHO      := Pc * 3.3356; ! Seems to be the right place to put it
+
+
+
+/************************************************************************
+ *                       straight section equipment                     *
+ ************************************************************************/
+
+!-----------------------------------------------------------------------!
+!                     Septa                           !
+!-----------------------------------------------------------------------!
+PI.SMH26    :  TKICKER, L  = 0; CCSMH26 := 1.64667E-5/(BRHO); ! Lead Ion injection from LEIR
+PE.SES31    :  TKICKER, L=Z*2.289;
+
+!-----------------------------------------------------------------------!
+!                     Dipole types                                      !
+!-----------------------------------------------------------------------!
+D205        :  HKICKER, L=Z*0.20; CC205:= 320.E-6/(BRHO);          !DLH, BLG
+D206        :  HKICKER, L=Z*0.20; CC206:= 318.E-6/(BRHO);          !DNH, BNO
+D207        :  DRIFT  , L=Z*0.20;                                  !DVT
+D209        :  HKICKER, L=0.20;   CC209:=  28.E-6/(BRHO);          !bSM
+D210        :  HKICKER, L=Z*0.20; CC210:= 290.E-6/(BRHO);          !BSP
+D212        :  HKICKER, L=Z*0.20; CC212:= 104.E-6/(BRHO);          !BSM
+D213        :  HKICKER, L=Z*0.20; CC213:= 179.E-6/(BRHO);          !BSW
+
+! Orbit correctors
+D202        :  VKICKER, L=Z*0.20; ! Vertical D202 are the dipoles in the straight sections.
+                                  ! (dipole vertical, used for orbit corrections)
+
+DVT         :  vkicker;   ! Vertical dipole, used for orbit corrections
+                          ! It is build together with Q403.
+                          
+PR.DVT03    :  DVT;       ! Not connected. No power supply
+PR.DVT04    :  DVT;
+PR.DVT08    :  DVT;
+PR.DVT20    :  DVT;
+PR.DVT34    :  DVT;
+PR.DVT37    :  DVT;    ! Not connected. No power supply
+PR.DVT38    :  DVT;
+PR.DVT44    :  DVT;
+PR.DVT53    :  DVT;    ! Not connected. No power supply
+PR.DVT54    :  DVT;
+PR.DVT64    :  DVT;
+PR.DVT69    :  DVT;    ! Not connected. No power supply
+PR.DVT70    :  DVT;
+PR.DVT74    :  DVT;
+PR.DVT76    :  DVT;
+PR.DVT79    :  DVT;    ! Not connected. No power supply
+PR.DVT80    :  DVT;
+PR.DVT83    :  DVT;    ! Not connected. No power supply
+PR.DVT84    :  DVT;    ! Not connected. No power supply
+PR.DVT87    :  DVT;    ! Not connected. No power supply
+PR.DVT88    :  DVT;
+PR.DVT91    :  DVT;    ! Not connected. No power supply
+PR.DVT94    :  DVT;
+PR.DVT97    :  DVT;    ! Not connected. No power supply
+PR.DVT98    :  DVT;
+
+!-----------------------------------------------------------------------!
+!                     Kickers                                           !
+!-----------------------------------------------------------------------!
+PE.KFA04    :  TKICKER, L  = 0.888; ! Kicker for MTE
+
+PE.BFA09    :  TKICKER, L = Z*1.0; ! CT kicker
+PE.BFA09s   :  TKICKER, L = 0; ! CT kicker
+PE.BFA21    :  TKICKER, L = Z*1.0; ! CT kicker
+PE.BFA21s   :  TKICKER, L = 0; ! CT kicker
+
+PE.KFA13    :  TKICKER, L  = Z*0.888; ! Kicker for MTE
+PE.KFA21    :  TKICKER, L  = Z*0.888; ! Kicker for MTE
+
+PE.KFA7179  : TKICKER, L = Z*2.4; ! Fast extraction kicker
+
+PI.KFA28    :  TKICKER, L  = 0; CCKFA28 := 0.0/(BRHO);    ! Lead Ion injection from LEIR
+
+!-----------------------------------------------------------------------!
+!                     Quadrupole types                                  !
+!-----------------------------------------------------------------------!
+Q406        :  QUADRUPOLE, L=Z*0.20; CC406:=(1099.7E-6/0.20)/BRHO; !QLD
+Q407        :  QUADRUPOLE, L=Z*0.20; CC407:=(3043.E-6/0.20)/BRHO;  !QNT
+Q408        :  QUADRUPOLE, L=Z*0.20; CC408:=(1000.E-6/0.20)/BRHO;  !QND
+!
+Q409        :  QUADRUPOLE, L=Z*0.30; CC409:=(640.E-5/0.30)/BRHO;   !QLT, QNO, QSE
+!
+Q414        :  QUADRUPOLE, L=Z*0.20; CC414:=(1470.E-6/0.20)/BRHO;  !QKE
+Q415        :  QUADRUPOLE, L=Z*0.20; CC415:=(3043.E-6/0.20)/BRHO;  !QST
+
+
+! injection quadrupole families
+! In R.Brown's excel file, four different quadrupole families
+! are described:
+! QNN, type 401, Normal size, Normal direction
+! QLN, type 402, Large  size, Normal direction
+! QNS, type 403, Normal size, Skew quadrupole
+! QLS, type 404, Large  size, Skew quadrupole
+! The 403 type quadrupole is special.
+! It is built together with a DVT (~dipole vertical)
+! I.e. It is always an assembly of two magnets: a quadrupole and a DVT
+Q401        :  MULTIPOLE;           CC401:=5554.E-6/(BRHO);        !QNN
+Q402        :  MULTIPOLE;           CC402:=5554.E-6/(BRHO);        !QLN
+Q403        :  MULTIPOLE;           CC403:=3800.E-6/(BRHO);        !QNS
+Q404        :  MULTIPOLE;           CC404:=3800.E-6/(BRHO);        !QLS
+
+QNF         :  Q401;     !                                                      Powered from PR.QFN<>. gain=0.5
+QLF         :  Q402;     ! factor used in MCR. Gain in power supply.            Powered from PR.QFN<>. gain=0.7
+QND         :  Q401;     !                                                      Powered from PR.QDN<>. gain=0.5
+QLD         :  Q402;     ! factor used in MCR. Gain in power supply.            Powered from PR.QDN<>. gain=0.7
+QNSF        :  Q403;     ! Skew quadrupole. F type.                             Powered from PR.QKS<>. 30V AMPLI
+QLSF        :  Q404;     ! Should there be a factor 1.4 here? O.Berrig. F type. Powered from PR.QKS<>. 30V AMPLI
+QNSD        :  Q403;     ! Skew quadrupole. D type.                             Powered from PR.QKS<>. 40V MINITEK
+QLSD        :  Q404;     ! Should there be a factor 1.4 here? O.Berrig. D type. Powered from PR.QKS<>. 40V MINITEK
+
+!-----------------------------------------------------------------------!
+!                     Sextupole types                                   !
+!-----------------------------------------------------------------------!
+X601        :  DRIFT, L=Z*0.20;                                   !xNO
+X602        :  DRIFT, L=Z*0.20;                                   !xLG
+!
+X608        :  MULTIPOLE; CC608:=6944.E-5/(BRHO);   !XST
+X610        :  MULTIPOLE; CC610:=1956.E-4/(BRHO);   !XSL (ISR)
+
+!-----------------------------------------------------------------------!
+!                     Octupole types                                    !
+!-----------------------------------------------------------------------!
+O802        :  MULTIPOLE; CC802:=4330.E-3/(BRHO);                 !OST
+OSPS        :  MULTIPOLE; CCSPS:=17.22/(BRHO);                    !OSPS
+
+! MTE octupoles: calibration coefficient from measurement of M. Buzio
+OMTE    : MULTIPOLE; CCMTE:= 9.03/(BRHO);       !OMTE design
+                     CCMT1:= 9.17/(BRHO);       !OMTE meas. order 1
+                     CCMT2:= 6.19E-3/(BRHO);  !OMTE meas. order 2
+                     CCMT3:=-1.03E-5/(BRHO);  !OMTE meas. order 3
+! OCT39,OCT55: ideal linear curve
+!K3OCT39:=Ioct39*CCMTE;
+!K3OCT55:=Ioct55*CCMTE;
+! OCT39,OCT55: calibration curve
+K3OCT39:=Ioct39*(CCMT1 +abs(Ioct39)*CCMT2 +(Ioct39^2)*CCMT3);
+K3OCT55:=Ioct55*(CCMT1 +abs(Ioct55)*CCMT2 +(Ioct55^2)*CCMT3);
+
+!-----------------------------------------------------------------------!
+!                     Cavities                                          !
+!-----------------------------------------------------------------------!
+
+! r.f. cavity  10 MHz
+HRF10 := 8; ! Default value
+C10         :  RFCAVITY,  L=2.40, VOLT:=VRF10, LAG=0.5,  HARMON:=HRF10; 
+
+! r.f. cavity  13/20 MHz
+HRF13 := 16;
+C13         :  RFCAVITY,  L=1.0, VOLT:=VRF13, HARMON:=HRF13;
+
+! r.f. cavity 200 MHz
+C02         :  RFCAVITY, L=0.40, VOLT:=VRF02, LAG=0.5, HARMON=8;
+
+! r.f. cavity 40 MHZ
+C40         :  RFCAVITY,  L=1.0;
+
+! r.f. cavity 80 MHZ
+C80         :  RFCAVITY,  L=1.0;
+
+!-----------------------------------------------------------------------!
+!                     Vacuum pumps and valves                           !
+!-----------------------------------------------------------------------!
+VPI         :  INSTRUMENT; ! ionization pump
+VPS         :  INSTRUMENT; ! sublimation pump
+VPT         :  INSTRUMENT; ! turbular pump
+VVS         :  INSTRUMENT; ! Vacuum valve
+
+!-----------------------------------------------------------------------!
+!                     Instrumentation                                   !
+!-----------------------------------------------------------------------!
+MSG         :  MONITOR, L=Z*0.0, TYPE = MSG;    ! semgrid 26, 42, 48, 52, 54
+MTV         :  MONITOR, L=Z*0.0, TYPE = MTV;    ! TV screen 16, 26, 28, 57
+TDU         :  DRIFT,   L=Z*1.0;                ! beam dump 47, 48
+UNO         :  MONITOR, L=Z*0.0;                ! standard p.u.
+ULG         :  MONITOR, L=Z*0.0;                ! large p.u.
+MONIT       :  MONITOR, L=Z*0.0;                ! large p.u.
+BCT         :  MONITOR;                         ! beam current transformer 34, 38

@@ -1,0 +1,17 @@
+# HTCondor submit description file
+
+#request_cpus            = 8
+#+BigMemJob              = True
+# #+MaxRuntime             = 604800
+getenv                  = True
+notification            = Always
+
+executable              = ./condor/bumpWithSext_fullLattice.sh
+output                  = ./madx_sweep_output.txt
+log                     = ./madx_sweep_log.txt
+error                   = ./madx_sweep_error.txt
+transfer_output_files   = ""
+
++JobFlavour = "tomorrow"
+
+queue initialdir matching runMAD*

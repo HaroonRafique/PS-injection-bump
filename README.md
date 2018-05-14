@@ -27,11 +27,13 @@ in progress ....
 ## Folder structure:
 ```
 .
-├── MADx_scan                # bump ramped up and down in 1000 steps, lattice including sextupoles
-├── MADx_scan_no_sext        # same but with no sextupoles
-├── MADx_reference           # MADx runs with no sextupoles and bump up and down
-├── Analysis                 # analysis scripts and results
-└── pyOrbit_simulations      # tracking simulations using the tables generated from the former two
+├── MADx_scan						# bump ramped up and down, lattice including sextupoles
+├── MADx_scan_no_sextupoles        		# same but with no sextupoles
+├── MADx_scan_parallel                		# fast code palallelised, lattice including sextupoles
+├── MADx_scan_parallel_no_sextupoles	# fast code palallelised, lattice without sextupoles
+├── MADx_reference           				# MADx runs with no sextupoles and bump up and down
+├── Analysis                					# analysis scripts and results
+└── pyOrbit_simulations      				# tracking simulations using the tables generated from the former two
     ├── ...            
     └── ...   
 

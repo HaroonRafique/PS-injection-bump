@@ -1,0 +1,13 @@
+! --- Pole face windings
+! --- Pole face windings focusing half dipole
+ PFKI1F :=   -0.00248520966;
+ PFKI2F :=   -0.00175930282;
+ PFKI3F :=    0.0266423507;
+ PFKI4F :=    0.400703311;
+ PFKI5F := -431.853383;
+
+ PFKI1D :=    0.00245497985;
+ PFKI2D :=    0.00266628993;
+ PFKI3D :=   -0.0380910128;
+ PFKI4D :=   -2.54774637;
+ PFKI5D :=  483.90517;

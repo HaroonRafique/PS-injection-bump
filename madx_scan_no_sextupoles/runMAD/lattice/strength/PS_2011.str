@@ -1,0 +1,356 @@
+/*******************************************************************************
+ * Set strength for individual magnets                                         *
+ ** This defines the strength of the magnet (either kick, multipole, etc.) as
+ ** a function of the associated MAD variable and in some cases the transfer
+ ** function which is defined in the elements file
+ *******************************************************************************/
+
+! SS 01
+   PR.XST101  , knl:={0,0,XSE*CC608};
+   PR.XST201  , knl:={0,0,XSE*CC608};
+   
+! SS 02
+   PR.DVT02   , KICK:=kDVT02;
+
+! SS 03
+   PR.QNSF03  , ksl:={0, CC403*IQS};
+   
+! SS 04   
+   PR.QNSD04  , ksl:={0,-CC403*IQS};
+   !PE.KFA04   , HKICK  := (3.333E-4/BRHO)*KKFA04;
+    PE.KFA04   , HKICK  := KKFA04;
+   
+   PR.DVT04   , KICK:=kDVT04;
+   
+! SS 05
+   PE.QKE05   , K1:=-QKE16*CC414;
+   PR.QNF05   , knl:={0, CC401*Iqf};
+   
+! SS 06
+   PR.QLD06   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 07
+   PR.XSL07   , knl:={0,0,XSE*CC610};
+   PR.QLT07   , K1:=+ITRIP1*CC409/2;
+   PR.QLSF07  , ksl:={0, CC404*IQS};
+   
+! SS 08
+   PR.QNSD08  , ksl:={0,-CC403*IQS};
+   PR.DVT08   , KICK:=kDVT08;
+   
+! SS 09
+   PR.QNF09   , knl:={0, CC401*Iqf};
+   PE.BFA09   , HKICK:= +KBFA09; ! Added by C. Hernalsteens
+   PE.BFA09s  , HKICK:= +KBFA09s; ! Added by C. Hernalsteens
+   
+! SS 10
+   PR.QND10   , knl:={0,-CC401*Iqd};
+   
+! SS 12
+   PE.BSP12   , KICK:=+BSW16a*CC205;
+   PR.DVT12   , KICK:=kDVT12;
+   
+! SS 13
+   !PE.KFA13   , HKICK  := ((0.1010/80)/BRHO)*KKFA13;
+   PE.KFA13, HKICK := KKFA13;
+
+! SS 14
+   PE.BSP14   , KICK:=+BSW16b*CC205;
+   
+! SS 15
+   PR.DLH15   , KICK:=+DHZ15*CC205+BSW16f*CC205; ! Also KICK:=+BSW16f*CC205; ! Bumper for MTE and high energy orbit corrector
+   PR.QNT15   , K1:=-ITRIP1*CC407/2;
+   
+! SS 17
+   PR.QLF17   , knl:={0, CC402*Iqf*1.4};
+   
+! SS 18
+   PE.BSP18   , KICK:=+BSW16e*CC205;
+   PR.QLD18   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 19
+   PE.BNO19   , KICK := -BSW23* CC205;
+   PR.QND19   , K1   := +IDOUB1 * CC406/2;
+   PR.QLSF19  , ksl:={0, CC404*IQS};
+   
+! SS 20
+   PE.BSP20   , KICK := +BSW16c*CC205;
+   PR.QNSD20  , ksl:={0,-CC403*IQS};
+   PR.DVT20   , KICK:=kDVT20;
+   
+! SS 21
+  PE.BFA21   , HKICK := KBFA21; ! Added by C. Hernalsteens
+  PE.BFA21s  , HKICK := KBFA21s; ! Added by C. Hernalsteens
+  PE.KFA21   , HKICK  := ((0.1010/80)/BRHO)*KKFA21;
+  PR.QNF21   , knl:={0, CC401*Iqf};
+   
+! SS 22
+   PI.BLG22   , KICK := +BSW26  * CC206;
+   PE.BSP22   , KICK := +BSW16d * CC205;
+   PR.DVT22   , KICK:=kDVT22;
+   PR.QLD22   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 23
+   PR.QLSF23  , ksl:={0, CC404*IQS};
+   
+! SS 24
+   PR.DVT24   , KICK:=kDVT22;
+   PR.QLSD24  , ksl:={0,-CC404*IQS};
+   
+! SS 25
+   PE.QKE25   , K1:=+QKE16*CC414;
+   PE.QKE25CT , K1:=+QKE162*CC414;
+  
+! SS 27
+   PR.QLD27   , K1:=-IDOUB1*CC406/2;
+   PE.BLG27   , KICK:=+BSW31a*CC205;
+   PE.BNO27   , KICK:=-BSW23*CC205;
+   PR.QLF27   , knl:={0, CC402*Iqf*1.4};
+   
+! SS 28
+   PR.QLD28   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 29
+   PR.QNO29   , K1 := +QSE*CC409;
+   PR.QLD29   , K1 := -IDOUB1*CC406/2;
+   PR.QLSF29  , ksl:={0, CC404*IQS};
+   
+! SS 30
+   PR.DVT30   , KICK:=kDVT22;
+   PI.BLG30   , KICK := +BSW26 * CC206;
+   PR.QLSD30  , ksl:={0,-CC404*IQS};
+   
+! SS 31
+   PR.QLF31   , knl:={0, CC402*Iqf*1.4};
+   PE.SES31   , HKICK:=KSEH31;
+   
+! SS 32
+   PR.QLD32   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 33
+   PR.QLSF33  , ksl:={0, CC404*IQS};
+   
+! SS 34
+   PR.QNSD34  , ksl:={0,-CC403*IQS};
+   PR.DVT34   , KICK:=kDVT34;
+   
+! SS 35
+   PE.BLG35   , KICK := +BSW31b*CC210;
+   PR.QNF35   , knl:={0, CC401*Iqf};
+   
+! SS 36
+   PR.QND36   , knl:={0,-CC401*Iqd};
+   
+! SS 37
+   PR.QND37   , K1 := +IDOUB1*CC408/2;
+   PR.QNSF37  , ksl:={0, CC403*IQS};
+
+! SS 38
+   PR.QNSD38  , ksl:={0,-CC403*IQS};
+   PR.DVT38   , KICK:=kDVT38;
+   
+! SS 39
+   PR.XCT39A  , knl:={0,0,-Ixct39*CC608};
+   PR.OCT39   , knl:={0,0,0,Ioct39*CCSPS};
+   PR.XCT39B  , knl:={0,0,-Ixct39*CC608};
+   PR.QNF39   , knl:={0, CC401*Iqf};
+   
+! SS 40
+   PI.BSM40   , KICK := +BSW40 * CC209;
+   PR.OST40   , knl:={0,0,0,-ODE*CC802};
+   PR.QND40   , knl:={0,-CC401*Iqd};
+   
+! SS 41
+   PR.QNT41   , K1 := -ITRIP2*CC407/2;
+   PR.QLSF41  , ksl:={0, CC404*IQS};
+   
+! SS 42   
+   PI.BSM42   , KICK := -BSW42 * CC209;
+   PR.QLSD42  , ksl:={0,-CC404*IQS};
+   
+! SS 43
+   PI.BSM43   , KICK := +BSW43 * CC209;
+   PR.QLSF43  , ksl:={0, CC404*IQS};
+  
+! SS 44
+   PI.BSM44   , KICK := -BSW44 * CC209;
+   PR.QNSD44  , ksl:={0,-CC403*IQS};
+   PR.DVT44   , KICK:=kDVT44;
+   
+! SS 45
+   PR.QNF45   , knl:={0, CC401*Iqf};
+   
+! SS 46
+   PR.QND46   , knl:={0,-CC401*Iqd};
+   
+! SS 47
+   PR.QLSF47  , ksl:={0, CC404*IQS};
+   
+! SS 48
+   PR.QLSD48  , ksl:={0,-CC404*IQS};
+   
+! SS 49
+   PR.QLT49   , K1 := +ITRIP2*CC409/2;
+   PR.QNF49   , knl:={0, CC401*Iqf};
+   
+! SS 50
+   PR.OST50   , knl:={0,0,0,-ODE*CC802};
+   PR.QND50   , knl:={0,-CC401*Iqd};
+   
+! SS 52
+   PR.OST52   , knl:={0,0,0,-ODE*CC802};
+   
+! SS 53
+   PE.BLG53   , KICK:=-BSW57*CC206/2.0; ! Half kick due to modif on magnet. why?
+   PR.QNSF53  , ksl:={0, CC403*IQS};
+   
+! SS 54
+   PR.QNSD54  , ksl:={0,-CC403*IQS};
+   PR.DVT54   , KICK:=kDVT54;
+   
+! SS 55
+   PR.XCT55A  , knl:={0,0,-Ixct55*CC608};
+   PR.OCT55   , knl:={0,0,0,Ioct55*CCSPS};
+   PR.XCT55B  , knl:={0,0,-Ixct55*CC608};
+   PR.QNF55   , knl:={0, CC401*Iqf};
+  
+! SS 56
+   PR.QLD56   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 57
+   PR.QLSF57  , ksl:={0, CC404*IQS};
+   
+! SS 58
+   PR.QLSD58  , ksl:={0,-CC404*IQS};
+   
+! SS 59
+   PE.BLG59   , KICK := +BSW57*CC205/2; ! Half kick due to modif on magnet. Ray doesnt know what.
+   PR.QLF59   , knl:={0, CC402*Iqf*1.4};
+   
+! SS 60
+   PR.DLH60   , KICK := +DHZ60 * CC206;
+   PR.QLD60   , knl:={0,-CC402*Iqd*1.4};
+   
+! SS 61
+   PR.QLD61   , K1   := +IDOUB2  * CC406 / 2;
+   PE.BLG61   , KICK := -BSW57 * CC213; 
+   
+! SS 64
+   PR.DVT64   , KICK:=kDVT64;
+   
+! SS 67
+   PE.BLG67   , KICK:=+BSW57*CC206/2; ! Half kick due to modif on magnet. Ray doesnt know what.
+   PR.QNF67   , knl:={0, CC401*Iqf};
+   
+! SS 68
+   PR.QND68   , knl:={0,-CC401*Iqd};
+   
+! SS 69
+   PR.QND69   , K1   := -IDOUB2  * CC408 / 2;
+   PR.QNSF69  , ksl:={0, CC403*IQS};
+   
+! SS 70
+   PR.OST70   , knl:={0,0,0,-IODE*CC802};
+   PR.QNSD70  , ksl:={0,-CC403*IQS};
+   PR.DVT70   , KICK:=kDVT70;
+   
+! SS 71
+   PR.QNF71   , knl:={0, CC401*Iqf};
+   PE.KFA7179,  HKICK:=-KKFA7179*166.78E-6/BRHO;
+   
+! SS 72
+   PR.QND72   , knl:={0,-CC401*Iqd};
+   
+! SS 73
+   PR.QNT73   , K1   := -ITRIP2  * CC407/2;
+   PE.QKE73CT , K1:=-QKE162*CC414; ! Beta bump for CT extraction
+   PR.QLSF73  , ksl:={0, CC404*IQS};
+   
+! SS 74
+   PR.QNSD74  , ksl:={0,-CC403*IQS};
+   PR.DVT74   , KICK:=kDVT74;
+   
+! SS 76
+   PR.DVT76   , KICK:=kDVT76;
+   
+! SS 77
+   PR.QNF77   , knl:={0, CC401*Iqf};
+   
+! SS 78
+   PR.QND78   , knl:={0,-CC401*Iqd};
+   
+! SS 79
+   PR.QNSF79  , ksl:={0, CC403*IQS};
+   
+! SS 80
+   PR.QNSD80  , ksl:={0,-CC403*IQS};
+   PR.DVT80   , KICK:=kDVT80;
+   
+! SS 81
+   PR.QNF81   , knl:={0, CC401*Iqf};
+   
+! SS 82
+   PR.QND82   , knl:={0,-CC401*Iqd};
+   
+! SS 83
+   PR.QNSF83  , ksl:={0, CC403*IQS};
+   
+! SS 84
+   PR.QNSD84  , ksl:={0,-CC403*IQS};
+   
+! SS 85
+   PR.QNF85   , knl:={0, CC401*Iqf};
+   
+! SS 86
+   PR.QND86   , knl:={0,-CC401*Iqd};
+   
+! SS 87
+   PR.QND87   , K1 := -IDOUB2*CC408/2;
+   PR.QSE87   , K1 := +QSE*CC409;
+   PR.QNSF87  , ksl:={0, CC403*IQS};
+   
+! SS 88
+   PR.QNSD88  , ksl:={0,-CC403*IQS};
+   PR.DVT88   , KICK:=kDVT88;
+   
+! SS 89
+   PR.QNF89   , knl:={0, CC401*Iqf}; 
+   
+! SS 90
+   PR.OST90   , knl:={0,0,0,-ODE*CC802};
+   PR.QND90   , knl:={0,-CC401*Iqd};
+   
+! SS 91
+   PR.QNSF91  , ksl:={0, CC403*IQS};
+   
+! SS 92
+   PR.QLSD92  , ksl:={0,-CC404*IQS};
+   
+! SS 93
+   PR.QLSF93  , ksl:={0, CC404*IQS};
+   
+! SS 94
+   PR.QNSD94  , ksl:={0,-CC403*IQS};
+   PR.DVT94   , KICK:=kDVT94;
+   
+! SS 95
+   PR.QND95   , K1 := +IDOUB2*CC408/2;
+   PR.QNF95   , knl:={0, CC401*Iqf};
+   
+! SS 96
+   PR.QND96   , knl:={0,-CC401*Iqd};
+   
+! SS 97
+   PR.QNSF97  , ksl:={0, CC403*IQS};
+   
+! SS 98
+   PR.QNSD98  , ksl:={0,-CC403*IQS};
+   PR.DVT98   , KICK:=kDVT98;
+   
+! SS 99
+   PR.QNT99   , K1 := -ITRIP1*CC407/2;
+   PR.QNF99   , knl:={0, CC401*Iqf};
+   
+! SS 00
+   PR.OST00   , knl:={0,0,0,-ODE*CC802};
+   PR.QND00   , knl:={0,-CC401*Iqd};

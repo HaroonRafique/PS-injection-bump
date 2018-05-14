@@ -1,0 +1,35 @@
+PLACE_BLOCK_FD_F = 1.3966926;
+PLACE_BLOCK_FD_D = 3.6022126;
+
+PLACE_BLOCK_DF_D = 1.4009726;
+PLACE_BLOCK_DF_F = 3.6064926;
+
+/******************************************************************
+ * MU01 -- FD unit
+ ******************************************************************/
+PR.BHT000001.FINFF12 : SBEND,L=(LF+DLF),E1=EF,K1:=KI1F*CF001,K2:=KI2F*CF001,ANGLE=ANIF*REV;
+PR.BHT000001.DINDD12 : SBEND,L=(LD+DLD),E1=ED,K1:=KI1D*CF001,K2:=KI2D*CF001,ANGLE=ANID*REV;
+
+seqedit, sequence=PR.BHT000001;
+  remove, element=PR.BHT000001.FINFF1;
+  remove, element=PR.BHT000001.FINFF2;
+  install, element=PR.BHT000001.FINFF12, at=PLACE_BLOCK_FD_F;  
+  remove, element=PR.BHT000001.DINDD1;
+  remove, element=PR.BHT000001.DINDD2;
+  install, element=PR.BHT000001.DINDD12, at=PLACE_BLOCK_FD_D;  
+endedit;
+
+/******************************************************************
+ * MU02 -- DF unit
+ ******************************************************************/
+PR.BHU000002.DINDD12 : SBEND,L=(LD+DDF),E1=ED,K1:=KI1D*CF002,K2:=KI2D*CF002,ANGLE=ANID*REV;
+PR.BHU000002.FINFF12 : SBEND,L=(LF+DFD),E1=EF,K1:=KI1F*CF002,K2:=KI2F*CF002,ANGLE=ANIF*REV;
+
+seqedit, sequence=PR.BHU000002;
+  remove, element=PR.BHU000002.DINDD1;
+  remove, element=PR.BHU000002.DINDD2;
+  install, element=PR.BHU000002.DINDD12, at=PLACE_BLOCK_DF_D;  
+  remove, element=PR.BHU000002.FINFF1;
+  remove, element=PR.BHU000002.FINFF2;
+  install, element=PR.BHU000002.FINFF12, at=PLACE_BLOCK_DF_F;
+endedit;

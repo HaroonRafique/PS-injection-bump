@@ -1,0 +1,6 @@
+! Insert a dummy cavity in place of a 10MHz cavity
+!DUMMY_CAVITY :  RFCAVITY,  L=1, VOLT:=V_DUMMY_RF, LAG=0.5,  HARMON:=H_DUMMY_RF, no_cavity_totalpath; 
+DUMMY_CAVITY :  RFCAVITY,  L=2.4, VOLT:=2.0, LAG=0.5,  HARMON:=16, no_cavity_totalpath; 
+seqedit, sequence=PS91;
+  install, element=DUMMY_CAVITY, at=1.2;
+endedit;
