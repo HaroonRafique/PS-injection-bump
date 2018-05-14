@@ -51,4 +51,5 @@ for k in range(len(bsw40_val)):
 
 
     print('Iter '+str(k)+' : RUNNING MADx ...')
-    os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64</afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/sweepBump.madx")
+    # os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64</afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/sweepBump.madx") # AFS version
+    os.system("madx-macosx64-gnu < sweepBump.madx") # local version

@@ -51,4 +51,5 @@ for k in range(len(bsw40_val)):
     with open('sweepBump.madx','w') as f:
         f.write(newMessage)
         f.close()
-    os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx")
+    # os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx") # AFS version
+    os.system("madx-macosx64-gnu < sweepBump.madx") # local version
