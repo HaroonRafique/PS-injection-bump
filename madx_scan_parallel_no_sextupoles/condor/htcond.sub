@@ -6,12 +6,12 @@ request_cpus            = 8
 getenv                  = True
 notification            = Always
 
-executable              = ./condor/bumpWithSext_fullLattice.sh
+executable              = ./condor/madx_scan_parallel_no_sextupoles.sh
 output                  = madx_sweep_output.txt
 log                     = madx_sweep_log.txt
 error                   = madx_sweep_error.txt
 transfer_output_files   = ""
 
-+JobFlavour = "tomorrow"
++JobFlavour = "espresso"
 
 queue initialdir matching runMAD*

@@ -6,10 +6,10 @@
 getenv                  = True
 notification            = Always
 
-executable              = ./condor/bumpWithSext_fullLattice.sh
-output                  = ./madx_sweep_output.txt
-log                     = ./madx_sweep_log.txt
-error                   = ./madx_sweep_error.txt
+executable              = ./condor/madx_scan.sh
+output                  = madx_sweep_output.txt
+log                     = madx_sweep_log.txt
+error                   = madx_sweep_error.txt
 transfer_output_files   = ""
 
 +JobFlavour = "tomorrow"

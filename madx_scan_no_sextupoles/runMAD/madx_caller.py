@@ -27,7 +27,7 @@ bsw44_val = bsw44*np.sin(t)
 
 
 # read the master madx script
-with open('/afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/sweepBump_master.madx','r+') as f:
+with open('/afs/cern.ch/work/e/esenes/PS-injection-bump/madx_scan_no_sextupoles/runMAD/sweepBump_master.madx','r+') as f:
     message = f.read()
     head = message[:1364]
     body1 = message[1364:1685] #up to just before the ptc_twiss
@@ -51,5 +51,5 @@ for k in range(len(bsw40_val)):
 
 
     print('Iter '+str(k)+' : RUNNING MADx ...')
-    # os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64</afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/sweepBump.madx") # AFS version
-    os.system("madx-macosx64-gnu < sweepBump.madx") # local version
+    os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64</afs/cern.ch/work/e/esenes/madx_scan_condor_noSextupoles/runMAD/sweepBump.madx") # AFS version
+    # os.system("madx-macosx64-gnu < sweepBump.madx") # local version

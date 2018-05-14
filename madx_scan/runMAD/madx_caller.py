@@ -30,7 +30,7 @@ bsw43_val = bsw43*np.sin(t)
 bsw44_val = bsw44*np.sin(t)
 
 # this peice for with-sextupoles
-with open('/afs/cern.ch/work/e/esenes/madx_scan_condor/runMAD/sweepBump_master.madx','r') as f:
+with open('/afs/cern.ch/work/e/esenes/PS-injection-bump/madx_scan/runMAD/sweepBump_master.madx','r') as f:
     message = f.read()
     head = message[:1178]
     body1 = message[1178:1498] #up to just before the ptc_twiss
@@ -51,5 +51,5 @@ for k in range(len(bsw40_val)):
     with open('sweepBump.madx','w') as f:
         f.write(newMessage)
         f.close()
-    # os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx") # AFS version
-    os.system("madx-macosx64-gnu < sweepBump.madx") # local version
+    os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx") # AFS version
+    # os.system("madx-macosx64-gnu < sweepBump.madx") # local version

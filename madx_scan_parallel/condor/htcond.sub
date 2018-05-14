@@ -6,7 +6,7 @@ request_cpus            = 8
 getenv                  = True
 notification            = Always
 
-executable              = ./condor/bumpWithSext_fullLattice.sh
+executable              = ./condor/madx_scan_parallel.sh
 output                  = madx_sweep_output.txt
 log                     = madx_sweep_log.txt
 error                   = madx_sweep_error.txt

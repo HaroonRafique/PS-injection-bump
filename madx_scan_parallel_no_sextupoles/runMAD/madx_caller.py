@@ -15,7 +15,7 @@ bsw43              =    0.01290524313
 bsw44              =    -0.006001526439
 
 # build the parameter sweep lists
-nstep = 50.
+nstep = 2.
 
 t = np.arange(0,nstep+1,1)/nstep * np.pi/2
 t = np.append(t, t+np.pi/2)
@@ -28,7 +28,7 @@ bsw43_val = bsw43*np.sin(t)
 bsw44_val = bsw44*np.sin(t)
 
 # this peice for with-sextupoles
-with open('/afs/cern.ch/work/e/esenes/madx_scan_condor/runMAD/sweepBump_master.madx','r') as f:
+with open('/afs/cern.ch/work/e/esenes/PS-injection-bump/madx_scan_parallel_no_sextupoles/runMAD/sweepBump_master.madx','r') as f:
     message = f.read()
     head = message[:1178]
     body1 = message[1178:1498] #up to just before the ptc_twiss
@@ -39,7 +39,7 @@ with open('/afs/cern.ch/work/e/esenes/madx_scan_condor/runMAD/sweepBump_master.m
 
 # what the workers will have to do
 def myWorker(k): # k is the index of the for loop
-    firstAdd = '\n\nBSStren := ' + str(BSS_val[k]) + ';\n' + 'bsw40 := ' + str(bsw40_val[k]) + ';\n' + 'bsw42 := ' + str(bsw42_val[k]) + ';\n' + 'bsw43 := ' + str(bsw43_val[k]) + ';\n'  + 'bsw44 := ' + str(bsw44_val[k]) + ';\n'
+    firstAdd = '\n\n' + 'bsw40 := ' + str(bsw40_val[k]) + ';\n' + 'bsw42 := ' + str(bsw42_val[k]) + ';\n' + 'bsw43 := ' + str(bsw43_val[k]) + ';\n'  + 'bsw44 := ' + str(bsw44_val[k]) + ';\n'
 
     customTwiss = '\nptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary,file='+str(k)+'.twiss;\n'
     assignRow = 'Assign, echo='+str(k)+'.out;\n'

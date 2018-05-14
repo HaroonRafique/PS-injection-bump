@@ -9,9 +9,14 @@ ProcId=`grep "^ProcId" .job.ad | tr -dc '0-9'`
 # copy all files from initial directory
 cp -r ${OrigIwd}* .
 
+# create the folder structure
+mkdir -p result
+mkdir -p result/twiss
+mkdir -p result/out
+
 # run the madx caller that calculates the params and every time twiss with
 # a different set of parameters
-python ./madx_caller.py
+python ${OrigIwd}madx_caller.py
 
 # move results to the result folder
 mv *.out result/out/
