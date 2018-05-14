@@ -26,24 +26,24 @@ in progress ....
 ## Folder structure:
 ```
 .
-├── MADx_scan						# bump ramped up and down, lattice including sextupoles
-    ├── condor							# HTcondor stuff
-    └── runMAD  							# the proper script folder
-    	├── sweepBump_master.madx			# template code, modified via madx_caller.py
-    	├── madx_caller.py    					# modifies the madx script and exectues it in a loop
-	├── lattice							# lattice files folder from the optics repository
-	└── result   							# this folder structure is important
+├── MADx_scan					# bump ramped up and down, lattice including sextupoles
+    ├── condor						# HTcondor stuff
+    └── runMAD  						# the proper script folder
+    	├── sweepBump_master.madx		# template code, modified via madx_caller.py
+    	├── madx_caller.py    				# modifies the madx script and exectues it in a loop
+	├── lattice						# lattice files folder from the optics repository
+	└── result   						# this folder structure is important
 		├── twiss
 		└── out
-├── MADx_scan_no_sextupoles        		# same but with no sextupoles
-    └── ...  								# same folder structure
-├── MADx_scan_parallel                		# fast code palallelised, lattice including sextupoles
-    └── ...  								# same folder structure
+├── MADx_scan_no_sextupoles        	# same but with no sextupoles
+    └── ...  							# same folder structure
+├── MADx_scan_parallel              		# fast code palallelised, lattice including sextupoles
+    └── ...  							# same folder structure
 ├── MADx_scan_parallel_no_sextupoles	# fast code palallelised, lattice without sextupoles
-    └── ...  								# same folder structure
-├── MADx_reference           				# MADx runs with no sextupoles and bump up and down
-├── Analysis                					# analysis scripts and results
-└── pyOrbit_simulations      				# tracking simulations using the tables generated from the former two
+    └── ...  							# same folder structure
+├── MADx_reference           			# MADx runs with no sextupoles and bump up and down
+├── Analysis                				# analysis scripts and results
+└── pyOrbit_simulations      			# tracking simulations using the tables generated from the former two
     ├── ...            
     └── ...   
 
