@@ -1,0 +1,33 @@
+select layout
+1
++nocavity
++time
+SET ORBIT RAMPING
+set orbit state
+SET ORBIT RESTORE
+ f f           !!!  keeps the layout upgraded (no return to original)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                !QUADRUPOLES!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ramp
+  bsw40  "./Tables/BSW40.dat"      1.0			!multiplication factor for variation
+ramp
+  bsw42  "./Tables/BSW42.dat"      1.0
+ramp
+  bsw43  "./Tables/BSW43.dat"      1.0
+ramp
+  bsw44  "./Tables/BSW44.dat"      1.0
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                !SEXTUPOLES!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ramp
+  BSEXT40  "./Tables/sext40.dat"      1.0
+ramp
+  BSEXT42  "./Tables/sext40.dat"      1.0
+ramp
+  BSEXT43  "./Tables/sext40.dat"      1.0
+ramp
+  BSEXT44  "./Tables/sext40.dat"      1.0
+
+return

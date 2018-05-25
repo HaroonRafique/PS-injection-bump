@@ -1,0 +1,1727 @@
+!------------------------------------------------------------------------!
+!------------------------------------------------------------------------!
+!                                                                        !
+!                             PS RING 2013                               !
+!                                                                        !
+!------------------------------------------------------------------------!
+!------------------------------------------------------------------------!
+!      Contributors:                                                     !
+!                 * T. Risselada (initial 1992 version for MAD-8)        !
+!                 * O. Berrig                                            !
+!                 * R. Steerenberg                                       !
+!                 * R. Brown                                             !
+!                 * S. Aumon                                             !
+!                 * C. Hernalsteens                                      !
+!------------------------------------------------------------------------!
+!------------------------------------------------------------------------!
+
+PS01: SEQUENCE, L= 2.4;
+PR.DHZ01   :  HKICKER   , AT = 0.0;
+
+   BEGINPS    :  MARKER , AT = 0.0;
+   PR.VPI01   :  VPI    , AT = 0.0;
+   PR.XST101  :  X608   , AT = 0.1;
+   PR.XST201  :  X608   , AT = 0.3;
+
+  ! DUMMY_CAVITY :   RFCAVITY, AT=0.5, L=0.0, VOLT=0.2, LAG=0.5,FREQ:=16*0.47606656252;
+
+   PR.BHZ01   :  BHZ    , AT = 2.4;
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS02: SEQUENCE, L= 1.0;
+
+   PR.VPI02   :  VPI    , AT = 0.0;
+   PR.UHV02   :  UNO    , AT = 0.0;
+   PR.DVT02   :  D202   , AT = 0.1;
+   PR.BHZ02   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS03: SEQUENCE, L= 1.0;
+PR.DHZ03   :  HKICKER   , AT = 0.0;
+
+   PR.VPI03   :  VPI    , AT = 0.0;
+   PR.UHV03   :  UNO    , AT = 0.0;
+   PR.URS03   :  MARKER , AT = 0.23; ! PU. Wide band
+  ! PR.DLH15   :  D205   , AT = 0.33; !!!!!!!!!! CH
+
+   PR.QNSF03  :  QNSF   , AT = 1.0;
+   !PR.DVT03            , AT = 1.0; ! DVT not connected
+   PR.BHZ03   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS04: SEQUENCE, L= 1.0;
+
+   PR.VPI04   :  VPI    , AT = 0.0;
+   PR.VPI04A  :  VPI    , AT = 0.0; ! Connected to KFA04
+   PE.KFA04             , AT = 0.444; ! Kicker MTE
+   PR.QNSD04  :  QNSD   , AT = 1.0; ! qns is old type
+   PR.DVT04             , AT = 1.0;
+   PR.BHZ04   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS05: SEQUENCE, L= 1.0;
+PR.DHZ05   :  HKICKER   , AT = 0.0;
+
+   PR.VPI05   :  VPI    , AT = 0.0;
+
+   !PR.UHV05   :  UNO    , AT = 0.0;
+
+   PE.QKE05   :  Q414   , AT = 0.1; ! Beta bump for CT extraction
+
+   PR.DLH15   :  D205   , AT = 0.8;
+   PR.QNF05   :  QNF    , AT = 1.0;
+   PR.BHZ05   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS06: SEQUENCE, L= 2.4;
+
+   PR.VPI06   :  VPI    , AT = 0.0;
+   PR.VPT06   :  VPT    , AT = 0.0; ! Connected to C02 cavity
+   PR.C02106  :  C02    , AT = 0.2;
+   PR.C02206  :  C02    , AT = 0.6;
+   PR.C02306  :  C02    , AT = 1.0; ! There are six 200 MHz units
+   PR.C02406  :  C02    , AT = 1.4;
+   PR.C02506  :  C02    , AT = 1.8;
+   PR.C02606  :  C02    , AT = 2.2;
+   PR.QLD06   :  QLD    , AT = 2.4;
+   PR.BHZ06   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS07: SEQUENCE, L= 1.0;
+
+   PR.VPI07   :  VPI    , AT = 0.0;
+   PR.UHV07   :  ULG    , AT = 0.0;
+   PR.XSL07   :  X610   , AT = 0.2;
+   PR.QLT07   :  Q409   , AT = 0.7;
+   PR.QLSF07  :  QLSF   , AT = 1.0;
+   PR.BHZ07   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS08: SEQUENCE, L= 1.0;
+
+   PR.VPI08   :  VPI    , AT = 0.0;
+   PR.VPI08A  :  VPI    , AT = 0.0; ! Connected to C80 cavity
+   PR.VPI08B  :  VPI    , AT = 0.0; ! Connected to C80 cavity
+   PR.VPI08C  :  VPI    , AT = 0.0; ! Connected to C80 cavity
+   PR.VPI08D  :  VPI    , AT = 0.0; ! Connected to C80 cavity
+   PR.C8008   :  C80    , AT = 0.5;
+   PR.QNSD08  :  QNSD   , AT = 1.0;
+   PR.DVT08             , AT = 1.0;
+   PR.BHZ08   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS09: SEQUENCE, L= 1.0;
+
+   PR.VPI09   :  VPI    , AT = 0.0;
+   PR.VPI09A  :  VPI    , AT = 0.0; ! Connected to BFA09
+   PE.BFA09             , AT=0.5;
+   PE.BFA09s            , AT=1.0; ! Added by C. Hernalsteens, position not correct
+   PR.QNF09   :  QNF    , AT = 1.0;
+   PR.BHZ09   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS10: SEQUENCE, L= 1.0;
+PR.DHZ10   :  HKICKER   , AT = 0.0;
+   PR.VPI10   :  VPI    , AT = 0.0;
+   PR.UHV10   :  UNO    , AT = 0.0;
+   PR.QND10   :  QND    , AT = 1.0;
+   PR.VVS10   :  VVS    , AT = 1.0;
+   PR.BHZ10   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS11: SEQUENCE, L= 2.4;
+
+   PR.VPI11   :  VPI    , AT = 0.0;
+   PR.C1011   :  c10    , AT = 1.2;
+   PR.BHZ11   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS12: SEQUENCE, L= 1.0;
+PR.DHZ12   :  HKICKER   , AT = 0.0;
+   PR.VPI12   :  VPI    , AT = 0.0;
+   PR.UEP12   :  MONIT  , AT = 0.0;
+   PR.SBS12   :  MARKER , AT = 0.0161; ! Beam stopper (used after inserting the wire scanners). Also called "ralentiseur"
+   PE.BSP12   :  D205   , AT = 0.4375; ! This rectified position gives differences to 2007 extraction optics
+   PR.DVT12   :  D202   , AT = 0.7; ! In the chain of DVT's. Position to be checked O.Berrig
+   PR.BHZ12   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS13: SEQUENCE, L= 1.0;
+
+   PR.VPI13   :  VPI    , AT = 0.0;
+   PR.VPI13A  :  VPI    , AT = 0.0; ! Connected to KFA13
+   PR.UHV13   :  UNO    , AT = 0.0;
+   PE.KFA13   ,           AT = 0.444; ! Kicker MTE
+   PR.BHZ13   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS14: SEQUENCE, L= 1.0;
+PR.DHZ14   :  HKICKER   , AT = 0.0;
+
+   PR.VPI14   :  VPI    , AT = 0.0;
+   PR.VPT14   :  VPT    , AT = 0.0; ! VPT:TPU330
+   PE.BSP14   :  D205   , AT = 0.85;
+   PR.BHZ14   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS15: SEQUENCE, L= 1.0;
+   PR.VPI15   :  VPI    , AT = 0.0;
+   PR.UHV15   :  ULG    , AT = 0.0;
+   !PR.DLH15   :  D205   , AT = 0.1; ! Bumper for MTE and high energy orbit corrector
+   PR.QNT15   :  Q407   , AT = 0.7;
+   PR.BHZ15   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS16: SEQUENCE, L= 2.4;
+
+   PR.VPI16   :  VPI    , AT = 0.0;
+   PR.VPI16A  :  VPI    , AT = 0.0; ! Connected to SMH16
+   PR.VPI16B  :  VPI    , AT = 0.0; ! Connected to SMH16
+   PR.VPI16C  :  VPI    , AT = 0.0; ! Connected to SMH16
+   PR.VPI16D  :  VPI    , AT = 0.0; ! Connected to SMH16
+   PE.MTV16   :  MTV    , AT = 0.0;
+   PE.BEGSMH16:  MARKER , AT = 0.0;
+   PE.SMH16   :  DRIFT  , AT = 1.2, L = Z*2.4;
+   PR.BHZ16   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+
+!______________________________________________________________________
+
+PS17: SEQUENCE, L= 1.0;
+PR.DHZ17   :  HKICKER   , AT = 0.0;
+
+   PR.VPI17   :  VPI    , AT = 0.0;
+   PR.UHV17   :  ULG    , AT = 0.2;
+   PR.QLF17   :  QLF    , AT = 1.0;
+   PR.BHZ17   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS18: SEQUENCE, L= 1.0;
+PR.DHZ18   :  HKICKER   , AT = 0.0;
+
+   PR.VPI18   :  VPI    , AT = 0.0;
+   PR.UPH18   :  MONIT  , AT = 0.0;
+   PE.BSP18   :  D205   , AT = 0.1; ! Position PE.BSP18 to be rechecked. O.Berrig
+   PR.QLD18   :  QLD    , AT = 1.0;
+   PR.BHZ18   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS19: SEQUENCE, L= 1.0;
+
+   PR.VPI19   :  VPI    , AT = 0.0;
+   PE.BNO19   :  D205   , AT = 0.5;
+   PR.QND19   :  Q406   , AT = 0.8;
+   PR.QLSF19  :  QLSF   , AT = 1.0;
+   PR.BHZ19   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS20: SEQUENCE, L= 1.0;
+PR.DHZ20   :  HKICKER   , AT = 0.0;
+
+   PR.VPI20   :  VPI    , AT = 0.0;
+   PR.UHV20   :  UNO    , AT = 0.0;
+   PE.BSP20   :  D205   , AT = 0.158;
+    MYMARKER: MARKER, AT = 0.999;
+   PR.QNSD20  :  QNSD   , AT = 1.0;
+   PR.DVT20             , AT = 1.0;
+   PR.BHZ20   :  BHZ    , AT = 1.0;
+   PR.VVS20   :  VVS    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS21: SEQUENCE, L= 2.4;
+
+   PR.VPI21   :  VPI    , AT = 0.0;
+   PR.VPI21A  :  VPI    , AT = 0.0; ! Connected to BFA21
+   PR.VPI21B  :  VPI    , AT = 0.0; ! Connected to KFA21
+   PR.VPI21C  :  VPI    , AT = 0.0; ! Connected to KFA21
+   PE.BFA21             , AT = 0.5; ! Kicker CT, pedestal (same tank as PE.BFA21s)
+   PE.BFA21s            , AT=1.0; ! Kicker CT, staircase
+   PE.KFA21             , AT = 1.844; ! Kicker MTE
+   PR.QNF21   :  QNF    , AT = 2.4;
+   PR.BHZ21   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS22: SEQUENCE, L= 1.0;
+PR.DHZ22   :  HKICKER   , AT = 0.0;
+
+   PR.VPI22   :  VPI    , AT = 0.0;
+   PR.URL22   :  MONIT  , AT = 0.0;
+   PI.BLG22   :  D206   , AT = 0.1;
+   PE.BSP22   :  D205   , AT = 0.5;
+   PR.DVT22   :  D202   , AT = 0.83;
+   PR.QLD22   :  QLD    , AT = 1.0;
+   PR.BHZ22   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS23: SEQUENCE, L= 1.0;
+
+   PR.VPI23   :  VPI    , AT = 0.0; ! Connected to SES23. The guage on MU22.
+   PR.UHV23   :  UNO    , AT = 0.0;
+   PE.SES23   :  DRIFT  , AT = 0.5, L = Z*1.0;
+   PR.QLSF23  :  QLSF   , AT = 1.0;
+   PR.BHZ23   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS24: SEQUENCE, L= 1.0;
+PR.DHZ24   :  HKICKER   , AT = 0.0;
+
+   PR.VPI24   :  VPI    , AT = 0.0;
+   PR.DVT24   :  D202   , AT = 0.6;
+   PR.QLSD24  :  QLSD   , AT = 1.0;
+   PR.BHZ24   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS25: SEQUENCE, L= 1.0;
+
+   PR.VPI25   :  VPI    , AT = 0.0;
+   PR.UHV25   :  ULG    , AT = 0.0;
+   PE.QKE25   :  Q414   , AT = 0.1; ! Beta bump for CT extraction. OLD
+   PE.QKE25CT :  Q414   , AT = 0.9; ! Beta bump for CT extraction
+   PR.BHZ25   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS26: SEQUENCE, L= 2.4;
+
+   PR.VPI26   :  VPI    , AT = 0.0;
+   PR.VPI26A  :  VPI    , AT = 0.0; ! Connected to SMH26
+   PR.VPI26B  :  VPI    , AT = 0.0; ! Connected to SMH26
+   PR.VPS26   :  VPS    , AT = 0.0; ! Connected to SMH26
+   PR.VPS26A  :  VPS    , AT = 0.0; ! Connected to SMH26
+   PR.VPT26   :  VPT    , AT = 0.0; ! At a position before SMH26
+   PI.SMH26             , AT = 1.2; ! Official length is 2.4 m. but is really less than 2.4 m.
+!  PI.MSF26   :  MSG    , AT = 2.4; ! Sem grid. This instrument is physically implemented in the PS ring
+                                    !           but logically it belongs the ETL line. The name on the
+                                    !           instrument is MSG26.
+   PR.BHZ26   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS27: SEQUENCE, L= 1.0;
+
+   PR.VPI27   :  VPI    , AT = 0.0;
+   PR.UHV27   :  ULG    , AT = 0.0;
+   PR.QLD27   :  Q406   , AT = 0.3;
+   PE.BLG27   :  D205   , AT = 0.6;
+   PE.BNO27   :  D205   , AT = 0.85;
+   PR.QLF27   :  QLF    , AT = 1.0;
+   PR.BHZ27   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS28: SEQUENCE, L= 1.0;
+
+   PR.VPI28   :  VPI    , AT = 0.0;
+   PR.MTV28   :  MTV    , AT = 0.0;
+   PI.KFA28             , AT = 0.5;
+   PR.QLD28   :  QLD    , AT = 1.0;
+   PR.BHZ28   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS29: SEQUENCE, L= 1.0;
+
+   PR.VPI29   :  VPI    , AT = 0.0;
+   PR.QNO29   :  Q409   , AT = 0.4;
+   PR.QLD29   :  Q406   , AT = 0.7;
+   PR.QLSF29  :  QLSF   , AT = 1.0;
+   PR.BHZ29   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS30: SEQUENCE, L= 1.0;
+
+   PR.VPI30   :  VPI    , AT = 0.0;
+   PR.UHV30   :  ULG    , AT = 0.0;
+   PR.DVT30   :  D202   , AT = 0.5;
+   PI.BLG30   :  D206   , AT = 0.9; ! Position BSW26 to be rechecked. O.Berrig
+   PR.QLSD30  :  QLSD   , AT = 1.0;
+   PR.VVS30   :  VVS    , AT = 1.0;
+   PR.BHZ30   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS31: SEQUENCE, L= 2.4;
+
+   PR.VPI31   :  VPI    , AT = 0.0;
+   PR.VPI31A  :  VPI    , AT = 0.0; ! Connected to SES31
+   PR.VPI31B  :  VPI    , AT = 0.0; ! Connected to SES31
+   PR.VPS31A  :  VPS    , AT = 0.0; ! Connected to SES31
+   PR.VPS31B  :  VPS    , AT = 0.0; ! Connected to SES31
+   PE.BEGSES31:  MARKER , AT = 1.2-2.289/2.0;
+   PE.SES31             , AT = 1.2;
+ ! PE.SES31   :  DRIFT  , AT = 1.2, L=Z*2.289; ! 9 cm, wires 25 cm, 12 cm
+                                               ! The first 250 mm act as a diffusor
+                                               ! (passive 100 um wires spaced every 4 mm)
+                                               ! followed by 1900 mm of Mo foil. Ltot=2.289m
+                                               ! The Cathode is centered opposite Mo foil part.
+                                               ! The space between diffusor and Mo foil is used for screens.
+   PR.QLF31   :  QLF    , AT = 2.4;
+   PR.BHZ31   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS32: SEQUENCE, L= 1.0;
+PR.DHZ32   :  HKICKER   , AT = 0.0;
+
+   PR.VPI32   :  VPI    , AT = 0.0;
+   PR.UFB32   :  MONITOR, AT = 0.0; ! feedback pick-up. Not connected
+   PR.QLD32   :  QLD    , AT = 1.0;
+   PR.BHZ32   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS33: SEQUENCE, L= 1.0;
+PR.DHZ33   :  HKICKER   , AT = 0.0;
+
+   PR.VPI33   :  VPI    , AT = 0.0;
+   PR.UHV33   :  ULG    , AT = 0.0;
+   PR.UFB33   :  MONIT  , AT = 0.8, L= Z*0.2; ! feedback pick-up. Not connected
+   PR.QLSF33  :  QLSF   , AT = 1.0;
+   PR.BHZ33   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS34: SEQUENCE, L= 1.0;
+
+   PR.VPI34   :  VPI    , AT = 0.0;
+   PR.VPT34   :  VPT    , AT = 0.0;
+   PR.BCT34   :  BCT    , AT = 0.5; ! Beam current transformer
+   PR.QNSD34  :  QNSD   , AT = 1.0;
+   PR.DVT34             , AT = 1.0;
+   PR.BHZ34   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS35: SEQUENCE, L= 1.0;
+PR.DHZ35   :  HKICKER   , AT = 0.0;
+
+   PR.VPI35   :  VPI    , AT = 0.0;
+   PR.UHV35   :  UNO    , AT = 0.0;
+   PE.BLG35   :  D210   , AT = 0.8; ! A new gamma jump quadrupole
+                                    ! will be installed in PS35 - maybe 2007
+   PR.QNF35   :  QNF    , AT = 1.0;
+   PR.BHZ35   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS36: SEQUENCE, L= 2.4;
+
+   PR.VPI36   :  VPI    , AT = 0.0;
+   PR.URL36   :  MONIT  , AT = 0.0;
+   PR.C1036   :  C10    , AT = 1.2;
+   PR.QND36   :  QND    , AT = 2.4;
+   PR.BHZ36   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS37:SEQUENCE, L= 1.0;
+PR.DHZ37   :  HKICKER   , AT = 0.0;
+
+   PR.VPI37   :  VPI    , AT = 0.0;
+   PR.UHV37   :  UNO    , AT = 0.0;
+   PR.QND37   :  Q408   , AT = 0.1;
+   PR.UEP37   :  UNO    , AT = 0.8;
+   PR.QNSF37  :  QNSF   , AT = 1.0;
+   !PR.DVT37            , AT = 1.0; ! DVT not connected
+   PR.BHZ37   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS38: SEQUENCE, L= 1.0;
+
+   PR.VPI38   :  VPI    , AT = 0.0;
+   PR.UPH38   :  MONIT  , AT = 0.0;
+   PR.BCT38   :  BCT    , AT = 0.5;
+   PR.QNSD38  :  QNSD   , AT = 1.0;
+   PR.DVT38             , AT = 1.0;
+   PR.BHZ38   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS39: SEQUENCE, L= 1.0;
+
+   PR.VPI39   :  VPI    , AT = 0.0;
+   PR.XCT39A  :  X608   , AT = 0.128;
+   PR.OCT39   :  O803   ,   AT = 0.5;
+   PR.XCT39B  :  X608   , AT = 0.872;
+   PR.QNF39   :  QNF    , AT = 1.0;
+   PR.BHZ39   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS40: SEQUENCE, L= 1.0;
+
+   PR.VPI40   :  VPI    , AT = 0.0;
+   PR.UHV40   :  UNO    , AT = 0.0;
+   /* PI.BSM40   :  D209   , AT = 0.5; ! the old bumper*/
+   PI.BSM40.1 :  halfD209, AT = 0.45;
+   BSEXT40    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW40/BSW42)}  , AT = 0.5;
+   PI.BSM40.2 :  halfD209, AT = 0.55;
+   PR.OST40   :  O802   , AT = 0.7;
+   PR.QND40   :  QND    , AT = 1.0;
+   PR.BHZ40   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS41: SEQUENCE, L= 2.4;
+PR.DHZ41   :  HKICKER   , AT = 0.0;
+
+   PR.VPI41   :  VPI    , AT = 0.0;
+   PR.QNT41   :  Q407   , AT = 1.2;
+   PR.QLSF41  :  QLSF   , AT = 2.4;
+   PR.BHZ41   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS42: SEQUENCE, L= 1.0;
+
+   PR.VPI42   :  VPI    , AT = 0.0;
+   PR.VPI42A  :  VPI    , AT = 0.0; ! Connected to SMH42
+   PR.VPS42   :  VPS    , AT = 0.0; ! Connected to SMH42
+   /* PI.BSM42   :  D209   , AT = 0.1; */
+   PI.BSM42.1   :  halfD209   , AT = 0.05;
+   BSEXT42    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW42/BSW42)}  , AT = 0.1;
+   PI.BSM42.2   :  halfD209   , AT = 0.15;
+   PI.SMH42   :  DRIFT  , AT = 0.6, L = Z*0.7; ! The length should really be 0.8m,
+                                               ! but MAD8 gives errors
+!  PI.MSF42   :  MSG    , AT = 1.0; ! Sem grid. This instrument is physically implemented in the PS ring
+                                    !           but logically it belongs the BTP line. The name on the
+                                    !           instrument is MSG42.
+   PR.QLSD42  :  QLSD   , AT = 1.0;
+   PR.BHZ42   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS43: SEQUENCE, L= 1.0;
+PR.DHZ43   :  HKICKER   , AT = 0.0;
+
+   PR.VPI43   :  VPI    , AT = 0.0;
+   PR.UHV43   :  ULG    , AT = 0.0;
+   /* PI.BSM43   :  D209   , AT = 0.4; */
+   PI.BSM43.1   :  halfD209   , AT = 0.35;
+   BSEXT43    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW43/BSW42)}  , AT = 0.4;
+   PI.BSM43.2   :  halfD209   , AT = 0.45;
+   PR.QLSF43  :  QLSF   , AT = 1.0;
+   PR.BHZ43   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS44: SEQUENCE, L= 1.0;
+PR.DHZ44  :  HKICKER   , AT = 0.0;
+
+   PR.VPI44   :  VPI    , AT = 0.0;
+   PR.BCT44   :  BCT    , AT = 0.5;
+   /* PI.BSM44   :  D209   , AT = 0.7; */
+   PI.BSM44.1   :  halfD209   , AT = 0.65;
+   BSEXT44    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW44/BSW42)}  , AT = 0.7;
+   PI.BSM44.2   :  halfD209   , AT = 0.75;
+   PR.QNSD44  :  QNSD   , AT = 1.0;
+   PR.DVT44             , AT = 1.0;
+   PR.BHZ44   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS45: SEQUENCE, L= 1.0;
+
+   PR.VPI45   :  VPI    , AT = 0.0;
+   PR.UHV45   :  UNO    , AT = 0.0;
+   /* PI.KFA45             , AT = 0.5; */
+   KICKMARKER :  MARKER , AT = 0.5;
+   PR.QNF45   :  QNF    , AT = 1.0;
+   PR.BHZ45   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS46: SEQUENCE, L= 2.4;
+
+   PR.VPI46   :  VPI    , AT = 0.0;
+   PR.C1046   :  C10    , AT = 1.2;
+   PR.QND46   :  QND    , AT = 2.4;
+   PR.BHZ46   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS47: SEQUENCE, L= 1.0;
+
+   PR.VPI47   :  VPI    , AT = 0.0;
+   PR.UHV47   :  UNO    , AT = 0.0;
+   PR.TDU47   :  TDU    , AT = 0.5; ! Beam stopper(dump) high energy.
+   PR.QLSF47  :  QLSF   , AT = 1.0;
+   PR.BHZ47   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS48: SEQUENCE, L= 1.0;
+
+   PR.VPI48   :  VPI    , AT = 0.0;
+   PI.MSG48   :  MSG    , AT = 0.0;
+   PR.TDU48   :  TDU    , AT = 0.5; ! Beam stopper(dump) high energy.
+   PR.QLSD48  :  QLSD   , AT = 1.0;
+   PR.BHZ48   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS49: SEQUENCE, L= 1.0;
+PR.DHZ49   :  HKICKER   , AT = 0.0;
+
+   PR.VPI49   :  VPI    , AT = 0.0;
+   PR.QLT49   :  Q409   , AT = 0.8;
+   PR.QNF49   :  QNF    , AT = 1.0;
+   PR.BHZ49   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS50: SEQUENCE, L= 1.0;
+PR.DHZ50   :  HKICKER   , AT = 0.0;
+
+   PR.VPI50   :  VPI    , AT = 0.0;
+   PR.UHV50   :  UNO    , AT = 0.0;
+   PR.OST50   :  O802   , AT = 0.8;
+   PR.QND50   :  QND    , AT = 1.0;
+   PR.BHZ50   :  BHZ    , AT = 1.0;
+   PR.VVS50   :  VVS    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS51: SEQUENCE, L= 2.4;
+
+   PR.VPI51   :  VPI    , AT = 0.0;
+   PR.URL51   :  MONIT  , AT = 0.0;
+   PR.C1051   :  C10    , AT = 1.2;
+   PR.BHZ51   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS52: SEQUENCE, L= 1.0;
+PR.DHZ52   :  HKICKER   , AT = 0.0;
+
+   PR.VPI52   :  VPI    , AT = 0.0;
+   PI.MSG52   :  MSG    , AT = 0.0;
+   PR.OST52.A   :  O802   , AT = 0.5;
+   PR.OST52.B   :  O802   , AT = 0.8;
+   PR.BHZ52   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS53: SEQUENCE, L= 1.0;
+PR.DHZ53   :  HKICKER   , AT = 0.0;
+
+   PR.VPI53   :  VPI    , AT = 0.0;
+   PR.UHV53   :  UNO    , AT = 0.0;
+   PE.BLG53   :  D206   , AT = 0.4;
+   PR.QNSF53  :  QNSF   , AT = 1.0;
+   !PR.DVT53            , AT = 1.0; ! DVT not connected
+   PR.BHZ53   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS54: SEQUENCE, L= 1.0;
+
+   PR.VPI54   :  VPI    , AT = 0.0;
+   PI.MSG54   :  MSG    , AT = 0.0;
+   PR.WS54   :  MONIT  , AT = 0.4, L = Z*0.6; ! Wire-scanner HOR
+   PR.QNSD54  :  QNSD   , AT = 1.0;
+   PR.DVT54             , AT = 1.0;
+   PR.BHZ54   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS55: SEQUENCE, L= 1.0;
+
+   PR.VPI55   :  VPI    , AT = 0.0;
+   PR.UHV55   :  UNO    , AT = 0.0;
+   PR.XCT55A  :  X608   , AT = 0.128;
+   PR.OCT55   :  O803,   AT = 0.5;
+   PR.XCT55B  :  X608   , AT = 0.872;
+   PR.QNF55   :  QNF    , AT = 1.0;
+   PR.BHZ55   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS56: SEQUENCE, L= 2.4;
+
+   PR.VPI56   :  VPI    , AT = 0.0;
+   PR.C1056   :  C10    , AT = 1.2;
+   PR.QLD56   :  QLD    , AT = 2.4;
+   PR.BHZ56   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS57: SEQUENCE, L= 1.0;
+
+   PR.VPI57   :  VPI    , AT = 0.0;
+   PR.VPI57A  :  VPI    , AT = 0.0; ! Connected to SMH57
+   PR.VPS57   :  VPI    , AT = 0.0; ! Connected to SMH57
+   PR.VPS57A  :  VPI    , AT = 0.0; ! Connected to SMH57
+   PR.UHV57   :  ULG    , AT = 0.1;
+   PE.SMH57   :  DRIFT  , AT = 0.6, L = Z*0.8;
+   PR.MTV57   :  MTV    , AT = 1.0;
+   PR.QLSF57  :  QLSF   , AT = 1.0;
+   PR.BHZ57   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS58: SEQUENCE, L= 1.0;
+PR.DHZ58   :  HKICKER   , AT = 0.0;
+
+   PR.VPI58   :  VPI    , AT = 0.0;
+   PR.QLSD58  :  QLSD   , AT = 1.0;
+   PR.BHZ58   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS59: SEQUENCE, L= 1.0;
+PR.DHZ59   :  HKICKER   , AT = 0.0;
+
+   PR.VPI59   :  VPI    , AT = 0.0;
+   PR.VPT59   :  VPT    , AT = 0.0;
+   PE.BLG59   :  D205   , AT = 0.2;
+   PR.QLF59   :  QLF    , AT = 1.0;
+   PR.BHZ59   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS60: SEQUENCE, L= 1.0;
+
+   PR.VPI60   :  VPI    , AT = 0.0;
+   PR.UHV60   :  ULG    , AT = 0.0;
+   PR.DLH60   :  D206   , AT = 0.8;
+   PR.QLD60   :  QLD    , AT = 1.0;
+   PR.BHZ60   :  BHZ    , AT = 1.0;
+   PR.VVS60   :  VVS    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS61: SEQUENCE, L= 2.4;
+
+   PR.VPI61   :  VPI    , AT = 0.0;
+   PR.VPT61   :  VPT    , AT = 0.0;
+   PR.VN261   :  MONIT  , AT = 0.0;
+   PR.QLD61   :  Q406   , AT = 0.182, K1   := +IDOUB2  * CC406 / 2;
+   PE.BLG61   :  D213   , AT = 0.745, KICK := -BSW57 * CC213;
+   PE.SMH61   :  DRIFT  , AT = 1.605, L = Z*1.2;
+   PR.BHZ61   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS62: SEQUENCE, L= 1.0;
+PR.DHZ62   :  HKICKER   , AT = 0.0;
+
+   PR.VPI62   :  VPI    , AT = 0.0;
+   PR.BHZ62   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS63: SEQUENCE, L= 1.0;
+
+   PR.VPI63   :  VPI    , AT = 0.0;
+   PR.UHV63   :  ULG    , AT = 0.2;
+   PR.BHZ63   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS64: SEQUENCE, L= 1.0;
+
+   PR.VPI64   :  VPI    , AT = 0.0;
+   PR.WS64   :  MONIT  , AT = 0.65, L = Z*0.6; ! Wire-scanner HOR
+   !PR.QNSD64 :  QNSD   , AT = 1.0; ! QNS not connected. No power supply
+   PR.DVT64             , AT = 1.0;
+   PR.BHZ64   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS65: SEQUENCE, L= 1.0;
+
+   PR.VPI65   :  VPI    , AT = 0.0;
+   PR.UHV65   :  UNO    , AT = 0.0;
+   PR.WS65   :  MONIT  , AT = 0.3, L = Z*0.6; ! Wire-scanner VER
+   PR.BHZ65   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS66: SEQUENCE, L= 2.4;
+
+   PR.VPI66   :  VPI    , AT = 0.0;
+   PR.C1066   :  C10    , AT = 1.2;
+   PR.BHZ66   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS67: SEQUENCE, L= 1.0;
+PR.DHZ67   :  HKICKER   , AT = 0.0;
+
+   PR.VPI67   :  VPI    , AT = 0.0;
+   PR.UHV67   :  UNO    , AT = 0.0; ! BBQ tune measurement
+   PE.BLG67   :  D206   , AT = 0.2;
+   PR.QCOMP67 :  MARKER , AT = 0.7; ! Fast quadrupole. Remove tune oscillations
+                                    ! that are generated by dipole ripple.
+   PR.QNF67   :  QNF    , AT = 1.0;
+   PR.BHZ67   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS68: SEQUENCE, L= 1.0;
+
+   PR.VPI68   :  VPI    , AT = 0.0;
+   PR.UPH68   :  MONIT  , AT = 0.0; ! BBQ tune measurement
+   PR.WS68   :  MONIT  , AT = 0.4, L = Z*0.6; ! Wire-scanner hor. longitudinal position to be verified O.Berrig
+   PR.QND68   :  QND    , AT = 1.0;
+   PR.BHZ68   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+ PS69: SEQUENCE, L= 1.0;
+ PR.DHZ69   :  HKICKER   , AT = 0.0;
+
+   PR.VPI69   :  VPI    , AT = 0.0;
+   PR.ULF69   :  MONIT  , AT = 0.0;
+   PR.QND69   :  Q408   , AT = 0.85;
+   PR.QNSF69  :  QNSF   , AT = 1.0;
+   !PR.DVT69            , AT = 1.0; ! DVT not connected
+   PR.BHZ69   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS70: SEQUENCE, L= 1.0;
+PR.DHZ70   :  HKICKER   , AT = 0.0;
+
+   PR.VPI70   :  VPI    , AT = 0.0;
+   PR.UHV70   :  UNO    , AT = 0.0;
+   PR.OST70.A   :  O802   , AT = 0.1;
+   PR.OST70.B   :  O802   , AT = 0.8;
+   PR.QNSD70  :  QNSD   , AT = 1.0;
+   PR.DVT70             , AT = 1.0;
+   PR.BHZ70   :  BHZ    , AT = 1.0;
+   PR.VVS70   :  VVS    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+!______________________________________________________________________
+
+
+PS71: SEQUENCE, L= 2.4;
+   PR.SS71.START : MARKER, AT = 0.0;
+   PR.VPI71   :  VPI    , AT = 0.0;
+   PR.VPI71A  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71B  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71C  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71D  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71E  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71F  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71G  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPI71H  :  VPI    , AT = 0.0; ! Connected to KFA71
+   PR.VPT71   :  VPT    , AT = 0.0; ! Connected to KFA71
+   PE.KFA7179,             AT = 1.2;
+   PR.QNF71   :  QNF    , AT = 2.4;
+   PR.BHZ71   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS72: SEQUENCE, L= 1.0;
+
+   PR.VPI72   :  VPI    , AT = 0.0;
+   PR.VPI72A  :  VPI    , AT = 0.0;
+   PR.ULF72   :  MONIT  , AT = 0.0; ! PU for "OLD" tune measurement
+   PR.QND72   :  QND    , AT = 1.0;
+   PR.BHZ72   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS73: SEQUENCE, L= 1.0;
+
+   PR.VPI73   :  VPI    , AT = 0.0;
+   PR.UHV73   :  UNO    , AT = 0.0;
+   PR.QNT73   :  Q407   , AT = 0.2;
+   PE.QKE73CT :  Q414   , AT = 0.9; ! Beta bump for CT extraction
+   PR.QLSF73  :  QLSF   , AT = 1.0;
+   PR.BHZ73   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS74: SEQUENCE, L= 1.0;
+PR.DHZ74   :  HKICKER   , AT = 0.0;
+
+   PR.VPI74   :  VPI    , AT = 0.0;
+   PR.VPT74   :  VPT    , AT = 0.0;
+   PR.QNSD74  :  QNSD   , AT = 1.0;
+   PR.DVT74             , AT = 1.0;
+   PR.BHZ74   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS75: SEQUENCE, L= 1.0;
+PR.DHZ75   :  HKICKER   , AT = 0.0;
+
+   PR.VPI75   :  VPI    , AT = 0.0;
+   PR.UHV75   :  UNO    , AT = 0.0;
+!  PR.MBP75   :  MONIT  , AT = 0.1, L = Z*0.2; ! Not connected. Tank is empty
+   PR.BHZ75   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS76:SEQUENCE, L= 2.4;
+
+   PR.VPI76   :  VPI    , AT = 0.0;
+   PR.C1076   :  C10    , AT = 1.2;
+   !PR.QNSD76 :  QNSD   , AT = 2.4; ! qns not connected. No power supply
+   PR.DVT76             , AT = 2.4;
+   PR.BHZ76   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS77: SEQUENCE, L= 1.0;
+
+   PR.VPI77   :  VPI    , AT = 0.0;
+   PR.VPT77   :  VPT    , AT = 0.0;
+   PR.VPI77A  :  VPI    , AT = 0.0; ! Connected to C40
+   PR.VPI77B  :  VPI    , AT = 0.0; ! Connected to C40
+   PR.VPI77C  :  VPI    , AT = 0.0; ! Connected to C40
+   PR.VPI77D  :  VPI    , AT = 0.0; ! Connected to C40
+   PR.UHV77   :  UNO    , AT = 0.0;
+   PR.C4077   :  C40    , AT = 0.5;
+   PR.QNF77   :  QNF    , AT = 1.0;
+   PR.BHZ77   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS78: SEQUENCE, L= 1.0;
+
+   PR.VPI78   :  VPI    , AT = 0.0;
+   PR.C4078   :  C40    , AT = 0.5;
+   PR.QND78   :  QND    , AT = 1.0;
+   PR.BHZ78   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS79: SEQUENCE, L= 1.0;
+
+   PR.VPI79   :  VPI    , AT = 0.0;
+   PR.VPI79A  :  VPI    , AT = 0.0; ! Connected to KFA
+   PR.VPI79B  :  VPI    , AT = 0.0; ! Connected to KFA
+   PR.VPI79C  :  VPI    , AT = 0.0; ! Connected to KFA
+   PR.VPT79   :  VPT    , AT = 0.0;
+   PE.KFA79   :  DRIFT  , AT = 0.5, L = Z*1.0;
+   PR.QNSF79  :  QNSF   , AT = 1.0;
+   !PR.DVT79            , AT = 1.0; ! DVT not connected. Old type
+   PR.BHZ79   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS80: SEQUENCE, L= 1.0;
+
+   PR.VPI80   :  VPI    , AT = 0.0;
+   PR.UHV80   :  UNO    , AT = 0.0;
+   PR.C2080   :  C13    , AT = 0.5;
+   PR.QNSD80  :  QNSD   , AT = 1.0;
+   PR.DVT80             , AT = 1.0;
+   PR.BHZ80   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS81: SEQUENCE, L= 2.4;
+
+   PR.VPI81   :  VPI    , AT = 0.0;
+   PR.C1081   :  C10    , AT = 1.2;
+   PR.QNF81   :  QNF    , AT = 2.4;
+   PR.BHZ81   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS82: SEQUENCE, L= 1.0;
+PR.DHZ82   :  HKICKER   , AT = 0.0;
+
+   PR.VPI82   :  VPI    , AT = 0.0;
+   PR.BGI82   :  MONITOR  , AT = 0.5;
+   PR.QND82   :  QND    , AT = 1.0;
+   PR.BHZ82   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS83: SEQUENCE, L= 1.0;
+   PR.VPI83   :  VPI    , AT = 0.0;
+   PR.UHV83   :  ULG    , AT = 0.0;
+   PR.USP83   :  MONIT  , AT = 0.5;
+   PR.QNSF83  :  QNSF   , AT = 1.0;
+   !PR.DVT83            , AT = 1.0; ! DVT not connected
+   PR.BHZ83   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS84: SEQUENCE, L= 1.0;
+
+   PR.VPI84   :  VPI    , AT = 0.0;
+   PR.VPT84   :  VPT    , AT = 0.0;
+   PR.QNSD84  :  QNSD   , AT = 1.0;
+   !PR.DVT84            , AT = 1.0; ! DVT not connected
+   PR.BHZ84   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS85: SEQUENCE, L= 1.0;
+
+   PR.VPI85   :  VPI    , AT = 0.0;
+   PR.UHV85   :  ULG    , AT = 0.0;
+   PR.WS85   :  MONIT  , AT = 0.4, L = Z*0.6; ! Wire-scanner VER
+   PR.QNF85   :  QNF    , AT = 1.0;
+   PR.BHZ85   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS86: SEQUENCE, L= 2.4;
+
+   PR.VPI86   :  VPI    , AT = 0.0;
+   PR.C1086   :  C10    , AT = 1.2;
+   PR.QND86   :  QND    , AT = 2.4;
+   PR.BHZ86   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS87: SEQUENCE, L= 1.0;
+
+   PR.VPI87   :  VPI    , AT = 0.0;
+   PR.UHV87   :  UNO    , AT = 0.0;
+   PR.QND87   :  Q408   , AT = 0.2;
+   PR.QSE87   :  Q409   , AT = 0.55;
+   PR.QNSF87  :  QNSF   , AT = 1.0;
+   !PR.DVT87            , AT = 1.0; ! DVT not connected.
+                                    ! No power supply is associated with this DVT.
+   PR.BHZ87   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS88: SEQUENCE, L= 1.0;
+
+   PR.VPI88   :  VPI    , AT = 0.0;
+   PR.VPT88   :  VPT    , AT = 0.0;
+   PR.VPI88A  :  VPI    , AT = 0.0;
+   PR.VPI88B  :  VPI    , AT = 0.0;
+   PR.VPI88C  :  VPI    , AT = 0.0;
+   PR.VPI88D  :  VPI    , AT = 0.0;
+   PR.UPH88   :  MONIT  , AT = 0.0;
+   PR.C8088   :  C80    , AT = 0.5;
+   PR.QNSD88  :  QNSD   , AT = 1.0;
+   PR.DVT88             , AT = 1.0;
+   PR.BHZ88   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS89: SEQUENCE, L= 1.0;
+
+   PR.VPI89   :  VPI    , AT = 0.0;
+   PR.VPT89   :  VPT    , AT = 0.0;
+   PR.VPI89A  :  VPI    , AT = 0.0;
+   PR.VPI89B  :  VPI    , AT = 0.0;
+   PR.VPI89C  :  VPI    , AT = 0.0;
+   PR.VPI89D  :  VPI    , AT = 0.0;
+   PR.C8089   :  C80    , AT = 0.5;
+   PR.QNF89   :  QNF    , AT = 1.0;
+   PR.BHZ89   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS90: SEQUENCE, L= 1.0;
+PR.DHZ90   :  HKICKER   , AT = 0.0;
+
+   PR.VPI90   :  VPI    , AT = 0.0;
+   PR.UHV90   :  UNO    , AT = 0.0;
+   PR.OST90   :  O802   , AT = 0.8;
+   PR.QND90   :  QND    , AT = 1.0;
+   PR.BHZ90   :  BHZ    , AT = 1.0;
+   PR.VVS90   :  VVS    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS91: SEQUENCE, L= 2.4;
+
+   PR.VPI91   :  VPI    , AT = 0.0;
+   PR.C1091   :  C10    , AT = 1.2;
+   PR.QNSF91  :  QNSF   , AT = 2.4;
+   !PR.DVT91            , AT = 2.4; ! DVT not connected
+   PR.BHZ91   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS92: SEQUENCE, L= 1.0;
+
+   PR.VPI92   :  VPI    , AT = 0.0;
+   PR.C2092   :  C13    , AT = 0.5;
+   PR.QLSD92  :  QLSD   , AT = 1.0;
+   PR.BHZ92   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS93: SEQUENCE, L= 1.0;
+
+   PR.VPI93   :  VPI    , AT = 0.0;
+   PR.UHV93   :  ULG    , AT = 0.0;
+   PR.UDP93   :  MONIT  , AT = 0.5, L = Z*1.0;
+   PR.QLSF93  :  QLSF   , AT = 1.0;
+   PR.BHZ93   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS94: SEQUENCE, L= 1.0;
+PR.DHZ94   :  HKICKER   , AT = 0.0;
+
+   PR.VPI94   :  VPI    , AT = 0.0;
+   PR.VPT94   :  VPT    , AT = 0.0;
+   PR.UWB94   :  MONIT  , AT = 0.9, L = Z*0.15;
+   PR.QNSD94  :  QNSD   , AT = 1.0;
+   PR.DVT94             , AT = 1.0;
+   PR.BHZ94   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS95: SEQUENCE, L= 1.0;
+
+   PR.VPI95   :  VPI    , AT = 0.0;
+   PR.UHV95   :  UNO    , AT = 0.0;
+   PR.URS95   :  MONIT  , AT = 0.3;
+   PR.QND95   :  Q408   , AT = 0.8;
+   PR.QNF95   :  QNF    , AT = 1.0;
+   PR.BHZ95   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+!
+
+!______________________________________________________________________
+
+PS96: SEQUENCE, L= 2.4;
+
+   PR.VPI96   :  VPI    , AT = 0.0;
+   PR.URL96   :  MONIT  , AT = 0.0;
+   PR.C1096   :  C10    , AT = 1.2;
+   PR.QND96   :  QND    , AT = 2.4;
+   PR.BHZ96   :  BHZ    , AT = 2.4;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS97: SEQUENCE, L= 1.0;
+
+   PR.VPI97   :  VPI    , AT = 0.0;
+   PR.UHV97   :  UNO    , AT = 0.0;
+   PR.KFB97   :  DRIFT  , AT = 0.5, L = Z*1.0; ! RF feedback kicker i.e. damper
+   PR.QNSF97  :  QNSF   , AT = 1.0;
+   !PR.DVT97            , AT = 1.0; ! DVT not connected
+   PR.BHZ97   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS98: SEQUENCE, L= 1.0;
+
+   PR.VPI98   :  VPI    , AT = 0.0;
+   PR.UHV98   :  UNO    , AT = 0.0;
+   PR.KFB98   :  DRIFT  , AT = 0.5, L = Z*1.0; ! damper
+   PR.QNSD98  :  QNSD   , AT = 1.0;
+   PR.DVT98             , AT = 1.0;
+   PR.BHZ98   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS99: SEQUENCE, L= 1.0;
+  PR.DHZ99   :  HKICKER   , AT = 0.0;
+
+   PR.VPI99   :  VPI    , AT = 0.0;
+   PR.UFB99   :  MONIT  , AT = 0.0;
+   PR.QNT99   :  Q407   , AT = 0.8;
+   PR.QNF99   :  QNF    , AT = 1.0;
+   PR.BHZ99   :  BHZ    , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+PS00: SEQUENCE, L= 1.0;
+
+   PR.VPI00   :  VPI    , AT = 0.0;
+   PR.UHV00   :  UNO    , AT = 0.0;
+   PR.URP00   :  MONIT  , AT = 0.3;
+   PR.OST00   :  O802   , AT = 0.7;
+   PR.QND00   :  QND    , AT = 1.0;
+   PR.BHZ00   :  BHZ    , AT = 1.0;
+   PR.VVS96   :  VVS    , AT = 1.0;
+   ENDPS      :  MARKER , AT = 1.0;
+
+ENDSEQUENCE;
+
+!______________________________________________________________________
+
+!
+
+SEC1 : SEQUENCE, L = 62.8318530718, refer=entry;
+ PS01         , at =  0.00000000000;
+ PR.BHT000001 , at =  2.40000000000;
+ PS02         , at =  7.40318530718;
+ PR.BHU000002 , at =  8.40318530718;
+ PS03         , at = 13.40637061436;
+ PR.BHT000003 , at = 14.40637061436;
+ PS04         , at = 19.40955592154;
+ PR.BHR000004 , at = 20.40955592154;
+ PS05         , at = 25.41274122872;
+ PR.BHT000005 , at = 26.41274122872;
+ PS06         , at = 31.4159265359;
+ PR.BHR000006 , at = 33.8159265359;
+ PS07         , at = 38.81911184308;
+ PR.BHS000007 , at = 39.81911184308;
+ PS08         , at = 44.82229715026;
+ PR.BHR000008 , at = 45.82229715026;
+ PS09         , at = 50.82548245744;
+ PR.BHT000009 , at = 51.82548245744;
+ PS10         , at = 56.82866776462;
+ PR.BHR000010 , at = 57.82866776462;
+ENDSEQUENCE;
+
+
+SEC2 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS11         , at =  0.00000000000;
+ PR.BHS000011 , at =  2.40000000000;
+ PS12         , at =  7.40318530718;
+ PR.BHR000012 , at =  8.40318530718;
+ PS13         , at = 13.40637061436;
+ PR.BHS000013 , at = 14.40637061436;
+ PS14         , at = 19.40955592154;
+ PR.BHU000014 , at = 20.40955592154;
+ PS15         , at = 25.41274122872;
+ PR.BHT000015 , at = 26.41274122872;
+ PS16         , at = 31.41592653590;
+ PR.BHU000016 , at = 33.81592653590;
+ PS17         , at = 38.81911184308;
+ PR.BHT000017 , at = 39.81911184308;
+ PS18         , at = 44.82229715026;
+ PR.BHU000018 , at = 45.82229715026;
+ PS19         , at = 50.82548245744;
+ PR.BHS000019 , at = 51.82548245744;
+ PS20         , at = 56.82866776462;
+ PR.BHR000020 , at = 57.82866776462;
+ENDSEQUENCE;
+
+SEC3 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS21         , at =   0.00000000000;
+ PR.BHT000021 , at =   2.40000000000;
+ PS22         , at =   7.40318530718;
+ PR.BHR000022 , at =   8.40318530718;
+ PS23         , at =  13.40637061436;
+ PR.BHT000023 , at =  14.40637061436;
+ PS24         , at =  19.40955592154;
+ PR.BHU000024 , at =  20.40955592154;
+ PS25         , at =  25.41274122872;
+ PR.BHT000025 , at =  26.41274122872;
+ PS26         , at =  31.41592653590;
+ PR.BHR000026 , at =  33.81592653590;
+ PS27         , at =  38.81911184308;
+ PR.BHS000027 , at =  39.81911184308;
+ PS28         , at =  44.82229715026;
+ PR.BHU000028 , at =  45.82229715026;
+ PS29         , at =  50.82548245744;
+ PR.BHT000029 , at =  51.82548245744;
+ PS30         , at =  56.82866776462;
+ PR.BHR000030 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC4 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS31         , at =   0.00000000000;
+ PR.BHT000031 , at =   2.40000000000;
+ PS32         , at =   7.40318530718;
+ PR.BHR000032 , at =   8.40318530718;
+ PS33         , at =  13.40637061436;
+ PR.BHS000033 , at =  14.40637061436;
+ PS34         , at =  19.40955592154;
+ PR.BHR000034 , at =  20.40955592154;
+ PS35         , at =  25.41274122872;
+ PR.BHT000035 , at =  26.41274122872;
+ PS36         , at =  31.41592653590;
+ PR.BHR000036 , at =  33.81592653590;
+ PS37         , at =  38.81911184308;
+ PR.BHT000037 , at =  39.81911184308;
+ PS38         , at =  44.82229715026;
+ PR.BHR000038 , at =  45.82229715026;
+ PS39         , at =  50.82548245744;
+ PR.BHT000039 , at =  51.82548245744;
+ PS40         , at =  56.82866776462;
+ PR.BHU000040 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC5 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS41         , at =   0.00000000000;
+ PR.BHT000041 , at =   2.40000000000;
+ PS42         , at =   7.40318530718;
+ PR.BHR000042 , at =   8.40318530718;
+ PS43         , at =  13.40637061436;
+ PR.BHT000043 , at =  14.40637061436;
+ PS44         , at =  19.40955592154;
+ PR.BHR000044 , at =  20.40955592154;
+ PS45         , at =  25.41274122872;
+ PR.BHT000045 , at =  26.41274122872;
+ PS46         , at =  31.41592653590;
+ PR.BHR000046 , at =  33.81592653590;
+ PS47         , at =  38.81911184308;
+ PR.BHS000047 , at =  39.81911184308;
+ PS48         , at =  44.82229715026;
+ PR.BHR000048 , at =  45.82229715026;
+ PS49         , at =  50.82548245744;
+ PR.BHT000049 ,  at =  51.82548245744;
+ PS50         , at =  56.82866776462;
+ PR.BHR000050 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC6 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS51         , at =   0.00000000000;
+ PR.BHT000051 , at =   2.40000000000;
+ PS52         , at =   7.40318530718;
+ PR.BHR000052 , at =   8.40318530718;
+ PS53         , at =  13.40637061436;
+ PR.BHS000053 , at =  14.40637061436;
+ PS54         , at =  19.40955592154;
+ PR.BHR000054 , at =  20.40955592154;
+ PS55         , at =  25.41274122872;
+ PR.BHT000055 , at =  26.41274122872;
+ PS56         , at =  31.41592653590;
+ PR.BHU000056 , at =  33.81592653590;
+ PS57         , at =  38.81911184308;
+ PR.BHT000057 , at =  39.81911184308;
+ PS58         , at =  44.82229715026;
+ PR.BHU000058 , at =  45.82229715026;
+ PS59         , at =  50.82548245744;
+ PR.BHT000059 , at =  51.82548245744;
+ PS60         , at =  56.82866776462;
+ PR.BHU000060 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC7 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS61         , at =   0.00000000000;
+ PR.BHT000061 , at =   2.40000000000;
+ PS62         , at =   7.40318530718;
+ PR.BHU000062 , at =   8.40318530718;
+ PS63         , at =  13.40637061436;
+ PR.BHT000063 , at =  14.40637061436;
+ PS64         , at =  19.40955592154;
+ PR.BHU000064 , at =  20.40955592154;
+ PS65         , at =  25.41274122872;
+ PR.BHT000065 , at =  26.41274122872;
+ PS66         , at =  31.41592653590;
+ PR.BHR000066 , at =  33.81592653590;
+ PS67         , at =  38.81911184308;
+ PR.BHS000067 , at =  39.81911184308;
+ PS68         , at =  44.82229715026;
+ PR.BHU000068 , at =  45.82229715026;
+ PS69         , at =  50.82548245744;
+ PR.BHT000069 , at =  51.82548245744;
+ PS70         , at =  56.82866776462;
+ PR.BHR000070 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC8 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS71         , at =   0.00000000000;
+ PR.BHT000071 , at =   2.40000000000;
+ PS72         , at =   7.40318530718;
+ PR.BHR000072 , at =   8.40318530718;
+ PS73         , at =  13.40637061436;
+ PR.BHS000073 , at =  14.40637061436;
+ PS74         , at =  19.40955592154;
+ PR.BHU000074 , at =  20.40955592154;
+ PS75         , at =  25.41274122872;
+ PR.BHT000075 , at =  26.41274122872;
+ PS76         , at =  31.41592653590;
+ PR.BHR000076 , at =  33.81592653590;
+ PS77         , at =  38.81911184308;
+ PR.BHT000077 , at =  39.81911184308;
+ PS78         , at =  44.82229715026;
+ PR.BHR000078 , at =  45.82229715026;
+ PS79         , at =  50.82548245744;
+ PR.BHS000079 , at =  51.82548245744;
+ PS80         , at =  56.82866776462;
+ PR.BHR000080 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC9 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS81         , at =   0.00000000000;
+ PR.BHT000081 , at =   2.40000000000;
+ PS82         , at =   7.40318530718;
+ PR.BHR000082 , at =   8.40318530718;
+ PS83         , at =  13.40637061436;
+ PR.BHS000083 , at =  14.40637061436;
+ PS84         , at =  19.40955592154;
+ PR.BHR000084 , at =  20.40955592154;
+ PS85         , at =  25.41274122872;
+ PR.BHT000085 , at =  26.41274122872;
+ PS86         , at =  31.41592653590;
+ PR.BHR000086 , at =  33.81592653590;
+ PS87         , at =  38.81911184308;
+ PR.BHS000087 , at =  39.81911184308;
+ PS88         , at =  44.82229715026;
+ PR.BHU000088 , at =  45.82229715026;
+ PS89         , at =  50.82548245744;
+ PR.BHT000089 , at =  51.82548245744;
+ PS90         , at =  56.82866776462;
+ PR.BHR000090 , at =  57.82866776462;
+ENDSEQUENCE;
+
+SEC0 : SEQUENCE, L = 62.83185307180, refer=entry;
+ PS91         , at =   0.00000000000;
+ PR.BHT000091 , at =   2.40000000000;
+ PS92         , at =   7.40318530718;
+ PR.BHR000092 , at =   8.40318530718;
+ PS93         , at =  13.40637061436;
+ PR.BHS000093 , at =  14.40637061436;
+ PS94         , at =  19.40955592154;
+ PR.BHR000094 , at =  20.40955592154;
+ PS95         , at =  25.41274122872;
+ PR.BHT000095 , at =  26.41274122872;
+ PS96         , at =  31.41592653590;
+ PR.BHR000096 , at =  33.81592653590;
+ PS97         , at =  38.81911184308;
+ PR.BHT000097 , at =  39.81911184308;
+ PS98         , at =  44.82229715026;
+ PR.BHR000098 , at =  45.82229715026;
+ PS99         , at =  50.82548245744;
+ PR.BHS000099 , at =  51.82548245744;
+ PS00         , at =  56.82866776462;
+ PR.BHR000100 , at =  57.82866776462;
+ENDSEQUENCE;
+
+
+
+PS : SEQUENCE, L = 628.318530718, refer=entry;
+SEC1,  at =   0.00000;
+SEC2,  at =  62.8318530718;
+SEC3,  at = 125.6637061436;
+SEC4,  at = 188.4955592154;
+SEC5,  at = 251.3274122872;
+SEC6,  at = 314.1592653590;
+SEC7,  at = 376.9911184308;
+SEC8,  at = 439.8229715026;
+SEC9,  at = 502.6548245744;
+SEC0,  at = 565.4866776462;
+ENDMARK,at= 628.3185307180;
+ENDSEQUENCE;
+
+PSL=628.318530718;
+PS4 : SEQUENCE, L = 4*PSL, refer=entry;
+SEC1,  at =   0.00000;
+SEC2,  at =  62.8318530718;
+SEC3,  at = 125.6637061436;
+SEC4,  at = 188.4955592154;
+SEC5,  at = 251.3274122872;
+SEC6,  at = 314.1592653590;
+SEC7,  at = 376.9911184308;
+SEC8,  at = 439.8229715026;
+SEC9,  at = 502.6548245744;
+SEC0,  at = 565.4866776462;
+SEC1,  at =   0.00000      +PSL;
+SEC2,  at =  62.8318530718 +PSL;
+SEC3,  at = 125.6637061436 +PSL;
+SEC4,  at = 188.4955592154 +PSL;
+SEC5,  at = 251.3274122872 +PSL;
+SEC6,  at = 314.1592653590 +PSL;
+SEC7,  at = 376.9911184308 +PSL;
+SEC8,  at = 439.8229715026 +PSL;
+SEC9,  at = 502.6548245744 +PSL;
+SEC0,  at = 565.4866776462 +PSL;
+SEC1,  at =   0.00000      +2*PSL;
+SEC2,  at =  62.8318530718 +2*PSL;
+SEC3,  at = 125.6637061436 +2*PSL;
+SEC4,  at = 188.4955592154 +2*PSL;
+SEC5,  at = 251.3274122872 +2*PSL;
+SEC6,  at = 314.1592653590 +2*PSL;
+SEC7,  at = 376.9911184308 +2*PSL;
+SEC8,  at = 439.8229715026 +2*PSL;
+SEC9,  at = 502.6548245744 +2*PSL;
+SEC0,  at = 565.4866776462 +2*PSL;
+SEC1,  at =   0.00000      +3*PSL;
+SEC2,  at =  62.8318530718 +3*PSL;
+SEC3,  at = 125.6637061436 +3*PSL;
+SEC4,  at = 188.4955592154 +3*PSL;
+SEC5,  at = 251.3274122872 +3*PSL;
+SEC6,  at = 314.1592653590 +3*PSL;
+SEC7,  at = 376.9911184308 +3*PSL;
+SEC8,  at = 439.8229715026 +3*PSL;
+SEC9,  at = 502.6548245744 +3*PSL;
+SEC0,  at = 565.4866776462 +3*PSL;
+ENDSEQUENCE;
+
+!ejection channels
+DR01:DRIFT,L=0.1;
+DR02:DRIFT,L=0.2;
+DR03:DRIFT,L=0.3;
+DR04:DRIFT,L=0.4;
+DR05:DRIFT,L=0.5;
+DR06:DRIFT,L=0.6;
+DR07:DRIFT,L=0.7;
+DR08:DRIFT,L=0.8;
+DR09:DRIFT,L=0.9;
+DR10:DRIFT,L=1.0;
+DR24:DRIFT,L=2.4;
+
+
+OPTION,ECHO;
+RETURN;

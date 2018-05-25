@@ -1,0 +1,83 @@
+/******************************************************************
+ * MAD-X PS Optics - flat file generator
+ **
+ ** Injection energy
+ **
+ ** Eugenio Senes, on model from A. Huschauer and F. Asvesta
+ ** Created 19/02/18
+ ******************************************************************/
+
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+Pc = 2.14;
+call, file="./lattice/load_configuration_2013.lat";
+call, file="./lattice/scripts/macros.ptc";
+call, file='./lattice/multipole_coefficients_injection_2016.dat';
+beam, particle=PROTON, pc=Pc;
+
+ /******************************************************************
+ * already matched for Q = 0.24/0.245
+ ******************************************************************/
+
+! tunes matched with QLOW to 0.24, 0.245
+/* iqf                =       -1.493095883 ;
+iqd                =       -2.224096122 ; */
+iqf                =       -1.476984595 ; ! new running the matching once
+iqd                =       -2.205012404 ;
+
+!values from 2012
+bsw40              :=     0.003498034648 ;
+bsw42              :=     -0.01422287844 ;
+bsw43              :=      0.01290524313 ;
+bsw44              :=    -0.006001526439 ;
+
+!bump sextupole Strength
+BSStren := 0.0;
+
+/******************************************************************
+ * generate initial twiss
+ ******************************************************************/
+
+use, sequence=PS;
+!select, flag=ptc_twiss, column=name,s,beta11,disp1,beta22;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary,file='./Input/twiss_bumpUP.out';
+qx0=table(ptc_twiss_summary,Q1);
+qy0=table(ptc_twiss_summary,Q2);
+value, qx0, qy0;
+ptc_end;
+
+/******************************************************************
+ * generate the flat file
+ ******************************************************************/
+KICKMARKER: marker;
+
+ seqedit, sequence=PS;
+ flatten; cycle , start=KICKMARKER;
+ endedit;
+
+ use, sequence=PS;
+
+ ptc_create_universe;
+ ptc_create_layout,time=true, model=2, exact=true, method=6, nst=3;
+ ptc_script, file="./print_flat_file.ptc";
+ ptc_end;
+
+
+
+ /* ptc_create_universe;
+ ptc_create_layout,time=true, model=2, exact=true, method=6, nst=3;
+ select, flag=ptc_twiss, clear;
+ select, flag=ptc_twiss, column=name,  x, px, y, py;
+ ptc_twiss, icase=5, no=4, deltap_dependency, closed_orbit, file, table=ptc_twiss;
+ ptc_end; */
+
+ ptc_create_universe;
+ ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+ ptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary,file='./Input/twiss_bumpUP2.out';
+ qx0=table(ptc_twiss_summary,Q1);
+ qy0=table(ptc_twiss_summary,Q2);
+ value, qx0, qy0;
+ ptc_end;

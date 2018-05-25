@@ -1,0 +1,8 @@
+Test script for pyOrbit simulations:
+- normal MADx file for close orbit of the PS at injection
+—-> so bump up and no sextupoles in the bumpers
+
+- no RF cavities
+
+- beam to track for 5k turns
+—> rerun after filamentation (started 25 May 2018)

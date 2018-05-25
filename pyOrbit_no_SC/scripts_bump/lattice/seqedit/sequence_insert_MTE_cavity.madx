@@ -1,0 +1,4 @@
+C10MTE :  RFCAVITY,  L=2.4, VOLT:=VRFMTE, LAG=0.5,  HARMON:=HMTE, no_cavity_totalpath; 
+seqedit, sequence=PS91;
+  install, element=C10MTE, at=1.2;
+endedit;
