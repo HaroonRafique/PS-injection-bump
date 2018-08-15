@@ -35,7 +35,7 @@ ramp
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 initialize cavity
 1         ! number of cavities
-DUMMY_CAVITY  "./Tables/RF_CAVITY.day"
+DUMMY_CAVITY  "./Tables/RF_CAVITY.dat"
 INITIAL TIME IN MY UNITS  !set the the RIGHT energy for the actual time ... including cavities
 energize ORBIT lattice
 set orbit acceleration
