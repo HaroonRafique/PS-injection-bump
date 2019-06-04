@@ -15,12 +15,10 @@ bsw44              =    -0.006001526439
 BSS_max = 2*1.11828e-01 #from twiss
 
 # build the parameter sweep lists
-# ~ nstep = 50.
 nstep = 2.
 
 t = np.arange(0,nstep+1,1)/nstep * np.pi/2
 t = np.append(t, t+np.pi/2)
-
 # strengths for the simulation
 #sextupole strength
 BSS_val = BSS_max*np.cos(t)
@@ -34,13 +32,12 @@ bsw44_val = bsw44*np.sin(t)
 # this peice for with-sextupoles
 with open('./sweepBump_master.madx','r') as f:
     message = f.read()
-    head = message[:1310]
-    body1 = message[1310:1631] #up to just before the ptc_twiss
-    body2 = message[1708:1801] # skip the ptc_twiss
-    tail = message[1801:]
+    head = message[:1178]
+    body1 = message[1178:1498] #up to just before the ptc_twiss
+    body2 = message[1574:1667] # skip the ptc_twiss
+    tail = message[1667:]
     f.close()
-
-
+    
 # ~ print head
 # ~ print '\n\n\n ------------------------------------------ \n'
 # ~ print body1
@@ -55,13 +52,11 @@ for k in range(len(bsw40_val)):
 
     customTwiss = '\nptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary,file='+str(k)+'.twiss;\n'
     assignRow = 'Assign, echo='+str(k)+'.out;\n'
-    
     # recompose the script adding the desired lines
-    newMessage = head + firstAdd + body1 + customTwiss + body2 + assignRow + tail
-    
+    newMessage = head+firstAdd+body1+customTwiss+body2+assignRow+tail
     # create the madx file and run it
     with open('sweepBump.madx','w') as f:
         f.write(newMessage)
         f.close()
-   # # ~ os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx") # AFS version
-	os.system("/home/HR/Documents/madx-linux64-gnu < sweepBump.madx") # local version
+    os.system("/afs/cern.ch/eng/sl/MAD-X/pro/releases/5.02.00/madx-linux64 < sweepBump.madx") # AFS version
+    # os.system("madx-macosx64-gnu < sweepBump.madx") # local version
