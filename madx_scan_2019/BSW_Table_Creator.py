@@ -37,7 +37,7 @@ bsw44_val = bsw44*np.sin(t)
 # 9 spaces before and between each column
 # with header something like:
 # ~ header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\t\tBSEXT40_K2\t\tBSEXT42_K2\t\tBSEXT43_K2\t\tBSEXT44_K2\n$\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\n"
-header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\t\tBSS\t\tBSW40\t\tBSW42_K2\t\tBSW43_K2\t\tBSW44_K2\n$\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\n"
+header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\t\tBSS\t\tBSW40\t\tBSW42\t\tBSW43\t\tBSW44\n$\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\n"
 
 
 # MADX
