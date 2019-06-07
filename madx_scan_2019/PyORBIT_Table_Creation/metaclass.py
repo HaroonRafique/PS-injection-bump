@@ -60,19 +60,17 @@ class twiss:
                 label=split(line)[1].replace(":","")
                 exec "self."+label+"= \""+split(replace(line, '"', ''))[3]+"\""
 
-
+		# Read keyword labels
 	    if ("* " in line or "*\t" in line) :
                 alllabels=split(line)
-                print "alllabels",len(alllabels)
+                print "\tMetaclass::alllabels",len(alllabels)
                 for j in range(1,len(alllabels)):
                     exec "self."+alllabels[j]+"= []"
                     self.keys.append(alllabels[j])
                             
             if ("$ " in line or "$\t" in line) :
                 alltypes=split(line)
-
-
-                
+     
 
             if ("@" not in line and "*" not in line and "$" not in line) :
                 values=split(line)
@@ -108,6 +106,18 @@ class twiss:
 
         if len(dictionary) > 0:
             self.forknames(dictionary)
+            
+    def print_labels(self):
+		print self.keys
+		
+    def print_names(self):
+		print self.NAME
+
+    def find_name(self, name):
+        if name in self.NAME:
+			name_index = self.NAME.index(name)
+			print '\tMetaclass::find_name: Found element ', name, ' at index ', name_index
+			print '\tMetaclass::find_name: NAME[', name_index, '] = ', self.NAME[name_index]
 
     def chrombeat(self):
       self.dbx=[]

@@ -12,29 +12,32 @@ mpi_mkdir_p('Tables')
 directory = '../Test'
 for filename in os.listdir(directory):
 	if filename.endswith(".twiss"): 
-		print '\n\tReading File : ', directory , '/' , filename
+		print '\n\tReading File : ',directory,'/',filename
 		twiss = metaclass.twiss(directory + '/' + filename)
+		
 		multipole_orders = [3]
-		t = twiss.BSEXT40_T
 		
-		print twiss.alllabels
+		twiss.print_labels()
+		twiss.print_names()
+		twiss.find_name('BSEXT40')
 		
+		print twiss.BSEXT40_T
+		
+		t = twiss.BSEXT40_T		
 		# ~ t = (1E-3 / 100) * int(filename.split('.')[0])
 		print '\n\tTime = ', t
 		
-		print twiss.BSEXT40_L
+		# ~ print twiss.alllabels
+		# ~ print twiss.keys()		
 		
 		write_PTCtable('Tables/BSEXT40.dat', multipole_orders, t, twiss.BSEXT40_K2, twiss.BSEXT40_K2*0)
 		write_PTCtable('Tables/BSEXT42.dat', multipole_orders, t, twiss.BSEXT42_K2, twiss.BSEXT42_K2*0)
 		write_PTCtable('Tables/BSEXT44.dat', multipole_orders, t, twiss.BSEXT43_K2, twiss.BSEXT43_K2*0)
 		write_PTCtable('Tables/BSEXT44.dat', multipole_orders, t, twiss.BSEXT44_K2, twiss.BSEXT44_K2*0)
 		
-         
-    # ~ else:
-        # ~ continue
-
-
-
+			
+		
+		
 # ~ b = metaclass.twiss('PSB/output/BSW_betabeat_correction.tfs')
 
 # ~ t = b.BSW_T
