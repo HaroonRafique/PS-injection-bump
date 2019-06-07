@@ -54,7 +54,7 @@ for i in range(len(t)):
 	s43 = BSS_val[i]*(bsw43*np.sin(i) / bsw42*np.sin(i))
 	s44 = BSS_val[i]*(bsw44*np.sin(i) / bsw42*np.sin(i))	
 	
-	column = str('\t\t%2.5f\t\t%2.5f\t%2.5f\t%2.5f\t%2.5f\n' % (t[i], s40, s42, s43, s44))
+	column = str('\t\t%2.5e\t\t%2.5e\t%2.5e\t%2.5e\t%2.5e\n' % (t[i], s40, s42, s43, s44))
 	# ~ print('{:<10s}%2.5f'.format(str(s40)))
 	# ~ column = print('{:<10s}%2.5f{:<10s}%2.5f{:<10s}%2.5f{:<10s}%2.5f\n'.format(s40, s42, s43, s44))
 	# ~ column = print( '{:<10s}%2.5f' )
