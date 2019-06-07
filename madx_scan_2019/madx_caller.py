@@ -34,20 +34,33 @@ bsw44_val = bsw44*np.sin(t)
 # this peice for with-sextupoles
 with open('./sweepBump_master.madx','r') as f:
     message = f.read()
-    head = message[:1310]
-    body1 = message[1310:1631] #up to just before the ptc_twiss
-    body2 = message[1708:1801] # skip the ptc_twiss
-    tail = message[1801:]
+    
+    # using optimised seq
+    # ~ head = message[:1310]
+    # ~ body1 = message[1310:1631] #up to just before the ptc_twiss
+    # ~ body2 = message[1708:1801] # skip the ptc_twiss
+    # ~ tail = message[1801:]
+    
+    # using new sequence (older than optimised)
+    head = message[:1301]
+    body1 = message[1301:1625] #up to just before the ptc_twiss
+    body2 = message[1702:1795] # skip the ptc_twiss
+    tail = message[1795:]
     f.close()
 
+verbose = False
 
-# ~ print head
-# ~ print '\n\n\n ------------------------------------------ \n'
-# ~ print body1
-# ~ print '\n\n\n ------------------------------------------ \n'
-# ~ print body2
-# ~ print '\n\n\n ------------------------------------------ \n'
-# ~ print tail
+if verbose:
+	print '\n\nHEAD\n ------------------------------------------ \n'
+	print head
+	print '\n\nBODY1\n ------------------------------------------ \n'
+	print body1
+	print '\n\nBODY2\n ------------------------------------------ \n'
+	print body2
+	print '\n\nTAIL\n ------------------------------------------ \n'
+	print tail
+
+	os.exit(1)
 
 for k in range(len(bsw40_val)):
     # define the rows to add

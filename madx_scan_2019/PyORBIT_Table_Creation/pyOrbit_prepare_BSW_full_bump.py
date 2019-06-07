@@ -2,21 +2,27 @@ import os
 import numpy as np
 import matplotlib.pylab as plt
 import datetime
-from lib import metaclass
-from lib.write_ptc_table import write_PTCtable
-from lib.mpi_helpers import mpi_mkdir_p
+import metaclass
+from write_ptc_table import write_PTCtable
+from mpi_helpers import mpi_mkdir_p
 
 mpi_mkdir_p('Tables')
 
 # Have to iterate through files and read each value
 directory = '../Test'
 for filename in os.listdir(directory):
-    if filename.endswith(".twiss"): 
-        twiss = metaclass.twiss(filename)
-         
+	if filename.endswith(".twiss"): 
+		print '\n\tReading File : ', directory , '/' , filename
+		twiss = metaclass.twiss(directory + '/' + filename)
 		multipole_orders = [3]
-		t = twiss.BSW_T
+		t = twiss.BSEXT40_T
+		
+		print twiss.alllabels
+		
+		# ~ t = (1E-3 / 100) * int(filename.split('.')[0])
 		print '\n\tTime = ', t
+		
+		print twiss.BSEXT40_L
 		
 		write_PTCtable('Tables/BSEXT40.dat', multipole_orders, t, twiss.BSEXT40_K2, twiss.BSEXT40_K2*0)
 		write_PTCtable('Tables/BSEXT42.dat', multipole_orders, t, twiss.BSEXT42_K2, twiss.BSEXT42_K2*0)

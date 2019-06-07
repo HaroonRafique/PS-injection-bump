@@ -13,7 +13,7 @@
 Pc = 2.14;
 call, file="./Lattice/Elements/PS_new.ele";
 call, file="./Lattice/Aperture/PS_2013.aper";
-call, file="./Lattice/Sequence/PS_optimised.seq";
+call, file="./Lattice/Sequence/PS_new.seq";
 call, file="./Lattice/Strength/PS_new.str";
 call, file="./Lattice/Scripts/macros.ptc";
 call, file='./multipole_coefficients_injection_2016.dat';
@@ -39,14 +39,14 @@ bsw44              =    -0.006001526439 ; */
 /* BSStren := 0.0; */
 /* BSStren := 1.002E-1; */
 
-
-
-
 BSStren := -0.223656;
 bsw40 := 4.2838569349797387e-19;
 bsw42 := -1.74180025562079e-18;
 bsw43 := 1.5804364691372871e-18;
 bsw44 := -7.349750143519563e-19;
+
+
+
 /******************************************************************
  * First Twiss
  ******************************************************************/

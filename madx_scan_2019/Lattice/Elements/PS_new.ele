@@ -1,6 +1,12 @@
 
   option,echo;
 
+!-----------------------------------------------------------------------!
+!                     my mods                                      !
+!-----------------------------------------------------------------------!
+
+halfD209        :  HKICKER, L=0.10; CC209:=  28.E-6/(BRHO);        !bSM
+
 
 /************************************************************************
  * This file defines the entire PS machine with 100 combined function magnets
@@ -2383,6 +2389,7 @@ PR.BHR000100 : SEQUENCE, refer = CENTRE,  L = 5.00318530718;  ! D-F unit, yoke o
  PR.BHR000100.mpfe2  : mpfe2,  AT = 4.7046126;
  PR.BHR000100.c2     : c,      AT = 4.8538989;
 ENDSEQUENCE;
+
 
 
 

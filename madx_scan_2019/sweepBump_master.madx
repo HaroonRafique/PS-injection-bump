@@ -13,7 +13,7 @@
 Pc = 2.14;
 call, file="./Lattice/Elements/PS_new.ele";
 call, file="./Lattice/Aperture/PS_2013.aper";
-call, file="./Lattice/Sequence/PS_optimised.seq";
+call, file="./Lattice/Sequence/PS_new.seq";
 call, file="./Lattice/Strength/PS_new.str";
 call, file="./Lattice/Scripts/macros.ptc";
 call, file='./multipole_coefficients_injection_2016.dat';
