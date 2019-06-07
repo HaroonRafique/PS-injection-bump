@@ -53,8 +53,8 @@ for k in range(len(bsw40_val)):
     # define the rows to add
     firstAdd = '\n\nBSStren := ' + str(BSS_val[k]) + ';\n' + 'bsw40 := ' + str(bsw40_val[k]) + ';\n' + 'bsw42 := ' + str(bsw42_val[k]) + ';\n' + 'bsw43 := ' + str(bsw43_val[k]) + ';\n'  + 'bsw44 := ' + str(bsw44_val[k]) + ';\n'
 
-    customTwiss = '\nptc_twiss, closed_orbit, icase=56, no=4, summary_table=ptc_twiss_summary, file=Result/'+str(k)+'.twiss;\n'
-    assignRow = '\nAssign, echo=Result/'+str(k)+'.out;\n'
+    customTwiss = '\nptc_twiss, closed_orbit, icase=56, no=4, summary_table=ptc_twiss_summary, file='+str(k)+'.twiss;\n'
+    assignRow = '\nAssign, echo='+str(k)+'.out;\n'
     
     # recompose the script adding the desired lines
     newMessage = head + firstAdd + body1 + customTwiss + body2 + assignRow + tail
