@@ -37,7 +37,8 @@ bsw44_val = bsw44*np.sin(t)
 # 9 spaces before and between each column
 # with header something like:
 # ~ header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\t\tBSEXT40_K2\t\tBSEXT42_K2\t\tBSEXT43_K2\t\tBSEXT44_K2\n$\t\t%le\t\t%le\t\t%le\t\t%le\t\t%le\n"
-header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\tBSS\tBSW40\tBSW42\tBSW43\tBSW44\n$\t%le\t%le\t%le\t%le\t%le\t%le\n"
+# ~ header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n*             BSEXT_T\tBSS\tBSW40\tBSW42\tBSW43\tBSW44\n$\t%le\t%le\t%le\t%le\t%le\t%le\n"
+header = "@ NAME             %08s \"BSWTABLE\"\n@ TYPE             %04s \"USER\"\n@ TITLE            %03s \"BSW\"\n@ ORIGIN           %16s \"5.04.02 Linux 64\"\n@ DATE             %08s \"07/06/19\"\n@ TIME             %08s \"12.09.14\"\n"
 
 
 # MADX
@@ -57,6 +58,10 @@ for i in t:
 	# ~ s44 = -BSS_val[i]*(bsw44*np.sin(i) / bsw42*np.sin(i))	
 	# ~ column = str('\t\t%2.5e\t\t%2.5e\t%2.5e\t%2.5e\t%2.5e\n' % (t[i], s40, s42, s43, s44))
 	
+	# ~ column = str('\t%2.5e\t%2.5e\t%2.5e\t%2.5e\t%2.5e\t%2.5e\n' % (i, bss, s40, s42, s43, s44))
+ 
+	# ~ f.write(column)
+	
 	# Bumper strengths
 	bss = BSS_max*np.cos(i)
 	s40 = bsw40*np.sin(i)
@@ -64,7 +69,12 @@ for i in t:
 	s43 = bsw43*np.sin(i)
 	s44 = bsw44*np.sin(i)
 	
-	column = str('\t%2.5e\t%2.5e\t%2.5e\t%2.5e\t%2.5e\t%2.5e\n' % (i, bss, s40, s42, s43, s44))
- 
-	f.write(column)
-	
+f.write('*'+' '.join(map(lambda i: i.rjust(18), ['BSEXT_T', 'BSS', 'BSW40_K0', 'BSW42_K0', 'BSW43_K0', 'BSW44_K0'])) + '\n')
+f.write('$'+' '.join(map(lambda i: i.rjust(18), ['%le', '%le', '%le', '%le','%le', '%le'])) + '\n')
+
+# ~ for i in xrange(0,len(t),100):
+for i in xrange(0,len(t)):
+		f.write(' '+' '.join(map(lambda i: ('%1.4e'%i).rjust(18), [t[i], BSS_max*np.cos(t[i]), bsw40*np.sin(t[i]), bsw42*np.sin(t[i]), bsw43*np.sin(t[i]), bsw44*np.sin(t[i])])) + '\n')
+
+
+
