@@ -1,0 +1,202 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** Injection energy
+ **
+ ** Alexander Huschauer
+ ** Created 02/09/16
+ ** Based on the work of Eugenio Senes
+ ** Updated by Haroon Rafique 07.06.19
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+Pc = 2.14;
+call, file="./Lattice/Elements/PS_new.ele";
+call, file="./Lattice/Aperture/PS_2013.aper";
+call, file="./Lattice/Sequence/PS_new.seq";
+call, file="./Lattice/Strength/PS_new.str";
+call, file="./Lattice/Scripts/macros.ptc";
+call, file='./multipole_coefficients_injection_2016.dat';
+beam, particle=PROTON, pc=Pc;
+
+/******************************************************************
+ * Define table and relevent values
+ ******************************************************************/
+
+create, table=mytable, column=BSEXT_t, BSX40_K2, BSX42_K2, BSX43_K2, BSX44_K2;
+
+readtable, file='./Input/BSEXT_Bump.tfs';
+nrows = table(BSEXTTABLE, tablelength);
+
+row = 0;
+while(row<nrows){
+! while(row<24){
+  
+   row = row + 1;
+   iteration = 0;
+
+     value, iteration;
+
+     SETVARS,TABLE=BSWTABLE,ROW=row;
+     exec, assign_BSW_strength;
+
+    
+     MATCH, USE_MACRO;
+      VARY, NAME = kd_trm, STEP = 1e-6;
+      USE_MACRO, name=ptc_twiss_macro;
+      Constraint, EXPR=Table(ptc_twiss, mymarker, BETY) = bety_target;
+      value, bety_target;
+      LMDIF, TOLERANCE = 1.0E-18;
+      ! JACOBIAN,CALLS=1000,TOLERANCE=1.0E-15,STRATEGY=3; !,COOL=real,BALANCE=real, random=real;
+     ENDMATCH;
+     
+     option, warn;
+
+   option, -info;
+   fill, table=mytable;
+};
+
+write, table=mytable, file='../output/BSW_betabeat_correction.tfs';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+Pc = 2.14;
+call, file="./Lattice/Elements/PS_new.ele";
+call, file="./Lattice/Aperture/PS_2013.aper";
+call, file="./Lattice/Sequence/PS_new.seq";
+call, file="./Lattice/Strength/PS_new.str";
+call, file="./Lattice/Scripts/macros.ptc";
+call, file='./multipole_coefficients_injection_2016.dat';
+beam, particle=PROTON, pc=Pc;
+
+ /******************************************************************
+ * Matching
+ ******************************************************************/
+
+!BSW43 = 490;
+
+! tunes matched with QLOW to 0.24, 0.245
+iqf                =       -1.476984595 ; ! new running the matching once
+iqd                =       -2.205012404 ;
+
+!values from 2012
+/* bsw40              =     0.003498034648 ;
+bsw42              =     -0.01422287844 ;
+bsw43              =      0.01290524313 ;
+bsw44              =    -0.006001526439 ; */
+
+!bump sextupole Strength
+/* BSStren := 0.0; */
+/* BSStren := 1.002E-1; */
+
+
+/******************************************************************
+ * First Twiss
+ ******************************************************************/
+
+use, sequence=PS;
+
+!select, flag=ptc_twiss, column=name,s,beta11,disp1,beta22;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+
+/* ptc_twiss,closed_orbit,icase=56,no=4,summary_table=ptc_twiss_summary; */
+
+qx0=table(ptc_twiss_summary,Q1);
+qy0=table(ptc_twiss_summary,Q2);
+value, qx0, qy0;
+ptc_end;
+
+/* Assign, echo='./result/0.out'; */
+value, BSStren, bsw40, bsw42, bsw43, bsw44, qx0, qy0;
+Assign, echo=terminal; !get back to output on terminal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BSW1_K0 := + BSW_K0L/BI1.BSW1L1.1->L;
+BSW2_K0 := - BSW_K0L/BI1.BSW1L1.2->L;
+BSW3_K0 := - BSW_K0L/BI1.BSW1L1.3->L;
+BSW4_K0 := + BSW_K0L/BI1.BSW1L1.4->L;
+BSW1_K2 := + BSW_K2L/BI1.BSW1L1.1->L;
+BSW2_K2 := - BSW_K2L/BI1.BSW1L1.2->L;
+BSW3_K2 := - BSW_K2L/BI1.BSW1L1.3->L;
+BSW4_K2 := + BSW_K2L/BI1.BSW1L1.4->L;
+create, table=mytable, column=BSW_t, BSW_K0L, BSW1_K0, BSW2_K0, BSW3_K0, BSW4_K0, 
+								BSW_K2L, BSW1_K2, BSW2_K2, BSW3_K2, BSW4_K2, kkf, 
+								kkd, kd_trm, kd_bal, kd3, kd14, Qx, Qy, alfy, betabeaty_max;
+
+
+readtable, file='../strength/BSW_collapse.tfs';
+nrows = table(BSWTABLE, tablelength);
+
+
+row = 0;
+while(row<nrows){
+! while(row<24){
+  
+   row = row + 1;
+   iteration = 0;
+
+     value, iteration;
+
+     SETVARS,TABLE=BSWTABLE,ROW=row;
+     exec, assign_BSW_strength;
+
+    
+     MATCH, USE_MACRO;
+      VARY, NAME = kd_trm, STEP = 1e-6;
+      USE_MACRO, name=ptc_twiss_macro;
+      Constraint, EXPR=Table(ptc_twiss, mymarker, BETY) = bety_target;
+      value, bety_target;
+      LMDIF, TOLERANCE = 1.0E-18;
+      ! JACOBIAN,CALLS=1000,TOLERANCE=1.0E-15,STRATEGY=3; !,COOL=real,BALANCE=real, random=real;
+     ENDMATCH;
+     
+     option, warn;
+
+   option, -info;
+   fill, table=mytable;
+};
+
+write, table=mytable, file='../output/BSW_betabeat_correction.tfs';
+
+
+plot, table=mytable, HAXIS=BSW_t, VAXIS=KKD, KD3, KD14;
+plot, table=mytable, HAXIS=BSW_t, VAXIS=betabeaty_max;
+plot, table=mytable, HAXIS=BSW_t, VAXIS=BSW_K0L, BSW_K2L;
+
