@@ -331,9 +331,12 @@ ENDSEQUENCE;
 
 PS40: SEQUENCE, L= 1.0;
 
-   PI.BSW40.1 :  halfD209, AT = 0.45;
-   BSEXT40    :  MULTIPOLE, KNL:={0,0,K2_S40}  , AT = 0.5;
-   PI.BSW40.2 :  halfD209, AT = 0.55;
+   !PI.BSW40.1 :  halfD209, AT = 0.45;
+   !BSEXT40    :  MULTIPOLE, KNL:={0,0,K2_S40}  , AT = 0.5;
+   !PI.BSW40.2 :  halfD209, AT = 0.55;
+   PI.BSW40.1 :  halfD209, AT = 0.05;
+   BSEXT40    :  MULTIPOLE, KNL:={0,0,K2_S40}  , AT = 0.10;
+   PI.BSW40.2 :  halfD209, AT = 0.15;
    
    PR.QDN40      :  QND    , AT = 1.0;
 
@@ -366,9 +369,13 @@ ENDSEQUENCE;
 
 PS43: SEQUENCE, L= 1.0;
 
-   PI.BSW43.1   :  halfD209   , AT = 0.35;
-   BSEXT43      :  MULTIPOLE, KNL:={0,0,K2_S43}  , AT = 0.4;
-   PI.BSW43.2   :  halfD209   , AT = 0.45;
+   !PI.BSW43.1   :  halfD209   , AT = 0.35;
+   !BSEXT43      :  MULTIPOLE, KNL:={0,0,K2_S43}  , AT = 0.4;
+   !PI.BSW43.2   :  halfD209   , AT = 0.45;
+
+   PI.BSW43.1   :  halfD209   , AT = 0.05;
+   BSEXT43      :  MULTIPOLE, KNL:={0,0,K2_S43}  , AT = 0.1;
+   PI.BSW43.2   :  halfD209   , AT = 0.15;
    
    PR.QSK43      :  QLSF   , AT = 1.0;
  
@@ -378,9 +385,13 @@ ENDSEQUENCE;
 
 PS44: SEQUENCE, L= 1.0;
 
-   PI.BSW44.1   :  halfD209   , AT = 0.65;
-   BSEXT44      :  MULTIPOLE, KNL:={0,0,K2_S44}  , AT = 0.7;
-   PI.BSW44.2   :  halfD209   , AT = 0.75;
+   !PI.BSW44.1   :  halfD209   , AT = 0.65;
+   !BSEXT44      :  MULTIPOLE, KNL:={0,0,K2_S44}  , AT = 0.7;
+   !PI.BSW44.2   :  halfD209   , AT = 0.75;
+
+   PI.BSW44.1   :  halfD209   , AT = 0.05;
+   BSEXT44      :  MULTIPOLE, KNL:={0,0,K2_S44}  , AT = 0.1;
+   PI.BSW44.2   :  halfD209   , AT = 0.15;
    
    PR.QSK44      :  QNSD   , AT = 1.0;
  
