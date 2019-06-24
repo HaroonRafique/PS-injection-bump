@@ -197,4 +197,5 @@ BCT         :  MONITOR;                       ! beam current transformer 34, 38
 !                     my mods                                      !
 !-----------------------------------------------------------------------!
 
-halfD209        :  HKICKER, L=0.10; CC209:=  28.E-6/(BRHO);        !bSM
+!halfD209        :  HKICKER, L=0.10; CC209:=  28.E-6/(BRHO);        !bSM
+halfD209        :  HKICKER, L=0.10; CC209:=  BUMP40;        !bSM

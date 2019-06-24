@@ -52,8 +52,8 @@ BSW43 := BSW43_K0;
 BSW44 := BSW44_K0;
 BSStren : = BSS;
 
-!BUMP_40 := 28.E-6/(BRHO);
-BUMP_40 := 28;
+BUMP_40 := 28.E-6/(BRHO);
+!BUMP_40 := 1;
 
 K2_S40 := -BSStren*(BSW40/BSW42);
 K2_S42 := -BSStren*(BSW42/BSW42);
