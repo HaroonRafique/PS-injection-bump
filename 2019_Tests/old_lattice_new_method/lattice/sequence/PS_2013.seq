@@ -577,7 +577,7 @@ PS40: SEQUENCE, L= 1.0;
    PR.UHV40   :  UNO    , AT = 0.0;
    /* PI.BSM40   :  D209   , AT = 0.5; ! the old bumper*/
    PI.BSM40.1 :  halfD209, AT = 0.45;
-   BSEXT40    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW40/BSW42)}  , AT = 0.5;
+   BSEXT40    :  MULTIPOLE, KNL:={0,0,K2_S40}  , AT = 0.5;
    PI.BSM40.2 :  halfD209, AT = 0.55;
    PR.OST40   :  O802   , AT = 0.7;
    PR.QND40   :  QND    , AT = 1.0;
@@ -609,7 +609,7 @@ PS42: SEQUENCE, L= 1.0;
    PR.VPS42   :  VPS    , AT = 0.0; ! Connected to SMH42
    /* PI.BSM42   :  D209   , AT = 0.1; */
    PI.BSM42.1   :  halfD209   , AT = 0.05;
-   BSEXT42    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW42/BSW42)}  , AT = 0.1;
+   BSEXT42    :  MULTIPOLE, KNL:={0,0,K2_S42}  , AT = 0.1;
    PI.BSM42.2   :  halfD209   , AT = 0.15;
    PI.SMH42   :  DRIFT  , AT = 0.6, L = Z*0.7; ! The length should really be 0.8m,
                                                ! but MAD8 gives errors
@@ -630,7 +630,7 @@ PR.DHZ43   :  HKICKER   , AT = 0.0;
    PR.UHV43   :  ULG    , AT = 0.0;
    /* PI.BSM43   :  D209   , AT = 0.4; */
    PI.BSM43.1   :  halfD209   , AT = 0.35;
-   BSEXT43    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW43/BSW42)}  , AT = 0.4;
+   BSEXT43    :  MULTIPOLE, KNL:={0,0,K2_S43}  , AT = 0.4;
    PI.BSM43.2   :  halfD209   , AT = 0.45;
    PR.QLSF43  :  QLSF   , AT = 1.0;
    PR.BHZ43   :  BHZ    , AT = 1.0;
@@ -646,7 +646,7 @@ PR.DHZ44  :  HKICKER   , AT = 0.0;
    PR.BCT44   :  BCT    , AT = 0.5;
    /* PI.BSM44   :  D209   , AT = 0.7; */
    PI.BSM44.1   :  halfD209   , AT = 0.65;
-   BSEXT44    :  MULTIPOLE, KNL:={0,0,-BSStren*(BSW44/BSW42)}  , AT = 0.7;
+   BSEXT44    :  MULTIPOLE, KNL:={0,0,K2_S44}  , AT = 0.7;
    PI.BSM44.2   :  halfD209   , AT = 0.75;
    PR.QNSD44  :  QNSD   , AT = 1.0;
    PR.DVT44             , AT = 1.0;
