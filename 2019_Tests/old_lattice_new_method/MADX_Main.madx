@@ -62,7 +62,7 @@ K2_S44 := -BSStren*(BSW44/BSW42);
 
 create, table=mytable, column=BSEXT_t, BSStren, BSW40, BSW42, BSW43, BSW44, xmax, ymax, Qx, Qy, K2_S40, K2_S42, K2_S43, K2_S44, BUMP_40;
 
-readtable, file='../Input/BSEXT_Bump.tfs';
+readtable, file='./Input/BSEXT_Bump.tfs';
 nrows = table(BSWTABLE, tablelength);
 value, nrows;
 
