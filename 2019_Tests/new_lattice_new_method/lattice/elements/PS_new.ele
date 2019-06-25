@@ -6,6 +6,9 @@
  * This file defines the entire PS machine with 100 combined function magnets
  ************************************************************************/
 
+! Split kickers for injection bump with sextupole kick between
+halfD209        :  HKICKER, L=0.10; CC209:=  BUMP_40;        !bSM
+
 ! general parameters
 ENDMARK     : MARKER;
 BHZ         : MARKER, TYPE = MAIN;

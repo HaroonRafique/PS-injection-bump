@@ -271,5 +271,21 @@ pfki5d =                  0 ;
    PE.KFA04      , KICK :=  KKFA04;
    PE.KFA13      , KICK :=  KKFA13;
    PE.KFA21      , KICK :=  KKFA21;
+   
+! SS 40
+   PI.BSM40.1   , KICK := 0.5*BSW40; 
+   PI.BSM40.2   , KICK := 0.5*BSW40; 
 
+! SS 42
+   PI.BSM42.1   , KICK := 0.5*BSW42;
+   PI.BSM42.2   , KICK := 0.5*BSW42;
+
+! SS 43
+   PI.BSM43.1   , KICK := 0.5*BSW43;
+   PI.BSM43.2   , KICK := 0.5*BSW43;
+
+! SS 44
+   PI.BSM44.1   , KICK := 0.5*BSW44;
+   PI.BSM44.2   , KICK := 0.5*BSW44;
+   
 RETURN;
