@@ -159,8 +159,8 @@
 
 ! SS 40
    PI.BSM40   , KICK := +BSW40; !KICK := +BSW40 * CC209;
-   PI.BSM40.1   , KICK := +0.5*BSW40; !KICK := +BSW40 * CC209;
-   PI.BSM40.2   , KICK := +0.5*BSW40; !KICK := +BSW40 * CC209;
+   PI.BSM40.1   , KICK := 0.5*BSW40; !KICK := +BSW40 * CC209;
+   PI.BSM40.2   , KICK := 0.5*BSW40; !KICK := +BSW40 * CC209;
    PR.OST40   , knl:={0,0,0,-1*Iode*CC802};
    PR.QND40   , knl:={0,-CC401*Iqd};
 
@@ -170,14 +170,14 @@
 
 ! SS 42
    PI.BSM42   , KICK := +BSW42; !KICK := -BSW42 * CC209;
-   PI.BSM42.1   , KICK := +0.5*BSW42; !KICK := -BSW42 * CC209;
-   PI.BSM42.2   , KICK := +0.5*BSW42; !KICK := -BSW42 * CC209;
+   PI.BSM42.1   , KICK := 0.5*BSW42; !KICK := -BSW42 * CC209;
+   PI.BSM42.2   , KICK := 0.5*BSW42; !KICK := -BSW42 * CC209;
    PR.QLSD42  , ksl:={0,-CC404*IQS};
 
 ! SS 43
    PI.BSM43   , KICK := +BSW43; !KICK := +BSW43 * CC209;
-   PI.BSM43.1   , KICK := +0.5*BSW43; !KICK := +BSW43 * CC209;
-   PI.BSM43.2   , KICK := +0.5*BSW43; !KICK := +BSW43 * CC209;
+   PI.BSM43.1   , KICK := 0.5*BSW43; !KICK := +BSW43 * CC209;
+   PI.BSM43.2   , KICK := 0.5*BSW43; !KICK := +BSW43 * CC209;
    PR.QLSF43  , ksl:={0, CC404*IQS};
 
 ! SS 44

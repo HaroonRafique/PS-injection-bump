@@ -3,7 +3,7 @@
 @ TITLE            %08s "no-title"
 @ ORIGIN           %16s "5.04.02 Linux 64"
 @ DATE             %08s "25/06/19"
-@ TIME             %08s "14.37.30"
+@ TIME             %08s "14.40.47"
 *            BSEXT_T            BSSTREN              BSW40              BSW42              BSW43              BSW44               XMAX               YMAX                 QX                 QY             K2_S40             K2_S42             K2_S43             K2_S44            BUMP_40 
 $                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le                %le 
                   0            0.22366                  0                 -0                  0                 -0                  0                  0        6.240138613        6.245316323                  0                  0                  0                  0      3.9225663e-06
