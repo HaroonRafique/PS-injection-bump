@@ -1,0 +1,153 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** Injection energy
+ **
+ ** Alexander Huschauer
+ ** Created 02/09/16
+ ** Based on the work of Eugenio Senes
+ ** Updated by Haroon Rafique 07.06.19
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+Pc = 2.14;
+call, file="./lattice/PS_new_injection_bump.ele";
+call, file="./lattice/PS_2013.aper";
+call, file="./lattice/PS_new_injection_bump.seq";
+call, file="./lattice/PS_new_injection_bump.str";
+call, file="./lattice/macros.ptc";
+call, file='./multipole_coefficients_injection_2016.dat';
+beam, particle=PROTON, pc=Pc;
+
+assign_BSW_strength: macro = {
+     SELECT,FLAG=ERROR,CLEAR;
+     SELECT,FLAG=ERROR,PATTERN=BI1.BSW1L1.1;
+     SELECT,FLAG=ERROR,PATTERN=BI1.BSW1L1.4;
+     EFCOMP, DKN:={+BSW_K0L, 0, +BSW_K2L};   
+
+     SELECT,FLAG=ERROR,CLEAR;
+     SELECT,FLAG=ERROR,PATTERN=BI1.BSW1L1.2;
+     SELECT,FLAG=ERROR,PATTERN=BI1.BSW1L1.3;
+     EFCOMP, DKN:={-BSW_K0L, 0, -BSW_K2L}; 
+ };
+
+/***********************************************************************
+ * RFV can be used to manually seet the RF cavity voltage.
+ * This is overridden by a PTC RF table (called from PyORBIT).
+ **********************************************************************/
+RFV = 0.021;
+
+/***********************************************************************
+ * Create a MAD-X beam and tell MAD-X which accelerator lattice to use.
+ **********************************************************************/
+beam, particle=proton, pc=pc;
+use, sequence=PS;
+
+/***********************************************************************
+ * Here we manually edit the sequence (lattice) to install a zero length
+ * beam wire scanner at the start of region 64. We then save the new 
+ * sequence to a file.
+ **********************************************************************/
+PR.BWSV64     :  MONITOR  , L = 0.0; 
+
+seqedit, sequence=PS;
+	flatten;
+	install, element=PR.BWSV64, at=0.4, from=PS64$START;
+	flatten;
+endedit;
+
+use, sequence=PS;
+
+seqedit, sequence=PS;
+	flatten;
+	cycle , start=PR.BWSV64;
+	flatten;
+endedit;
+
+save,file='./PS.seq';
+
+/******************************************************************
+ * Define table and relevent values
+ ******************************************************************/
+use, sequence=PS;
+
+xmax := table(summ, xcomax);
+Qx := table(summ, Q1);
+Qy := table(summ, Q2);
+/***
+BSW40 := BSW40_K0 * 10000;
+BSW42 := BSW42_K0 * 10000;
+BSW43 := BSW43_K0 * 10000;
+BSW44 := BSW44_K0 * 10000;
+***/
+BSW40 := BSW40_K0;
+BSW42 := BSW42_K0;
+BSW43 := BSW43_K0;
+BSW44 := BSW44_K0;
+BSStren : = BSS;
+
+BUMP_40 := 28.E-6/(BRHO);
+
+K2_S40 := -BSStren*(BSW40/BSW42);
+K2_S42 := -BSStren*(BSW42/BSW42);
+K2_S43 := -BSStren*(BSW43/BSW42);
+K2_S44 := -BSStren*(BSW44/BSW42);
+
+create, table=mytable, column=BSEXT_t, BSStren, BSW40, BSW42, BSW43, BSW44, xmax, Qx, Qy, K2_S40, K2_S42, K2_S43, K2_S44, BUMP_40;
+
+readtable, file='./Input/BSEXT_Bump.tfs';
+nrows = table(BSWTABLE, tablelength);
+value, nrows;
+
+row = 0;
+
+while(row<nrows){
+!while(row<10){
+
+	row = row + 1;
+	iteration = 0;
+
+	value, iteration;
+
+	SETVARS, TABLE=BSWTABLE, ROW=row;
+	/***
+	show, PI.BSW40.1;
+	show, PI.BSW40.2;
+	show, PI.BSW42.1;
+	show, PI.BSW42.2;
+	show, PI.BSW43.1;
+	show, PI.BSW43.2;
+	show, PI.BSW44.1;
+	show, PI.BSW44.2;
+	!stop;
+	!exec, assign_BSW_strength;
+	***/
+
+	iqf = -1.476984595 ; ! new running the matching once
+	iqd = -2.205012404 ;
+
+	option, warn;
+
+	option, -info;
+	
+	twiss;
+	!plot, haxis=s, vaxis=x,y;
+	fill, table=mytable;
+	
+};
+
+plot, table=mytable, haxis=BSEXT_t, vaxis=xmax;
+plot, table=mytable, haxis=BSEXT_t, vaxis=Qx;
+plot, table=mytable, haxis=BSEXT_t, vaxis=Qy;
+plot, table=mytable, haxis=BSEXT_t, vaxis=K2_S40, K2_S42, K2_S43;
+plot, table=mytable, haxis=BSEXT_t, vaxis=K2_S44;
+plot, table=mytable, haxis=BSEXT_t, vaxis=BSStren;
+plot, table=mytable, haxis=BSEXT_t, vaxis=BSW40, BSW44;
+plot, table=mytable, haxis=BSEXT_t, vaxis=BSW43, BSW42, BSW40;
+!plot, table=mytable, haxis=BSEXT_t, vaxis=BSW42;
+!plot, table=mytable, haxis=BSEXT_t, vaxis=BSW43;
+!plot, table=mytable, haxis=BSEXT_t, vaxis=BSW44;
+plot, table=mytable, haxis=BSEXT_t, vaxis=BUMP_40;
+write, table=mytable, file='BSEXT_Out.tfs';
