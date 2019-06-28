@@ -26,7 +26,6 @@ def Create_PTC_Table(name, multipole_order, time, normal, skew):
 	
 	return
 
-Create_PTC_Table('TEST', 2, [0,1,2], [11.32161, 12.1321564, 13.555555855555555], [0,0,0])
 
 # Table time is in seconds
 # 1 turn = 2.287E-6 seconds
@@ -36,5 +35,50 @@ Create_PTC_Table('TEST', 2, [0,1,2], [11.32161, 12.1321564, 13.555555855555555],
 # zeroes from 5E-4 - 5.0314E-3 s
 
 # Read TFS table
+# We ignore the time column
+def Read_TFS_Return_Data(file_in):
+	fi = open(file_in, 'r')
+	contents = fi.readlines()
 
-# Create some data structure
+	data = []
+	for l in contents:
+		if ('@' in l) or ('$' in l) or ('*' in l):
+			pass
+		else:
+			data.append(l.split()[1])
+
+	return data
+	
+
+# Function takes the data, creates the correct timing for each value in
+# seconds, then appends the required number of intervals with zeroes
+def Create_Timing(ramp_stop_time, simulation_stop_time, data):
+	data_2 = data
+	
+	# create sequence for time
+	d_len = len(data)
+	time = np.linspace(0, ramp_stop_time, d_len)
+	
+	# Calculate interval to complete data until the end of the simulation
+	interval = ramp_stop_time / d_len
+	
+	# Append zeroes (bump is closed)
+	steps = int((simulation_stop_time - ramp_stop_time)	/ interval) + 5
+	
+	for i in xrange(steps):
+		if i is 0:
+			pass
+		else:
+			time = np.append(time, (ramp_stop_time + (i*interval)))
+			data_2.append(0.0)
+				
+	return time, data_2
+
+
+
+
+Create_PTC_Table('TEST', 2, [0,1,2], [11.32161, 12.1321564, 13.555555855555555], [0,0,0])
+
+B_40 = Read_TFS_Return_Data('BSEXT40.tfs')
+B_40_final = Create_Timing(5E-4, 5.0314E-3, B_40)
+Create_PTC_Table('BSEXT40', 3, B_40_final[0], B_40_final[1], np.zeros(len(B_40_final[0])))
