@@ -274,9 +274,9 @@ while(row<nrows){
 	SETVARS, TABLE=BSWTABLE, ROW=row;
 
 	twiss;
-	exec, ptc_twiss_tune_macro_false_split;
+	!exec, ptc_twiss_tune_macro_false_split;
 	exec, ptc_twiss_tune_macro_false_split_n($row);
-	madx_twiss_file_macro($row);
+	exec, madx_twiss_file_macro($row);
 
 	fill, table=mytable;
 	fill, table=TPI.BSM40.1;
@@ -289,7 +289,6 @@ while(row<nrows){
 	plot, haxis=s, vaxis=x;
 	plot, haxis=s, vaxis=y;
 };
-
 
 /***********************************************************************
  * Create plot of closed orbit and tunes
@@ -307,7 +306,6 @@ plot, table=mytable, haxis=BSEXT_t, vaxis=BSStren;
 plot, table=mytable, haxis=BSEXT_t, vaxis=BSW40, BSW44;
 plot, table=mytable, haxis=BSEXT_t, vaxis=BSW43, BSW42, BSW40;
 plot, table=mytable, haxis=BSEXT_t, vaxis=BUMP_40;
-
 
 /***********************************************************************
  * Write tables for magnet ramp

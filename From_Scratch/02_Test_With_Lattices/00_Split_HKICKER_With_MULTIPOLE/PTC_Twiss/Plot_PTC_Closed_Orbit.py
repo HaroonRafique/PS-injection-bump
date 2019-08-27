@@ -25,7 +25,7 @@ extensions = ('.ptc')		# All outputs are .ptc files
 iterators = []				# Integers (turn) used to iterate over files
 
 # Search from current directory
-print 'Find PTC Twiss files'
+print '\nFind PTC Twiss files\n'
 for subdir, dirs, files in os.walk('.'):
 	# Iterate over all files
     for file in files:
@@ -41,7 +41,7 @@ data = dict()
 
 
 # iterate over files (turns)
-print 'Read s, x data from files'
+print '\nRead s, x data from files\n'
 last_s = 0
 
 for turn in sorted(iterators):
@@ -83,7 +83,7 @@ print 'min x of data = ', min(data[25][1])
 
 case = '00_Split_HKICKER_with_MULTIPOLE'
 
-print 'Start Plotting'
+print '\n\tStart Plotting\n'
 
 fig, ax1 = plt.subplots();
 plt.title("PTC Injection Closure Tune Swing");
@@ -107,7 +107,7 @@ ax1.grid()
 savename = 'PTC_Closed_Orbit' + case + '.png'
 plt.savefig(savename, dpi = 800);
 
-print 'Plot 1 done'
+print '\n\tPlot 1 done\n'
 
 
 fig, ax1 = plt.subplots();
@@ -138,6 +138,5 @@ ax1.grid()
 savename = 'PTC_Closed_Orbit' + case + '_zoom.png'
 plt.savefig(savename, dpi = 800);
 
-print 'Plot 2 done'
-
+print '\n\tPlot 2 done\n'
 
