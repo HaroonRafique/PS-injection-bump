@@ -1,19 +1,20 @@
 # PyORBIT Table Creator
-# Creates a .txt table that is read by PTC to set magnet strengths over time
+# Creates a .dat table that is read by PTC to set magnet strengths as a function of time
 # Currently works only for single multipoles (pure dipole, quad, sextupole ...)
+#
 # Haroon Rafique CERN BE-ABP-HSI 28.06.19
 #
 import numpy as np
 import os
-
 from math import log10, floor
+
 def round_sig(x, sig=5):
 	return round(x, sig-int(floor(log10(abs(x))))-1)
 
-# For each element, create a PTC table (via function)
+# For each element, create a PTC table
 def Create_PTC_Table(name, multipole_order, time, normal, skew):
 	
-	filename = str(name) + str('.txt')
+	filename = str(name) + str('.dat')
 	f = open(filename, 'w')
 	
 	n_lines = len(time) + 2
@@ -26,7 +27,7 @@ def Create_PTC_Table(name, multipole_order, time, normal, skew):
 	
 	return
 
-# Read TFS table
+# Read TFS table to obtain our dipole kick or quadrupole gradient
 # We ignore the time column
 def Read_TFS_Return_Data(file_in):
 	fi = open(file_in, 'r')
@@ -66,8 +67,11 @@ def Create_Timing(ramp_stop_time, simulation_stop_time, data):
 				
 	return time, data_2
 
+# Simple Test
 
 Create_PTC_Table('TEST', 2, [0,1,2], [11.32161, 12.1321564, 13.555555855555555], [0,0,0])
+
+# Create the input files for the closure (2nd half) of the injection bump
 
 # Table time is in seconds
 # 1 turn = 2.287E-6 seconds

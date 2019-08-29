@@ -194,3 +194,59 @@ plt.savefig(savename, dpi = 800);
 
 print '\n\tPlot 2 done\n'
 
+
+fig, ax1 = plt.subplots();
+plt.title("MADX Injection Closure Tune Swing");
+
+# colormap 
+colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
+
+ax1.set_xlim(470.0, 510.0)
+
+ax1.set_xlabel("S [m]");
+ax1.set_ylabel("x [m]");
+
+c_it = int(0)
+for turn in sorted(madx_iterators):
+	print 'Plotting MADX turn ', turn
+	plt.plot(madx_data[turn][0], madx_data[turn][1], color=colors[c_it])
+	# For each turn plot s,x in a new colour
+	c_it += 1
+
+ax1.grid()
+
+savename = 'MADX_Closed_Orbit' + case + '.png'
+plt.savefig(savename, dpi = 800);
+
+print '\n\tPlot 3 done\n'
+
+
+fig, ax1 = plt.subplots();
+plt.title("PTC Injection Closure Tune Swing");
+
+# colormap 
+colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
+
+ax1.set_xlim(470.0, 510.0)
+
+ax1.set_xlabel("S [m]");
+ax1.set_ylabel("x [m]");
+
+test  = [1]
+
+# ~ plt.plot(ptc_data[1][0], ptc_data[1][1], color=colors[c_it])
+
+c_it = int(0)
+for turn in sorted(ptc_iterators):
+	print 'Plotting PTC turn ', turn
+	plt.plot(ptc_data[turn][0], ptc_data[turn][1], color=colors[c_it])
+	# For each turn plot s,x in a new colour
+	c_it += 1
+
+ax1.grid()
+
+savename = 'PTC_Closed_Orbit' + case + '_zoom.png'
+plt.savefig(savename, dpi = 800);
+
+print '\n\tPlot 4 done\n'
+

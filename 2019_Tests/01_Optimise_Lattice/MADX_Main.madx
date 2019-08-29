@@ -19,7 +19,7 @@ call, file="./lattice/PS_optiminsed_inj_bump_close.seq";
 !call, file="./lattice/PS_new_injection_bump.seq";
 call, file="./lattice/PS_new_injection_bump.str";
 call, file="./lattice/macros.ptc";
-call, file='./multipole_coefficients_injection_2016.dat';
+!call, file='./multipole_coefficients_injection_2016.dat';
 beam, particle=PROTON, pc=Pc;
 
 assign_BSW_strength: macro = {
