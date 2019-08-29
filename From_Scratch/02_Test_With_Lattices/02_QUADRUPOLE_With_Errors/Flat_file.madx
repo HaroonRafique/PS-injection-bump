@@ -292,7 +292,6 @@ while(row<nrows){
 	SELECT,FLAG=ERROR,PATTERN=PI.BSM44;
 	EFCOMP, DKN:={BSW44,0,K2_S44}; 
 
-	twiss;
 	!exec, ptc_twiss_tune_macro_false_split;
 	exec, ptc_twiss_tune_macro_false_split_n($row);
 	exec, madx_twiss_file_macro($row);

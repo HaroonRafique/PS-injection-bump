@@ -284,10 +284,10 @@ while(row<nrows){
 	fill, table=TBSEXT42;
 	fill, table=TBSEXT43;
 	fill, table=TBSEXT44;
-	row = row + 1;
 
 	plot, haxis=s, vaxis=x;
 	plot, haxis=s, vaxis=y;
+	row = row + 1;
 };
 
 /***********************************************************************
