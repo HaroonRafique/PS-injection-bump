@@ -15,7 +15,7 @@ def round_sig(x, sig=5):
 
 half_bump = True
 
-# golden values for the bump - from Eugenio Senes
+# golden values for the bump - from Eugenio Senes CERN BE-BI
 
 # Values are for 2 * 10 cm HKICKERs per section (8 total)
 # ~ bsw40              =    0.003498034648/2
@@ -28,21 +28,21 @@ half_bump = True
 
 # Values are for 1 * 20 cm SBEND/QUAD per section (4 total) with dipole and
 # sextupole component added as an error
-# ~ bsw40 = 0.003498034648
-# ~ bsw42 = -0.01422287844
-# ~ bsw43 = 0.01290524313
-# ~ bsw44 = -0.006001526439
-# ~ BSS_max = 2*1.11828e-01/5 #from twiss
+bsw40 = -1*0.003498034648
+bsw42 = -1*-0.01422287844
+bsw43 = -1*0.01290524313
+bsw44 = -1*-0.006001526439
+BSS_max = 2*1.11828e-01/5 #from twiss
 # ~ f = open("BSEXT_Bump_QUAD.tfs","w")
-# ~ f = open("BSEXT_Bump_SBEND.tfs","w")
+f = open("BSEXT_Bump_SBEND.tfs","w")
 
 # Values are for 1 * MULTIPOLE per section (4 total)
-bsw40              =    0.003498034648*5
-bsw42              =    -0.01422287844*5
-bsw43              =    0.01290524313*5
-bsw44              =    -0.006001526439*5
-BSS_max = 2*1.11828e-01 #from twiss
-f = open("BSEXT_Bump_MULTIPOLE.tfs","w")
+# ~ bsw40              =    0.003498034648*5
+# ~ bsw42              =    -0.01422287844*5
+# ~ bsw43              =    0.01290524313*5
+# ~ bsw44              =    -0.006001526439*5
+# ~ BSS_max = 2*1.11828e-01 #from twiss
+# ~ f = open("BSEXT_Bump_MULTIPOLE.tfs","w")
 
 # build the parameter sweep lists
 nstep = 50.
