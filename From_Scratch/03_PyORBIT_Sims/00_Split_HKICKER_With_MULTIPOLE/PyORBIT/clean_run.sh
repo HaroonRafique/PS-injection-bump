@@ -7,6 +7,6 @@ rm -r lost
 rm -r input
 rm -r All_Twiss
 
-rm PTC-PyORBIT_flat_file.flt
+#rm PTC-PyORBIT_flat_file.flt
 
 . clean_junk.sh
