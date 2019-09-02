@@ -32,7 +32,7 @@ bsw40 = -1*0.003498034648
 bsw42 = -1*-0.01422287844
 bsw43 = -1*0.01290524313
 bsw44 = -1*-0.006001526439
-BSS_max = 2*1.11828e-01/5 #from twiss # NOT USED 
+BSS_max = 2*1.11828e-01/5 #from twiss 
 # ~ f = open("BSEXT_Bump_QUAD.tfs","w")
 f = open("BSEXT_Bump_SBEND.tfs","w")
 
@@ -41,7 +41,7 @@ f = open("BSEXT_Bump_SBEND.tfs","w")
 # ~ bsw42              =    -0.01422287844*5
 # ~ bsw43              =    0.01290524313*5
 # ~ bsw44              =    -0.006001526439*5
-# ~ BSS_max = 2*1.11828e-01 #from twiss  # NOT USED 
+# ~ BSS_max = 2*1.11828e-01 #from twiss
 # ~ f = open("BSEXT_Bump_MULTIPOLE.tfs","w")
 
 # build the parameter sweep lists
