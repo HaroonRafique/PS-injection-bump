@@ -1,0 +1,135 @@
+Start on MPI process:  0
+
+mkdir on MPI process:  0
+PTCLatticeFunctionsDictionary: Created initial twiss dictionary 'twiss_dict
+
+Start MADX on MPI process:  0
+
+start RF file on MPI process:  0
+
+start PTC Flat file on MPI process:  0
+file_name = PTC-PyORBIT_flat_file.flt Length =24
+ =============PTC INIT=====START===========
+  SECTOR_NMUL_MAX is changed from           10  to           10
+  SECTOR_NMUL is changed from           10  to            5
+  GLOBAL VARIABLES that can no longer be changed
+  PARENT LAYOUT NAME :NONAMEASSIGNED
+  NUMBER OF ORIGINAL LAYOUT ELEMENTS :        1919
+  NUMBER OF THIN OBJECTS :       10526
+  TOTAL IDEAL LENGTH OF STRUCTURE :   628.318530718010     
+  TOTAL INTEGRATION LENGTH OF STRUCTURE (mad8 style survey) :
+   628.318530718010     
+  DLMAX > LMAX   0.549060000000054     
+ CONSIDER RESPLITTING LATTICE 
+ TWISS PARAMETERS AT THE ENTRANCE
+ BETAs    11.8345679300008        24.9237387165401     
+ ALPHAs   1.151839487248693E-002 -1.575134114451219E-002
+ ETAs    2.61838892772845       0.000000000000000E+000
+ ETAPs  -8.390442873871067E-005  0.000000000000000E+000
+ COs  -2.512868586975883E-013  0.000000000000000E+000
+ COPs  -1.252629403235358E-014  0.000000000000000E+000
+ TWISS PARAMETERS AT THE EXIT
+ BETAs    11.8345679300009        24.9237387165403     
+ ALPHAs   1.151839487250755E-002 -1.575134114451920E-002
+ ETAs    2.61838892772871       0.000000000000000E+000
+ ETAPs  -8.390442866584163E-005  0.000000000000000E+000
+ COs  -8.556198700409641E-013  0.000000000000000E+000
+ COPs  -4.249503449436823E-015  0.000000000000000E+000
+   628.318530718010     
+  8.243649147805880E-002
+  0.915961016422951     
+   7.14416242738418     
+   2.14176601445675     
+   2.33827201819229     
+   1.40000000519229     
+   2.49210461976370     
+  0.938272013000000       0.938272013000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  ORBIT_USE_ORBIT_UNITS  T
+  ORBIT_N_NODE         1444
+  ORBIT_WARNING           10
+  ORBIT_OMEGA   8.243649147805880E-002
+  ORBIT_HARMONIC    9.00000000000000     
+  ORBIT_P0C    2.14176601445675     
+  ORBIT_KINETIC    1.40000000519229     
+  ORBIT_MASS_IN_AMU   0.999999998689239     
+  ORBIT_L    628.318530718010     
+  ORBIT_GAMMAT    6.08815660113122     
+  ORBIT_CHARGE    1.00000000000000     
+  ORBIT_LMAX AND LMAX   0.549060000000054       0.500000000000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Checking file  ../PTC/fringe.ptc
+File exists =  True
+Size > 3 bytes =  34
+Checking file  ../PTC/time.ptc
+File exists =  True
+Size > 3 bytes =  44
+Checking file  ../PTC/ramp_magnet.ptc
+File exists =  True
+Size > 3 bytes =  269
+Checking file  ../PTC/ramp_cavities.ptc
+File exists =  True
+Size > 3 bytes =  185
+Checking file  ../PTC/energize_lattice.ptc
+File exists =  True
+Size > 3 bytes =  53
+
+paramsDict on MPI process:  0
+
+Add apertures on MPI process:  0
+
+Bunches on MPI process:  0
+
+bunch_orbit_to_pyorbit on MPI process:  0
+	input_distn_dir 	 = 	../../Matched_Distns/V/V_624_Matched_Distn.mat
+	energy 	 = 	2338272049.81
+	turns_max 	 = 	600
+	intensity 	 = 	7.25e+11
+	LongitudinalCut 	 = 	2.4
+	LongitudinalJohoParameter 	 = 	1.2
+	turns_print 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	epsn_y 	 = 	1e-06
+	epsn_x 	 = 	1.2e-06
+	TransverseCut 	 = 	5
+	dpp_rms 	 = 	0.00087
+	n_macroparticles 	 = 	2
+	phi_s 	 = 	0
+	beta 	 = 	0.915961016033
+	harmonic_number 	 = 	9
+	turns_update 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	bunch_length 	 = 	1.4e-07
+	circumference 	 = 	628.318530718
+	rf_voltage 	 = 	0.0212942055191
+	tomo_file 	 = 	PyORBIT_Tomo_file_MD4224_HB.mat
+	macrosize 	 = 	3.625e+11
+	gamma 	 = 	2.49210461423
+	D_x 	 = 	2.72326704878
+	D_y 	 = 	0.000304930353391
+	beta_y 	 = 	28.7577544583
+	beta_x 	 = 	11.497785053
+	yp0 	 = 	0.0
+	circumference 	 = 	628.318530718
+	length 	 = 	69.8131700798
+	gamma_transition 	 = 	6.08815660113
+	D_yp 	 = 	0.0
+	D_xp 	 = 	0.0
+	y0 	 = 	0.0
+	x0 	 = 	0.0
+	xp0 	 = 	0.0
+	alpha_x 	 = 	0.0201497873911
+	alpha_y 	 = 	-0.0759819038665
+
+generate_initial_distribution on MPI process:  0
+
+Created particle distribution with 2 macroparticles into file:  input/ParticleDistribution.in
+unch_orbit_to_pyorbit on MPI process:  0
+Save bunch in bunch_output/mainbunch_-000001.mat
+Save bunch in input/mainbunch.mat
+
+TWISS on MPI process:  0
+
+Tracking on MPI process:  0
+start time =  1567420296.81
+turn               Qx                 Qy                 intensity          n_mp               gamma              mean_x             mean_xp            mean_y             mean_yp            mean_z             mean_dE            epsn_x             epsn_y             eps_z              bunchlength        dpp_rms            beta_x             beta_y             alpha_x            alpha_y            D_x                D_y                eff_beta_x         eff_beta_y         eff_epsn_x         eff_epsn_y         eff_alpha_x        eff_alpha_y        orbit_x_min        orbit_x_max        orbit_y_min        orbit_y_max        turn_time          turn_duration      cumulative_time    execution time
+0                  0.208988857129     0.100619639545     7.25e+11           2                  2.49210459074      0.00152580469237   -3.2551826648e-05  -0.000163323594989 -0.000179988032593 3.95695913455      0.00104539508362   2.41687155915e-22  9.6674862366e-22   0.0                1.3206746976210915e-07 0.0002700392939118747 -16.0              12.0               1.0                -0.5               7.78878444677      12.9892269829      880477153.607      865765628.643      5.02429586779e-15  1.42108547152e-14  -70758199.5716     50850799.2926      -9.805489753489383e-13 1.3358203432289883e-12 0.0                0.0                12:31:46           9.50579214096      9.50579094887      2019-09-02 12:31:46
+1                  0.208988863648     0.100619603714     7.25e+11           2                  2.49210459074      0.00101624066307   -1.79373776056e-05 -0.00274516227658  -0.00014396929501  4.00150858394      0.00104029608159   3.19722054815e-22  4.24836507778e-22  0.0                1.3238202409005404e-07 0.00026262841818912313 -12.0948631363     -5.40449782246     0.755928946018     -0.391114973994    11.3114741581      -0.716346596149    0.0                0.0                3.5527136788e-15   8.42600032458e-15  0.0                0.0                -0.007475108308412512 0.005818605907589266 0.0                0.0                12:31:55           9.56889009476      19.082679987       2019-09-02 12:31:55

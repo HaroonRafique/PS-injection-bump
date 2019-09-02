@@ -1,0 +1,24 @@
+readlink: missing operand
+Try 'readlink --help' for more information.
+rm: cannot remove ‘*.png’: No such file or directory
+rm: cannot remove ‘optics.txt’: No such file or directory
+rm: cannot remove ‘optics_2.txt’: No such file or directory
+rm: cannot remove ‘Orbit_Extrema.dat’: No such file or directory
+rm: cannot remove ‘output’: No such file or directory
+rm: cannot remove ‘bunch_output’: No such file or directory
+rm: cannot remove ‘lost’: No such file or directory
+rm: cannot remove ‘input’: No such file or directory
+rm: cannot remove ‘All_Twiss’: No such file or directory
+rm: cannot remove ‘Maxwellian_bend_for_ptc.txt’: No such file or directory
+rm: cannot remove ‘Input/*~’: No such file or directory
+rm: cannot remove ‘lib/*~’: No such file or directory
+rm: cannot remove ‘lib/spacecharge_tunespread/*.pyc’: No such file or directory
+rm: cannot remove ‘lib/*.pyc’: No such file or directory
+rm: cannot remove ‘*.pyc’: No such file or directory
+rm: cannot remove ‘Maxwellian_bend_for_ptc.txt’: No such file or directory
+rm: cannot remove ‘Input/*~’: No such file or directory
+rm: cannot remove ‘lib/*~’: No such file or directory
+rm: cannot remove ‘lib/spacecharge_tunespread/*.pyc’: No such file or directory
+rm: cannot remove ‘lib/*.pyc’: No such file or directory
+rm: cannot remove ‘*.pyc’: No such file or directory
+adding particle phase information attribute

@@ -1,0 +1,137 @@
+Start on MPI process:  0
+
+mkdir on MPI process:  0
+PTCLatticeFunctionsDictionary: Created initial twiss dictionary 'twiss_dict
+
+Start MADX on MPI process:  0
+
+start RF file on MPI process:  0
+
+start PTC Flat file on MPI process:  0
+file_name = PTC-PyORBIT_flat_file.flt Length =24
+ =============PTC INIT=====START===========
+  SECTOR_NMUL_MAX is changed from           10  to           10
+  SECTOR_NMUL is changed from           10  to            5
+  GLOBAL VARIABLES that can no longer be changed
+  PARENT LAYOUT NAME :NONAMEASSIGNED
+  NUMBER OF ORIGINAL LAYOUT ELEMENTS :        1919
+  NUMBER OF THIN OBJECTS :       10526
+  TOTAL IDEAL LENGTH OF STRUCTURE :   628.318530718010     
+  TOTAL INTEGRATION LENGTH OF STRUCTURE (mad8 style survey) :
+   628.318530718010     
+  DLMAX > LMAX   0.549060000000054     
+ CONSIDER RESPLITTING LATTICE 
+ TWISS PARAMETERS AT THE ENTRANCE
+ BETAs    11.8345679300071        24.9237387165324     
+ ALPHAs   1.151839487338991E-002 -1.575134114471250E-002
+ ETAs    2.61838892773253       0.000000000000000E+000
+ ETAPs  -8.390442875001793E-005  0.000000000000000E+000
+ COs  -4.572326622958524E-013  0.000000000000000E+000
+ COPs   6.402346625227210E-014  0.000000000000000E+000
+ TWISS PARAMETERS AT THE EXIT
+ BETAs    11.8345679300066        24.9237387165325     
+ ALPHAs   1.151839487340889E-002 -1.575134114471743E-002
+ ETAs    2.61838892773269       0.000000000000000E+000
+ ETAPs  -8.390442877013408E-005  0.000000000000000E+000
+ COs  -1.499266716655477E-012  0.000000000000000E+000
+ COPs   1.321967069396983E-013  0.000000000000000E+000
+   628.318530718010     
+  8.243649147805880E-002
+  0.915961016422951     
+   7.14416242738418     
+   2.14176601445675     
+   2.33827201819229     
+   1.40000000519229     
+   2.49210461976370     
+  0.938272013000000       0.938272013000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  ORBIT_USE_ORBIT_UNITS  T
+  ORBIT_N_NODE         1444
+  ORBIT_WARNING           10
+  ORBIT_OMEGA   8.243649147805880E-002
+  ORBIT_HARMONIC    9.00000000000000     
+  ORBIT_P0C    2.14176601445675     
+  ORBIT_KINETIC    1.40000000519229     
+  ORBIT_MASS_IN_AMU   0.999999998689239     
+  ORBIT_L    628.318530718010     
+  ORBIT_GAMMAT    6.08815660113111     
+  ORBIT_CHARGE    1.00000000000000     
+  ORBIT_LMAX AND LMAX   0.549060000000054       0.500000000000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Checking file  ../PTC/fringe.ptc
+File exists =  True
+Size > 3 bytes =  34
+Checking file  ../PTC/time.ptc
+File exists =  True
+Size > 3 bytes =  44
+Checking file  ../PTC/ramp_magnet.ptc
+File exists =  True
+Size > 3 bytes =  269
+Checking file  ../PTC/ramp_cavities.ptc
+File exists =  True
+Size > 3 bytes =  185
+Checking file  ../PTC/energize_lattice.ptc
+File exists =  True
+Size > 3 bytes =  53
+
+paramsDict on MPI process:  0
+
+Add apertures on MPI process:  0
+
+Bunches on MPI process:  0
+
+bunch_orbit_to_pyorbit on MPI process:  0
+	input_distn_dir 	 = 	../../Matched_Distns/V/V_624_Matched_Distn.mat
+	energy 	 = 	2338272049.81
+	turns_max 	 = 	600
+	intensity 	 = 	7.25e+11
+	LongitudinalCut 	 = 	2.4
+	LongitudinalJohoParameter 	 = 	1.2
+	turns_print 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	epsn_y 	 = 	1e-06
+	epsn_x 	 = 	1.2e-06
+	TransverseCut 	 = 	5
+	dpp_rms 	 = 	0.00087
+	n_macroparticles 	 = 	2
+	phi_s 	 = 	0
+	beta 	 = 	0.915961016033
+	harmonic_number 	 = 	9
+	turns_update 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	bunch_length 	 = 	1.4e-07
+	circumference 	 = 	628.318530718
+	rf_voltage 	 = 	0.0212942055191
+	tomo_file 	 = 	PyORBIT_Tomo_file_MD4224_HB.mat
+	macrosize 	 = 	3.625e+11
+	gamma 	 = 	2.49210461423
+	D_x 	 = 	2.72326704878
+	D_y 	 = 	0.000304930353391
+	beta_y 	 = 	28.7577544583
+	beta_x 	 = 	11.497785053
+	yp0 	 = 	0.0
+	circumference 	 = 	628.318530718
+	length 	 = 	69.8131700798
+	gamma_transition 	 = 	6.08815660113
+	D_yp 	 = 	0.0
+	D_xp 	 = 	0.0
+	y0 	 = 	0.0
+	x0 	 = 	0.0
+	xp0 	 = 	0.0
+	alpha_x 	 = 	0.0201497873911
+	alpha_y 	 = 	-0.0759819038665
+
+generate_initial_distribution on MPI process:  0
+
+Created particle distribution with 2 macroparticles into file:  input/ParticleDistribution.in
+unch_orbit_to_pyorbit on MPI process:  0
+Save bunch in bunch_output/mainbunch_-000001.mat
+Save bunch in input/mainbunch.mat
+
+TWISS on MPI process:  0
+
+Tracking on MPI process:  0
+start time =  1567420281.34
+turn               Qx                 Qy                 intensity          n_mp               gamma              mean_x             mean_xp            mean_y             mean_yp            mean_z             mean_dE            epsn_x             epsn_y             eps_z              bunchlength        dpp_rms            beta_x             beta_y             alpha_x            alpha_y            D_x                D_y                eff_beta_x         eff_beta_y         eff_epsn_x         eff_epsn_y         eff_alpha_x        eff_alpha_y        orbit_x_min        orbit_x_max        orbit_y_min        orbit_y_max        turn_time          turn_duration      cumulative_time    execution time
+0                  0.209017187023     0.100591234827     7.25e+11           2                  2.49210459074      -0.000575234313097 0.000124460100109  0.00197271740831   -9.67971136453e-05 -0.347480033973    -0.00127625374328  5.92010209376e-22  1.93444110739e-22  1.0654971931e-08   1.2530013154698846e-07 0.0006133093162579909 13.0639452948      -19.9902415217     1.63299316186      -0.468521285666    4.5916269532       0.688333859195     0.0                0.0                1.42108547152e-14  5.89150913007e-15  0.0                0.0                -2.5579538487363607e-12 2.393107516468671e-12 0.0                0.0                12:31:31           9.88835310936      9.88835191727      2019-09-02 12:31:31
+1                  0.209017190896     0.100591201691     7.25e+11           2                  2.49210459074      -5.21717411279e-06 -6.0959161419e-05  0.000139533958513  -0.000126448819355 -0.403006513017    -0.00127575765914  6.04217889787e-23  2.70214454957e-22  1.0654971931e-08   1.2605060017960508e-07 0.0006057142447423383 0.0                14.310835056       -1.0               -0.4472135955      -1.39599751815     -3.2302341814      402508127.668      622132308.583      1.7763568394e-15   6.15348059643e-15  -74741328.4691     -42886488.6546     -0.007474938083593488 0.005818963856262481 0.0                0.0                12:31:41           10.0052199364      19.9021780491      2019-09-02 12:31:41
+2                  0.209017194768     0.100591168556     7.25e+11           2                  2.49210459074      -0.00196397685567  -0.000152415137921 -0.00177202742483  -0.00010739462739  -0.458262726888    -0.00127518918043  2.41687155915e-22  0.0                7.53420290575e-09  1.2680066174209834e-07 0.0005980853744684577 -16.0              -inf               -0.0               nan                -1.51067552013     -5.93121609022     0.0                0.0                6.15348059643e-15  2.51214793389e-15  0.0                0.0                -0.00747479162591625 0.005818519942029212 0.0                0.0                12:31:51           10.3359129429      30.3242490292      2019-09-02 12:31:51
+3                  0.209017198642     0.100591135421     7.25e+11           2                  2.49210459074      -0.00353504684575  -1.46362653456e-05 -0.0030209878449   -4.62011850067e-05 -0.512891447433    -0.00127454838129  7.25061467745e-22  1.04653608395e-22  9.22747636884e-09  1.2753221014681874e-07 0.0005904233091446204 0.0                -221.702503369     1.0                -1.73205080757     4.57639345307      -6.33807757455     513751970.801      0.0                1.42108547152e-14  0.0                -45959758.851      0.0                -0.007474645170460985 0.005818076025692812 0.0                0.0                12:32:01           9.95695900917      40.4159469604      2019-09-02 12:32:01
