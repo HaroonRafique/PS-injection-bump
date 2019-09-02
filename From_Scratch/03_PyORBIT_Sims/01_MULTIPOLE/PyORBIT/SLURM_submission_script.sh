@@ -1,16 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name=00_full
+#SBATCH --job-name=02_quad
 #SBATCH --output=slurm.%N.%j.out
 #SBATCH --error=slurm.%N.%j.err
-#SBATCH --partition=batch-long
-#SBATCH --time=21-00:00:00
-#SBATCH --nodes=4
+#SBATCH --partition=inf-short
+#SBATCH --time=5-00:00:00
+#SBATCH --nodes=1
 #SBATCH --mem-per-cpu=3200M
 #SBATCH --exclusive
 #SBATCH --hint=nomultithread
 
 BATCH_ROOT_DIR=/hpcscratch/user/harafiqu
-RUN_DIR=/hpcscratch/user/harafiqu/PS-injection-bump/From_Scratch/03_PyORBIT_Sims/00_Split_HKICKER_With_MULTIPOLE/PyORBIT
+RUN_DIR=/hpcscratch/user/harafiqu/PS-injection-bump/From_Scratch/03_PyORBIT_Sims/01_MULTIPOLE/PyORBIT
 OrigIwd=$(pwd)
 
 # Make an output folder in the root directory to hold SLURM info file
