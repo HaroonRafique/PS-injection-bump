@@ -406,7 +406,7 @@ orbit_mpi.MPI_Barrier(comm)
 # Plotting
 #-----------------------------------------------------------------------
 if not rank:
-	PTC_Twiss.PrintOrbitExtrema('All_Twiss')
+	PTC_Twiss.PrintOrbitExtrema('.')
 	PTC_Twiss.PrintAllPTCTwiss('All_Twiss')
 	TwissDict = PTC_Twiss.ReturnTwissDict()
 	TurnList = PTC_Twiss.ReturnTurnList()
