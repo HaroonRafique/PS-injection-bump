@@ -148,4 +148,4 @@ write_PTCtable('./PTC-PyORBIT_Tables/BSEXT44.dat', 3, B_44_final[:,0], B_44_fina
 
 BSM40 = Read_Single_Column_TFS_Return_Data('./MADX_Tables/PI.BSM40.1.tfs')
 BSM40_final = Create_Timing(1.1435E-3, 5.0314E-3, BSM40)
-write_PTCtable('./PTC-PyORBIT_Tables/PI.BSM40.1.tfs', 1, BSM40_final[:,0], BSM40_final[:,1], np.zeros(len(BSM40_final[:,0])))
+write_PTCtable('./PTC-PyORBIT_Tables/BSM40.dat', 1, BSM40_final[:,0], BSM40_final[:,1], np.zeros(len(BSM40_final[:,0])))
