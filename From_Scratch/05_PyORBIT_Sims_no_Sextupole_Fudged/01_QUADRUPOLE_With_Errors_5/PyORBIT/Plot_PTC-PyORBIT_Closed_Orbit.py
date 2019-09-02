@@ -79,7 +79,7 @@ print 'min x of ptc_data = ', min(ptc_data[0][1])
 #------------------------------PLOTTING---------------------------------
 #-----------------------------------------------------------------------
 
-case = '02_QUADRUPOLE'
+case = '02_QUADRUPOLE_fudge_5'
 
 print '\n\tStart Plotting\n'
 
