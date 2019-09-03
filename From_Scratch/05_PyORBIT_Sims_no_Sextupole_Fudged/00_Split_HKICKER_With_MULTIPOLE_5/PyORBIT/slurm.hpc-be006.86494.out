@@ -1,0 +1,138 @@
+Start on MPI process:  0
+
+mkdir on MPI process:  0
+PTCLatticeFunctionsDictionary: Created initial twiss dictionary 'twiss_dict
+
+Start MADX on MPI process:  0
+
+start RF file on MPI process:  0
+
+start PTC Flat file on MPI process:  0
+file_name = PTC-PyORBIT_flat_file.flt Length =24
+ =============PTC INIT=====START===========
+  SECTOR_NMUL_MAX is changed from           10  to           10
+  SECTOR_NMUL is changed from           10  to            5
+  GLOBAL VARIABLES that can no longer be changed
+  PARENT LAYOUT NAME :NONAMEASSIGNED
+  NUMBER OF ORIGINAL LAYOUT ELEMENTS :        1927
+  NUMBER OF THIN OBJECTS :       10566
+  TOTAL IDEAL LENGTH OF STRUCTURE :   628.318530718011     
+  TOTAL INTEGRATION LENGTH OF STRUCTURE (mad8 style survey) :
+   628.318530718011     
+  DLMAX > LMAX   0.549060000000054     
+ CONSIDER RESPLITTING LATTICE 
+ TWISS PARAMETERS AT THE ENTRANCE
+ BETAs    11.8345679299896        24.9237387165307     
+ ALPHAs   1.151839487286435E-002 -1.575134114483321E-002
+ ETAs    2.61838892773051       0.000000000000000E+000
+ ETAPs  -8.390442894284248E-005  0.000000000000000E+000
+ COs  -2.380514306769501E-013  0.000000000000000E+000
+ COPs   8.707767367677530E-014  0.000000000000000E+000
+ TWISS PARAMETERS AT THE EXIT
+ BETAs    11.8345679299893        24.9237387165302     
+ ALPHAs   1.151839487287304E-002 -1.575134114484156E-002
+ ETAs    2.61838892773108       0.000000000000000E+000
+ ETAPs  -8.390442890723881E-005  0.000000000000000E+000
+ COs   1.409423479000113E-013  0.000000000000000E+000
+ COPs   1.610721937933055E-013  0.000000000000000E+000
+   628.318530718011     
+  8.243649147805877E-002
+  0.915961016422951     
+   7.14416242738418     
+   2.14176601445675     
+   2.33827201819229     
+   1.40000000519229     
+   2.49210461976370     
+  0.938272013000000       0.938272013000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  ORBIT_USE_ORBIT_UNITS  T
+  ORBIT_N_NODE         1445
+  ORBIT_WARNING           10
+  ORBIT_OMEGA   8.243649147805877E-002
+  ORBIT_HARMONIC    9.00000000000000     
+  ORBIT_P0C    2.14176601445675     
+  ORBIT_KINETIC    1.40000000519229     
+  ORBIT_MASS_IN_AMU   0.999999998689239     
+  ORBIT_L    628.318530718011     
+  ORBIT_GAMMAT    6.08815660113117     
+  ORBIT_CHARGE    1.00000000000000     
+  ORBIT_LMAX AND LMAX   0.549060000000054       0.500000000000000     
+  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Checking file  ../PTC/fringe.ptc
+File exists =  True
+Size > 3 bytes =  34
+Checking file  ../PTC/time.ptc
+File exists =  True
+Size > 3 bytes =  44
+Checking file  ../PTC/ramp_magnet.ptc
+File exists =  True
+Size > 3 bytes =  757
+Checking file  ../PTC/ramp_cavities.ptc
+File exists =  True
+Size > 3 bytes =  185
+Checking file  ../PTC/energize_lattice.ptc
+File exists =  True
+Size > 3 bytes =  54
+
+paramsDict on MPI process:  0
+
+Add apertures on MPI process:  0
+
+Bunches on MPI process:  0
+
+bunch_orbit_to_pyorbit on MPI process:  0
+	input_distn_dir 	 = 	../../Matched_Distns/V/V_624_Matched_Distn.mat
+	energy 	 = 	2338272049.81
+	turns_max 	 = 	600
+	intensity 	 = 	7.25e+11
+	LongitudinalCut 	 = 	2.4
+	LongitudinalJohoParameter 	 = 	1.2
+	turns_print 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	epsn_y 	 = 	1e-06
+	epsn_x 	 = 	1.2e-06
+	TransverseCut 	 = 	5
+	dpp_rms 	 = 	0.00087
+	n_macroparticles 	 = 	2
+	phi_s 	 = 	0
+	beta 	 = 	0.915961016033
+	harmonic_number 	 = 	9
+	turns_update 	 = 	[-1, 1, 2, 3, 4, 5, 6, 7, 8, 10, 20, 30, 40, 50, 60, 70, 80, 90, 199, 399, 599, 874, 2185]
+	bunch_length 	 = 	1.4e-07
+	circumference 	 = 	628.318530718
+	rf_voltage 	 = 	0.0212942055191
+	tomo_file 	 = 	PyORBIT_Tomo_file_MD4224_HB.mat
+	macrosize 	 = 	3.625e+11
+	gamma 	 = 	2.49210461423
+	D_x 	 = 	2.72326704878
+	D_y 	 = 	0.000304930353391
+	beta_y 	 = 	28.7577544583
+	beta_x 	 = 	11.497785053
+	yp0 	 = 	0.0
+	circumference 	 = 	628.318530718
+	length 	 = 	69.8131700798
+	gamma_transition 	 = 	6.08815660113
+	D_yp 	 = 	0.0
+	D_xp 	 = 	0.0
+	y0 	 = 	0.0
+	x0 	 = 	0.0
+	xp0 	 = 	0.0
+	alpha_x 	 = 	0.0201497873911
+	alpha_y 	 = 	-0.0759819038665
+
+generate_initial_distribution on MPI process:  0
+
+Created particle distribution with 2 macroparticles into file:  input/ParticleDistribution.in
+unch_orbit_to_pyorbit on MPI process:  0
+Save bunch in bunch_output/mainbunch_-000001.mat
+Save bunch in input/mainbunch.mat
+
+TWISS on MPI process:  0
+
+Tracking on MPI process:  0
+start time =  1567507264.25
+turn               Qx                 Qy                 intensity          n_mp               gamma              mean_x             mean_xp            mean_y             mean_yp            mean_z             mean_dE            epsn_x             epsn_y             eps_z              bunchlength        dpp_rms            beta_x             beta_y             alpha_x            alpha_y            D_x                D_y                eff_beta_x         eff_beta_y         eff_epsn_x         eff_epsn_y         eff_alpha_x        eff_alpha_y        orbit_x_min        orbit_x_max        orbit_y_min        orbit_y_max        turn_time          turn_duration      cumulative_time    execution time
+0                  0.0                0.0                0.0                0                  2.49210459074      0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                nan                nan                nan                nan                nan                nan                0.0                0.0                0.0                0.0                0.0                0.0                -2.4442670110147446e-12 2.4442670110147446e-12 0.0                0.0                12:41:12           8.45531702042      8.45531606674      2019-09-03 12:41:12
+1                  0.0                0.0                0.0                0                  2.49210459074      0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                nan                nan                nan                nan                nan                nan                0.0                0.0                0.0                0.0                0.0                0.0                -inf               -102650825.67055988 0.0                0.0                12:41:21           8.49046897888      16.9538609982      2019-09-03 12:41:21
+2                  0.0                0.0                0.0                0                  2.49210459074      0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                nan                nan                nan                nan                nan                nan                0.0                0.0                0.0                0.0                0.0                0.0                -inf               -102650825.67055988 0.0                0.0                12:41:29           8.16421294212      25.1944429874      2019-09-03 12:41:29
+3                  0.0                0.0                0.0                0                  2.49210459074      0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                nan                nan                nan                nan                nan                nan                0.0                0.0                0.0                0.0                0.0                0.0                -inf               -102650825.67055988 0.0                0.0                12:41:38           8.5207118988       33.8271820545      2019-09-03 12:41:38
+4                  0.0                0.0                0.0                0                  2.49210459074      0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                0.0                nan                nan                nan                nan                nan                nan                0.0                0.0                0.0                0.0                0.0                0.0                -inf               -102650825.67055988 0.0                0.0                12:41:46           8.5408949852       42.50344491        2019-09-03 12:41:46
