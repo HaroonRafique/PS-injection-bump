@@ -145,28 +145,3 @@ write_PTCtable('./PTC-PyORBIT_Tables/BSEXT43.dat', (1,3), B_43_final[:,0], B_43_
 B_44 = Read_Double_Column_TFS_Return_Data('./MADX_Tables/BSEXT44.tfs', f1=5., f2=1.)
 B_44_final = Create_Timing(1.1435E-3, 5.0314E-3, B_44)
 write_PTCtable('./PTC-PyORBIT_Tables/BSEXT44.dat', (1,3), B_44_final[:,0], B_44_final[:,[1,2]], B_44_final[:,[1,2]]*0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
