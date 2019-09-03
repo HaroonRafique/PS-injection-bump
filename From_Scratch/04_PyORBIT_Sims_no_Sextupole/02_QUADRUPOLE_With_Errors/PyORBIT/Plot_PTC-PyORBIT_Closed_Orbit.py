@@ -84,12 +84,13 @@ case = '02_QUADRUPOLE'
 print '\n\tStart Plotting\n'
 
 fig, ax1 = plt.subplots();
-plt.title("PTC-PyORBIT Injection Closure Tune Swing");
+plt.title("PTC-PyORBIT Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
 
 # ~ ax1.set_xlim(470.0, 510.0)
+ax1.set_ylim(-0.04, 0.03)
 
 ax1.set_xlabel("S [m]");
 ax1.set_ylabel("x [m]");
@@ -109,12 +110,13 @@ plt.savefig(savename, dpi = 800);
 print '\n\tPlot 1 done\n'
 
 fig, ax1 = plt.subplots();
-plt.title("PTC-PyORBIT Injection Closure Tune Swing");
+plt.title("PTC-PyORBIT Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
 
 ax1.set_xlim(470.0, 510.0)
+ax1.set_ylim(-0.04, 0.03)
 
 ax1.set_xlabel("S [m]");
 ax1.set_ylabel("x [m]");

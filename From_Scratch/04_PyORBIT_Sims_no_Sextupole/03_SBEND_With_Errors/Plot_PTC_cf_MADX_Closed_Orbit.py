@@ -129,7 +129,7 @@ case = '03_SBEND'
 print '\n\tStart Plotting\n'
 
 fig, ax1 = plt.subplots();
-plt.title("PTC vs MADX Injection Closure Tune Swing");
+plt.title("PTC vs MADX Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
@@ -160,7 +160,7 @@ print '\n\tPlot 1 done\n'
 
 
 fig, ax1 = plt.subplots();
-plt.title("PTC vs MADX Injection Closure Tune Swing");
+plt.title("PTC vs MADX Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
@@ -196,12 +196,13 @@ print '\n\tPlot 2 done\n'
 
 
 fig, ax1 = plt.subplots();
-plt.title("MADX Injection Closure Tune Swing");
+plt.title("MADX Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
 
 ax1.set_xlim(470.0, 510.0)
+ax1.set_ylim(-0.04, 0.03)
 
 ax1.set_xlabel("S [m]");
 ax1.set_ylabel("x [m]");
@@ -215,19 +216,20 @@ for turn in sorted(madx_iterators):
 
 ax1.grid()
 
-savename = 'MADX_Closed_Orbit' + case + '.png'
+savename = 'MADX_Closed_Orbit' + case + '_zoom.png'
 plt.savefig(savename, dpi = 800);
 
 print '\n\tPlot 3 done\n'
 
 
 fig, ax1 = plt.subplots();
-plt.title("PTC Injection Closure Tune Swing");
+plt.title("PTC Injection Closure Closed Orbit");
 
 # colormap 
 colors = cm.rainbow(np.linspace(0, 1, len(ptc_iterators)))
 
 ax1.set_xlim(470.0, 510.0)
+ax1.set_ylim(-0.04, 0.03)
 
 ax1.set_xlabel("S [m]");
 ax1.set_ylabel("x [m]");
