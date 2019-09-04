@@ -79,7 +79,7 @@ print 'min x of ptc_data = ', min(ptc_data[0][1])
 #------------------------------PLOTTING---------------------------------
 #-----------------------------------------------------------------------
 
-case = '00_Split_HKICKER_with_MULTIPOLE'
+case = '00_Split_HKICKER_with_MULTIPOLE_fudge_0p2'
 
 print '\n\tStart Plotting\n'
 
