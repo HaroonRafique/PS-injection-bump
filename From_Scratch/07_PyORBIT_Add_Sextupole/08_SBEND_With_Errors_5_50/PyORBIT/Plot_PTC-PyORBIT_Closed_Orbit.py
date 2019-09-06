@@ -79,7 +79,7 @@ print 'min x of ptc_data = ', min(ptc_data[0][1])
 #------------------------------PLOTTING---------------------------------
 #-----------------------------------------------------------------------
 
-case = '03_SBEND_fudge_5'
+case = '03_SBEND_fudge_5_50'
 
 print '\n\tStart Plotting\n'
 
