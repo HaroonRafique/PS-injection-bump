@@ -154,7 +154,8 @@ Lattice.readPTC(PTC_File)
 
 CheckAndReadPTCFile('../PTC/fringe.ptc')
 CheckAndReadPTCFile('../PTC/time.ptc')
-CheckAndReadPTCFile('../PTC/ramp_magnet.ptc')
+readScriptPTC('../PTC/ramp_magnet.ptc')
+#CheckAndReadPTCFile('../PTC/ramp_magnet.ptc')
 CheckAndReadPTCFile('../PTC/ramp_cavities.ptc')
 if sts['turn'] >= 0:
 	CheckAndReadPTCFile('../PTC/read_FINAL_SETTINGS.ptc')
