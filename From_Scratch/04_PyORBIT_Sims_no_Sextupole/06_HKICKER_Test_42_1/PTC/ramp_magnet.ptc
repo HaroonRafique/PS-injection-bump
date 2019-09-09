@@ -1,0 +1,4 @@
+SET ORBIT RAMPING
+ramp
+PI.BSM42.1     "../PTC-PyORBIT_Tables/BSM40.dat"      1
+return
