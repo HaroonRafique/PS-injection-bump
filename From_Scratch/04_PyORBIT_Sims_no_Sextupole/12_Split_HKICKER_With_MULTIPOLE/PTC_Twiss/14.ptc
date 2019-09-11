@@ -85,7 +85,7 @@
 @ TITLE            %36s "Flat file generation for PTC-PyORBIT"
 @ ORIGIN           %22s "MAD-X 5.02.00 Linux 64"
 @ DATE             %08s "11/09/19"
-@ TIME             %08s "14.43.54"
+@ TIME             %08s "15.56.49"
 * NAME                          S         BETX           PX         BETY           PY        DISP3       DISP3P        DISP1       DISP1P            X            Y 
 $ %s                          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le 
  "PR.BWSV64"             0.000000    12.175188     0.000006    23.958059     0.000000     0.000000     0.000000     2.815123     0.000000     0.000176     0.000000
