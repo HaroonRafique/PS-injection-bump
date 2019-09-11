@@ -13,8 +13,8 @@ import pickle
 from simulation_parameters import switches as s
 
 # plotting 
-import matplotlib.pylab as plt
-import matplotlib.cm as cm
+import matplotlib
+matplotlib.use('Agg')
 
 # utils
 from orbit.utils.orbit_mpi_utils import bunch_orbit_to_pyorbit, bunch_pyorbit_to_orbit
@@ -411,7 +411,7 @@ if not rank:
 	TwissDict = PTC_Twiss.ReturnTwissDict()
 	TurnList = PTC_Twiss.ReturnTurnList()
 
-	colors = cm.rainbow(np.linspace(0, 1, len(TurnList)))
+	colors = matplotlib.cm.rainbow(np.linspace(0, 1, len(TurnList)))
 
 	# some gymnastics to avoid plotting offset elements ...
 	roll = 284
@@ -423,41 +423,41 @@ if not rank:
 	for i in [2,3,6,7,569,570,573,574]: i2plot.remove(i) # avoid plotting elements with offset
 
 
-	f, ax = plt.subplots()
+	f, ax = matplotlib.pylab.subplots()
 	for t in TurnList:
 		ax.plot(s[i2plot], 1e3*np.array(TwissDict[t]['orbit_x'])[i2plot], color=colors[t])
 	ax.set_xlabel('s (m)')
 	ax.set_ylabel('horizontal CO (mm)')
 	# ~ ax.set_xlim(-15,15)
 	savename = str('Plots/closedOrbit_evolution_' + str(sts['turns_max']) + '_turns.png')
-	plt.savefig(savename, dpi=400)
+	matplotlib.pylab.savefig(savename, dpi=400)
 
 
 	i2plot = range(len(s))
 	for i in [134,135,235,236,305,306,358,359]: i2plot.remove(i)
 
 
-	f, ax = plt.subplots()
+	f, ax = matplotlib.pylab.subplots()
 	for t in TurnList:
 		ax.plot(s[i2plot], np.array(TwissDict[t]['beta_x'])[i2plot], color=colors[t])
 	ax.set_xlabel('s (m)')
 	ax.set_ylabel('beta_x (m)')
 	ax.set_ylim(bottom=0)
 	savename = str('Plots/betax_evolution_' + str(sts['turns_max']) + '_turns.png')
-	plt.savefig(savename, dpi=400)
+	matplotlib.pylab.savefig(savename, dpi=400)
 
 
-	f, ax = plt.subplots()
+	f, ax = matplotlib.pylab.subplots()
 	for t in TurnList:
 		ax.plot(s[i2plot], np.array(TwissDict[t]['beta_x'])[i2plot], color=colors[t])
 	ax.set_xlabel('s (m)')
 	ax.set_ylabel('beta_y (m)')
 	ax.set_ylim(bottom=0)
 	savename = str('Plots/betay_evolution_' + str(sts['turns_max']) + '_turns.png')
-	plt.savefig(savename, dpi=400)
+	matplotlib.pylab.savefig(savename, dpi=400)
 
 
-	f, ax = plt.subplots()
+	f, ax = matplotlib.pylab.subplots()
 	for t in TurnList:
 		beta_y_ref = np.array(TwissDict[TurnList[-1]]['beta_y'])
 		beta_y = np.array(TwissDict[t]['beta_y'])
@@ -465,10 +465,10 @@ if not rank:
 	ax.set_xlabel('s (m)')
 	ax.set_ylabel('beta_y (m)')
 	savename = str('Plots/betay_beating_evolution_' + str(sts['turns_max']) + '_turns.png')
-	plt.savefig(savename, dpi=400)
+	matplotlib.pylab.savefig(savename, dpi=400)
 
 
-	f, ax = plt.subplots()
+	f, ax = matplotlib.pylab.subplots()
 	for t in TurnList:
 		beta_x_ref = np.array(TwissDict[TurnList[-1]]['beta_x'])
 		beta_x = np.array(TwissDict[t]['beta_x'])
@@ -476,7 +476,7 @@ if not rank:
 	ax.set_xlabel('s (m)')
 	ax.set_ylabel('beta_y (m)')
 	savename = str('Plots/betax_beating_evolution_' + str(sts['turns_max']) + '_turns.png')
-	plt.savefig(savename, dpi=400)
+	matplotlib.pylab.savefig(savename, dpi=400)
 
 
-	plt.close('all')
+	matplotlib.pylab.close('all')
