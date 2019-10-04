@@ -1177,7 +1177,7 @@ dd = dict()
 dd = add_input_file(dd, 'output/output.mat', '6.10')
 print 'Final data dictionary keys: ', dd.keys()
 
-sc = 'Slice-by-Slice'
+sc = 'NoSC'
 main_label = '03'
 main_label2 = main_label + '_zoom'
 scaled_label = main_label + '_scaled'
