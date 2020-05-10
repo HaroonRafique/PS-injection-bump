@@ -128,22 +128,23 @@ def Create_Timing(ramp_stop_time, simulation_stop_time, data):
 # Bump on for 1E-3 seconds
 # zeroes from 1E-3 - 5.0314E-3 s
 # 500 turns = 1.1435E-3 s
+# full bump 1000 turns = 2.287E-3 s
 
 l_bsw = 0.19
 
 B_40 = Read_Double_Column_TFS_Return_Data('./MADX_Tables/BSEXT40.tfs', f1=1./l_bsw, f2=1./l_bsw)
-B_40_final = Create_Timing(1.1435E-3, 5.0314E-3, B_40)
+B_40_final = Create_Timing(2.287E-3, 5.0314E-3, B_40)
 # write_PTCtable(file, multipoles, time column, normal components, skew components
 write_PTCtable('./PTC-PyORBIT_Tables/BSEXT40.dat', (1,3), B_40_final[:,0],  B_40_final[:,[1,2]], B_40_final[:,[1,2]]*0)
 
 B_42 = Read_Double_Column_TFS_Return_Data('./MADX_Tables/BSEXT42.tfs', f1=1./l_bsw, f2=1./l_bsw)
-B_42_final = Create_Timing(1.1435E-3, 5.0314E-3, B_42)
+B_42_final = Create_Timing(2.287E-3, 5.0314E-3, B_42)
 write_PTCtable('./PTC-PyORBIT_Tables/BSEXT42.dat', (1,3), B_42_final[:,0], B_42_final[:,[1,2]], B_42_final[:,[1,2]]*0)
 
 B_43 = Read_Double_Column_TFS_Return_Data('./MADX_Tables/BSEXT43.tfs', f1=1./l_bsw, f2=1./l_bsw)
-B_43_final = Create_Timing(1.1435E-3, 5.0314E-3, B_43)
+B_43_final = Create_Timing(2.287E-3, 5.0314E-3, B_43)
 write_PTCtable('./PTC-PyORBIT_Tables/BSEXT43.dat', (1,3), B_43_final[:,0], B_43_final[:,[1,2]], B_43_final[:,[1,2]]*0)
 
 B_44 = Read_Double_Column_TFS_Return_Data('./MADX_Tables/BSEXT44.tfs', f1=1./l_bsw, f2=1./l_bsw)
-B_44_final = Create_Timing(1.1435E-3, 5.0314E-3, B_44)
+B_44_final = Create_Timing(2.287E-3, 5.0314E-3, B_44)
 write_PTCtable('./PTC-PyORBIT_Tables/BSEXT44.dat', (1,3), B_44_final[:,0], B_44_final[:,[1,2]], B_44_final[:,[1,2]]*0)
