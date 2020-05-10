@@ -18,15 +18,15 @@
 @ DELTAP           %le      0.000000
 @ LENGTH           %le    628.318500
 @ ALPHA_C          %le      0.027014
-@ ALPHA_C_P        %le     -0.639375
-@ ALPHA_C_P2       %le      4.234015
-@ ALPHA_C_P3       %le    -28.156451
+@ ALPHA_C_P        %le     -0.635329
+@ ALPHA_C_P2       %le      4.221952
+@ ALPHA_C_P3       %le    -28.573957
 @ ETA_C            %le     -0.134224
 @ GAMMA_TR         %le      6.084227
 @ Q1               %le      0.210000
 @ Q2               %le      0.245000
-@ DQ1              %le      0.905496
-@ DQ2              %le     -3.037747
+@ DQ1              %le      1.352002
+@ DQ2              %le     -2.648794
 @ QS               %le      0.000000
 @ BETA_X_MIN       %le     11.571064
 @ BETA_X_MAX       %le     23.161517
@@ -52,7 +52,7 @@
 @ BETA33MAX        %le      0.000000
 @ DISP1MIN         %le      0.000000
 @ DISP1MAX         %le      3.450986
-@ DISP2MIN         %le     -0.393934
+@ DISP2MIN         %le     -0.422045
 @ DISP2MAX         %le      0.381827
 @ DISP3MIN         %le      0.000000
 @ DISP3MAX         %le      0.000000
@@ -84,8 +84,8 @@
 @ PTCOMAX          %le      0.000000
 @ TITLE            %36s "Flat file generation for PTC-PyORBIT"
 @ ORIGIN           %22s "MAD-X 5.02.00 Linux 64"
-@ DATE             %08s "14/04/20"
-@ TIME             %08s "00.35.58"
+@ DATE             %08s "07/05/20"
+@ TIME             %08s "18.41.05"
 * NAME                          S         BETX         BETY         ALFX         ALFY        DISP1        DISP3            X           PX            Y           PY            L        DISP2        DISP4          MU1          MU2 
 $ %s                          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le 
  "PR.BWSV64"             0.000000    12.567105    21.920175    -0.009648     0.040832     2.584836     0.000000     0.000000     0.000000     0.000000     0.000000     0.000000    -0.000477     0.000000     0.000000     0.000000

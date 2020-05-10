@@ -18,15 +18,15 @@
 @ DELTAP           %le      0.000000
 @ LENGTH           %le    628.318500
 @ ALPHA_C          %le      0.027018
-@ ALPHA_C_P        %le     -0.536275
+@ ALPHA_C_P        %le     -0.532881
 @ ALPHA_C_P2       %le  -1000000.000000
 @ ALPHA_C_P3       %le  -1000000.000000
 @ ETA_C            %le     -0.134220
 @ GAMMA_TR         %le      6.083786
 @ Q1               %le      0.209513
 @ Q2               %le      0.245119
-@ DQ1              %le      0.905184
-@ DQ2              %le     -3.037142
+@ DQ1              %le      1.351727
+@ DQ2              %le     -2.648117
 @ QS               %le      0.000000
 @ BETA_X_MIN       %le     11.571513
 @ BETA_X_MAX       %le     23.163764
@@ -52,7 +52,7 @@
 @ BETA33MAX        %le      0.000000
 @ DISP1MIN         %le      0.000000
 @ DISP1MAX         %le      3.451590
-@ DISP2MIN         %le     -0.387226
+@ DISP2MIN         %le     -0.415474
 @ DISP2MAX         %le      0.381892
 @ DISP3MIN         %le      0.000000
 @ DISP3MAX         %le      0.000000
@@ -84,8 +84,8 @@
 @ PTCOMAX          %le      0.000000
 @ TITLE            %36s "Flat file generation for PTC-PyORBIT"
 @ ORIGIN           %22s "MAD-X 5.02.00 Linux 64"
-@ DATE             %08s "14/04/20"
-@ TIME             %08s "08.20.22"
+@ DATE             %08s "07/05/20"
+@ TIME             %08s "18.08.09"
 * NAME                          S         BETX         BETY         ALFX         ALFY        DISP1        DISP2        DISP3        DISP4            X           PX            Y           PY 
 $ %s                          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le 
  "PR.BWSV64"             0.000000    12.567753    21.919422    -0.009640     0.040835     2.585328    -0.000471     0.000000     0.000000    -0.000000    -0.000000     0.000000     0.000000

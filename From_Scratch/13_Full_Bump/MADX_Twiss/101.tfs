@@ -21,8 +21,8 @@
 @ GAMMATR          %le      6.084223
 @ Q1               %le      6.209995
 @ Q2               %le      6.244995
-@ DQ1              %le      0.905482
-@ DQ2              %le     -3.037732
+@ DQ1              %le      1.351989
+@ DQ2              %le     -2.648778
 @ DXMAX            %le      3.450994
 @ DYMAX            %le     -0.000000
 @ XCOMAX           %le      0.000000
@@ -41,8 +41,8 @@
 @ SYNCH_5          %le      0.000000
 @ TITLE            %36s "Flat file generation for PTC-PyORBIT"
 @ ORIGIN           %22s "MAD-X 5.02.00 Linux 64"
-@ DATE             %08s "14/04/20"
-@ TIME             %08s "00.35.58"
+@ DATE             %08s "07/05/20"
+@ TIME             %08s "18.41.05"
 * NAME               KEYWORD                       S            L         BETX         BETY         ALFX         ALFY          MUX          MUY           DX           DY            X            Y 
 $ %s                 %s                          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le          %le 
  "PR.BWSV64"         "MONITOR"               0.000000     0.000000    12.567112    21.920197    -0.009648     0.040832     0.000000     0.000000     2.584842    -0.000000     0.000000     0.000000
